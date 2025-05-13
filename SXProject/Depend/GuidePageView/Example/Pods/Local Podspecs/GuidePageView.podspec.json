@@ -1,0 +1,31 @@
+{
+  "name": "GuidePageView",
+  "version": "1.2.0",
+  "summary": "App启动引导页，支持播放gif/png/jpg等类型的资源数组。",
+  "homepage": "https://cigitlab.slan-health.com/app-template/GuidePageView.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wangwei": "1091695310@qq.com"
+  },
+  "source": {
+    "git": "https://cigitlab.slan-health.com/app-template/GuidePageView.git",
+    "tag": "1.2.0"
+  },
+  "source_files": "GuidePageView/Classes/**/*",
+  "resources": "GuidePageView/GuideImage.bundle",
+  "description": "App启动引导页，支持播放gif/png/jpg等类型的资源数组，及手动滑入主题。（建议引导页的图片都不要放在Assets文件中，因为使用imageName方法加载时，系统会缓存图片，造成内存暴增）",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.2"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ]
+}

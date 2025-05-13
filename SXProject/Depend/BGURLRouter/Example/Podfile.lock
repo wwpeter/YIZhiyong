@@ -1,0 +1,27 @@
+PODS:
+  - BGURLRouter (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - BGURLRouter (from `../`)
+  - FBSnapshotTestCase (~> 2.1.4)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  BGURLRouter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BGURLRouter: 9fd30fc0773c0ac4c7b417323eb29db9c315bf31
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: 9985d964cc7e49237d3b03a634e76987c53385ef
+
+COCOAPODS: 1.14.3

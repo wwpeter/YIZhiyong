@@ -1,0 +1,22 @@
+{
+  "name": "BITCategories",
+  "version": "0.1.0",
+  "summary": "A short description of BITCategories.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/王威/BITCategories",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "王威": "1091695310@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/王威/BITCategories.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "BITCategories/Classes/**/*"
+}

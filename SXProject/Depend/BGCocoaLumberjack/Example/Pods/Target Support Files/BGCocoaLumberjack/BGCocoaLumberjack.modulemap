@@ -1,0 +1,6 @@
+framework module BGCocoaLumberjack {
+  umbrella header "BGCocoaLumberjack-umbrella.h"
+
+  export *
+  module * { export * }
+}

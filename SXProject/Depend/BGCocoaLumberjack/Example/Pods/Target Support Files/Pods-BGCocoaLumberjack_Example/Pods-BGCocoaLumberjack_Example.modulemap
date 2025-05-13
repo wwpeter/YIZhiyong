@@ -1,0 +1,6 @@
+framework module Pods_BGCocoaLumberjack_Example {
+  umbrella header "Pods-BGCocoaLumberjack_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

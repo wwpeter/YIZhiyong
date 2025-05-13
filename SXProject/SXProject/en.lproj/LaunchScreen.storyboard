@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZNc-DX-adc">
+                                <rect key="frame" x="38" y="234" width="322" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="Xjq-dp-5Eh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_meng" translatesAutoresizingMaskIntoConstraints="NO" id="X7i-eO-vEY">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="226"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="226" id="QDG-xh-ZX8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4b-06-Vh4">
+                                <rect key="frame" x="29" y="401" width="328" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="PRu-xu-qXA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="48"/>
+                                <color key="textColor" name="t333"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-EB-QDl">
+                                <rect key="frame" x="32" y="484" width="337" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="RUG-bT-vqK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="38"/>
+                                <color key="textColor" name="t333"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZNc-DX-adc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="175" id="BdF-2b-rPR"/>
+                            <constraint firstItem="A4b-06-Vh4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="FWJ-3h-mB9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X7i-eO-vEY" secondAttribute="trailing" id="J27-WR-09w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="X7i-eO-vEY" secondAttribute="top" constant="59" id="JGx-IF-Mrc"/>
+                            <constraint firstItem="ZNc-DX-adc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="JVD-gg-4cb"/>
+                            <constraint firstItem="X7i-eO-vEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oyj-AJ-E2A"/>
+                            <constraint firstItem="fWI-EB-QDl" firstAttribute="top" secondItem="A4b-06-Vh4" secondAttribute="bottom" constant="8" id="S6g-R0-EZA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZNc-DX-adc" secondAttribute="trailing" constant="33" id="VLg-gV-wTp"/>
+                            <constraint firstItem="A4b-06-Vh4" firstAttribute="top" secondItem="ZNc-DX-adc" secondAttribute="bottom" constant="75" id="dRZ-QW-ies"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fWI-EB-QDl" secondAttribute="trailing" constant="24" id="vMb-zS-FdH"/>
+                            <constraint firstItem="fWI-EB-QDl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="zqc-Mt-vPE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="A4b-06-Vh4" secondAttribute="trailing" constant="36" id="zug-61-51v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launch_icon" width="270" height="180"/>
+        <image name="launch_meng" width="750" height="400"/>
+        <namedColor name="t333">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

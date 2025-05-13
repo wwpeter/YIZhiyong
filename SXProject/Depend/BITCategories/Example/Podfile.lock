@@ -1,0 +1,27 @@
+PODS:
+  - BITCategories (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - BITCategories (from `../`)
+  - FBSnapshotTestCase
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  BITCategories:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BITCategories: 954e4d6927e02010092fad85af7bca652afac8aa
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: ff50ff4d61b2f38cc14ca42a8f2836f043b38dbc
+
+COCOAPODS: 1.14.3

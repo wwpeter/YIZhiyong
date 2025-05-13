@@ -1,0 +1,6 @@
+framework module BITBaseTabBarController {
+  umbrella header "BITBaseTabBarController-umbrella.h"
+
+  export *
+  module * { export * }
+}

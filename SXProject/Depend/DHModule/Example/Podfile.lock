@@ -1,0 +1,39 @@
+PODS:
+  - DHModule (1.1.8):
+    - DHModule/Manager (= 1.1.8)
+    - DHModule/Module (= 1.1.8)
+    - DHModule/Protocol (= 1.1.8)
+    - DHModule/Router (= 1.1.8)
+  - DHModule/Manager (1.1.8):
+    - DHModule/Protocol
+  - DHModule/Module (1.1.8):
+    - DHModule/Manager
+    - DHModule/Protocol
+    - DHModule/Router
+  - DHModule/Protocol (1.1.8)
+  - DHModule/Router (1.1.8)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - DHModule (from `../`)
+  - FBSnapshotTestCase
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  DHModule:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DHModule: 9920e90285e76f95b1efce935793cc4d415616b3
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: db7b156b42c47c4ac65a8bee7631e496188f1202
+
+COCOAPODS: 1.11.3

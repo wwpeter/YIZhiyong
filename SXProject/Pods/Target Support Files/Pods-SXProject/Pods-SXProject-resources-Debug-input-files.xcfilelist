@@ -1,0 +1,13 @@
+${PODS_ROOT}/Target Support Files/Pods-SXProject/Pods-SXProject-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.bundle
+${PODS_ROOT}/BRPickerView/BRPickerView/AddressPickerView/BRAddressPickerView.bundle
+${PODS_ROOT}/BRPickerView/BRPickerView/Base/BRPickerView.bundle
+${PODS_ROOT}/../Depend/GuidePageView/GuidePageView/GuideImage.bundle
+${PODS_ROOT}/IQKeyboardManagerSwift/IQKeyboardManagerSwift/PrivacyInfo.xcprivacy
+${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.bundle
+${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/PrivacyInfo.xcprivacy
+${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit_Privacy.bundle
+${PODS_ROOT}/SwiftDate/Sources/SwiftDate/Formatters/RelativeFormatter/langs
+${PODS_ROOT}/ZLPhotoBrowser/Sources/ZLPhotoBrowser.bundle

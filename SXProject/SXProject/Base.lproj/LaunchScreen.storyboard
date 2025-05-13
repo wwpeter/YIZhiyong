@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4b-06-Vh4">
+                                <rect key="frame" x="29" y="489" width="311" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="PRu-xu-qXA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="48"/>
+                                <color key="textColor" name="t333"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-EB-QDl">
+                                <rect key="frame" x="32" y="572" width="311" height="129"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="129" id="RUG-bT-vqK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" name="t333"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="易支用" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="468-uJ-fxq">
+                                <rect key="frame" x="114" y="163" width="141" height="56.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56.333333333333343" id="5sD-a1-N2h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="47"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正规金融服务平台" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgw-rE-lhh">
+                                <rect key="frame" x="49" y="231" width="276" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="t9Y-BT-f1g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startupPage_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="eK0-OA-nOu">
+                                <rect key="frame" x="84" y="709" width="202" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="8Dy-vo-AGq"/>
+                                    <constraint firstAttribute="width" constant="202" id="YjU-kb-4hs"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startupPage_center" translatesAutoresizingMaskIntoConstraints="NO" id="9vL-aq-s9F">
+                                <rect key="frame" x="0.0" y="0.0" width="376" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="pMn-Fp-vGj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="468-uJ-fxq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="8kP-bG-dib"/>
+                            <constraint firstItem="cgw-rE-lhh" firstAttribute="top" secondItem="468-uJ-fxq" secondAttribute="bottom" constant="11.666666666666657" id="DUX-vx-o9n"/>
+                            <constraint firstItem="A4b-06-Vh4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="FWJ-3h-mB9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eK0-OA-nOu" secondAttribute="bottom" constant="44" id="MPw-Gq-VF8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cgw-rE-lhh" secondAttribute="trailing" constant="51" id="Qpe-6a-RDX"/>
+                            <constraint firstItem="cgw-rE-lhh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="Rol-rT-FYY"/>
+                            <constraint firstItem="fWI-EB-QDl" firstAttribute="top" secondItem="A4b-06-Vh4" secondAttribute="bottom" constant="8" id="S6g-R0-EZA"/>
+                            <constraint firstItem="9vL-aq-s9F" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="SXq-eq-Vn2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eK0-OA-nOu" secondAttribute="trailing" constant="90" id="b96-eS-guT"/>
+                            <constraint firstItem="eK0-OA-nOu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="84" id="chK-cl-qcL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="468-uJ-fxq" secondAttribute="trailing" constant="121" id="j03-WI-XRJ"/>
+                            <constraint firstItem="9vL-aq-s9F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uBP-zD-KyC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fWI-EB-QDl" secondAttribute="trailing" constant="33" id="vMb-zS-FdH"/>
+                            <constraint firstAttribute="trailing" secondItem="9vL-aq-s9F" secondAttribute="trailing" id="yWk-QF-jb4"/>
+                            <constraint firstItem="468-uJ-fxq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="zAa-3B-uMk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fWI-EB-QDl" secondAttribute="bottom" constant="117" id="zP4-dK-Lf0"/>
+                            <constraint firstItem="fWI-EB-QDl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="zqc-Mt-vPE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="A4b-06-Vh4" secondAttribute="trailing" constant="36" id="zug-61-51v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="startupPage_bottom" width="151" height="65"/>
+        <image name="startupPage_center" width="375" height="552"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="t333">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

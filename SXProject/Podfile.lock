@@ -1,0 +1,202 @@
+PODS:
+  - ActiveLabel (1.1.0)
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (5.10.1)
+  - BGCocoaLumberjack (0.1.0)
+  - BGURLRouter (0.1.0)
+  - BITBaseTabBarController (0.1.0):
+    - BITCategories
+  - BITCategories (0.1.0)
+  - BRPickerView (2.8.1):
+    - BRPickerView/AddressPickerView (= 2.8.1)
+    - BRPickerView/Base (= 2.8.1)
+    - BRPickerView/DatePickerView (= 2.8.1)
+    - BRPickerView/StringPickerView (= 2.8.1)
+  - BRPickerView/AddressPickerView (2.8.1):
+    - BRPickerView/Base
+  - BRPickerView/Base (2.8.1)
+  - BRPickerView/DatePickerView (2.8.1):
+    - BRPickerView/Base
+  - BRPickerView/StringPickerView (2.8.1):
+    - BRPickerView/Base
+  - Cache (6.0.0)
+  - DHModule (1.1.8):
+    - DHModule/Manager (= 1.1.8)
+    - DHModule/Module (= 1.1.8)
+    - DHModule/Protocol (= 1.1.8)
+    - DHModule/Router (= 1.1.8)
+  - DHModule/Manager (1.1.8):
+    - DHModule/Protocol
+  - DHModule/Module (1.1.8):
+    - DHModule/Manager
+    - DHModule/Protocol
+    - DHModule/Router
+  - DHModule/Protocol (1.1.8)
+  - DHModule/Router (1.1.8)
+  - dsBridge (3.0.6)
+  - EmptyDataSet-Swift (5.0.0)
+  - FSCalendar (2.8.4)
+  - Gifu (3.3.1)
+  - GuidePageView (1.2.0)
+  - HandyJSON (5.0.2)
+  - HMSegmentedControl (1.5.6)
+  - HZNavigationBar (2.0.2)
+  - IQKeyboardManagerSwift (6.5.16)
+  - JXPhotoBrowser (3.1.4)
+  - Kingfisher (7.10.1)
+  - Masonry (1.1.0)
+  - MFSCache (2.0.1):
+    - MFSJSONEntity
+  - MFSIdentifier (1.0.2):
+    - MFSCache
+  - MFSJSONEntity (1.0.6)
+  - MJExtension (3.4.1)
+  - MJRefresh (3.7.6)
+  - ReactiveObjC (3.1.1)
+  - SnapKit (5.7.1)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
+  - SwiftDate (6.3.1)
+  - SwiftGen (6.6.2)
+  - SwiftRichString (3.7.2)
+  - YYModel (1.0.4)
+  - ZLPhotoBrowser (4.4.8.2):
+    - ZLPhotoBrowser/Core (= 4.4.8.2)
+  - ZLPhotoBrowser/Core (4.4.8.2)
+
+DEPENDENCIES:
+  - ActiveLabel
+  - AFNetworking (~> 4.0)
+  - Alamofire
+  - BGCocoaLumberjack (from `./Depend/BGCocoaLumberjack`)
+  - BGURLRouter (from `./Depend/BGURLRouter`)
+  - BITBaseTabBarController (from `./Depend/BITBaseTabBarController`)
+  - BITCategories (from `./Depend/BITCategories`)
+  - BRPickerView
+  - Cache
+  - DHModule (from `./Depend/DHModule`)
+  - dsBridge
+  - EmptyDataSet-Swift (~> 5.0.0)
+  - FSCalendar
+  - Gifu
+  - GuidePageView (from `./Depend/GuidePageView`)
+  - HandyJSON (~> 5.0.2)
+  - HMSegmentedControl
+  - HZNavigationBar
+  - IQKeyboardManagerSwift
+  - JXPhotoBrowser
+  - Kingfisher
+  - Masonry
+  - MFSIdentifier (= 1.0.2)
+  - MJExtension
+  - MJRefresh
+  - ReactiveObjC
+  - SnapKit (~> 5.7.1)
+  - SVProgressHUD
+  - SwiftDate
+  - SwiftGen
+  - SwiftRichString
+  - YYModel (= 1.0.4)
+  - ZLPhotoBrowser
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - ActiveLabel
+    - AFNetworking
+    - Alamofire
+    - BRPickerView
+    - Cache
+    - dsBridge
+    - EmptyDataSet-Swift
+    - FSCalendar
+    - Gifu
+    - HandyJSON
+    - HMSegmentedControl
+    - HZNavigationBar
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - Masonry
+    - MFSCache
+    - MFSIdentifier
+    - MFSJSONEntity
+    - MJExtension
+    - MJRefresh
+    - ReactiveObjC
+    - SnapKit
+    - SVProgressHUD
+    - SwiftDate
+    - SwiftGen
+    - SwiftRichString
+    - YYModel
+    - ZLPhotoBrowser
+
+EXTERNAL SOURCES:
+  BGCocoaLumberjack:
+    :path: "./Depend/BGCocoaLumberjack"
+  BGURLRouter:
+    :path: "./Depend/BGURLRouter"
+  BITBaseTabBarController:
+    :path: "./Depend/BITBaseTabBarController"
+  BITCategories:
+    :path: "./Depend/BITCategories"
+  DHModule:
+    :path: "./Depend/DHModule"
+  GuidePageView:
+    :path: "./Depend/GuidePageView"
+
+SPEC CHECKSUMS:
+  ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  Alamofire: 840d2a1ad82355b536ec6ba5f97e5bfa54600ca3
+  BGCocoaLumberjack: 47e6fb93b814c8a62440f3b356abbbe7b38e3689
+  BGURLRouter: 9fd30fc0773c0ac4c7b417323eb29db9c315bf31
+  BITBaseTabBarController: 7e809c0d242c7d64a357577dba6dca8d04e63f38
+  BITCategories: 954e4d6927e02010092fad85af7bca652afac8aa
+  BRPickerView: 2531a2d4d0fea0b57a1c738de215af0f88863a2f
+  Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
+  DHModule: 5aaa4b67a19bf14481594b4d1f631c389453fa48
+  dsBridge: 48b62ee8a411ad601a88d6f6c8cf6cb634b206b7
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  Gifu: 416d4e38c4c2fed012f019e0a1d3ffcb58e5b842
+  GuidePageView: e4e62d15ebc8792900439db44503af1a198b0911
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  HMSegmentedControl: 34c1f54d822d8308e7b24f5d901ec674dfa31352
+  HZNavigationBar: c751bf4ca7e74386019f52703050970ac6ea42a1
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
+  JXPhotoBrowser: 41ffa41252c8d5264f97ab3c1936a5cf935a58d7
+  Kingfisher: bc5abe80a8e0144537ef1dd5a0b2621b04f7f439
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MFSCache: 76baaca48f2283669709771967caedb8d0edb4c7
+  MFSIdentifier: abc345c0ae150e00856f3e3bcedcafb257e26c4b
+  MFSJSONEntity: 87c9404c87cb499de26b061f3c985eb7808bef73
+  MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
+  MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
+  SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
+  SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
+  SwiftRichString: d61b807db1f8834c26fee92b6dd3e1be2dc5af03
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  ZLPhotoBrowser: b4651797aef37c26850eb53009ccc05dd95cf3f8
+
+PODFILE CHECKSUM: a44eaa7939d9876ee77c41d9b11c1f8c54bce4fe
+
+COCOAPODS: 1.14.3

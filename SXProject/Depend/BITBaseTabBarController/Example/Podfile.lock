@@ -1,0 +1,27 @@
+PODS:
+  - BITBaseTabBarController (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - BITBaseTabBarController (from `../`)
+  - FBSnapshotTestCase (~> 2.1.4)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  BITBaseTabBarController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BITBaseTabBarController: e89e9953f22b00a8c85fa3a099896876bab9dd4f
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: 49f3fa0d024435486d2110209c7c2d4b42c15970
+
+COCOAPODS: 1.14.3

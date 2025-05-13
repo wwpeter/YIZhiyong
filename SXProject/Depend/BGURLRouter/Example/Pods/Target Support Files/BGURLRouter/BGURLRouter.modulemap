@@ -1,0 +1,6 @@
+framework module BGURLRouter {
+  umbrella header "BGURLRouter-umbrella.h"
+
+  export *
+  module * { export * }
+}

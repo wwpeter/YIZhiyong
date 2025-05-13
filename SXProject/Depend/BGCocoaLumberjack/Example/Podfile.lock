@@ -1,0 +1,27 @@
+PODS:
+  - BGCocoaLumberjack (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - BGCocoaLumberjack (from `../`)
+  - FBSnapshotTestCase (~> 2.1.4)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  BGCocoaLumberjack:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BGCocoaLumberjack: 47e6fb93b814c8a62440f3b356abbbe7b38e3689
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: 197c9b8b031a4e60a0abf2bec22243de5419fa29
+
+COCOAPODS: 1.14.3

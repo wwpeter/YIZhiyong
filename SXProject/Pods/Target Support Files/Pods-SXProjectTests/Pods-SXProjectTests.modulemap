@@ -1,0 +1,6 @@
+framework module Pods_SXProjectTests {
+  umbrella header "Pods-SXProjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

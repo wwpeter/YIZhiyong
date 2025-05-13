@@ -1,0 +1,6 @@
+framework module Pods_BITCategories_Tests {
+  umbrella header "Pods-BITCategories_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module BITCategories {
+  umbrella header "BITCategories-umbrella.h"
+
+  export *
+  module * { export * }
+}

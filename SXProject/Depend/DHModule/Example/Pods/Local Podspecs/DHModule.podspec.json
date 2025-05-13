@@ -1,0 +1,65 @@
+{
+  "name": "DHModule",
+  "version": "1.1.8",
+  "summary": "路由、协议解耦框架，支持Objective-C、Swift",
+  "homepage": "https://cigitlab.slan-health.com/PublicComponent/DHModulee",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "王威": "1091695310@qq.com"
+  },
+  "source": {
+    "git": "https://cigitlab.slan-health.com/PublicComponent/DHModule.git",
+    "tag": "1.1.8"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "swift_versions": "5.0",
+  "source_files": "DHModule/Classes/*.*",
+  "public_header_files": "DHModule/Classes/DHModule.h",
+  "subspecs": [
+    {
+      "name": "Protocol",
+      "source_files": "DHModule/Classes/Protocol/*.*",
+      "public_header_files": "DHModule/Classes/Protocol/*.h"
+    },
+    {
+      "name": "Router",
+      "source_files": "DHModule/Classes/Router/*.*",
+      "public_header_files": "DHModule/Classes/Router/*.h"
+    },
+    {
+      "name": "Manager",
+      "dependencies": {
+        "DHModule/Protocol": [
+
+        ]
+      },
+      "source_files": "DHModule/Classes/Manager/*.*",
+      "public_header_files": "DHModule/Classes/Manager/DHModuleManager.h"
+    },
+    {
+      "name": "Module",
+      "dependencies": {
+        "DHModule/Protocol": [
+
+        ],
+        "DHModule/Manager": [
+
+        ],
+        "DHModule/Router": [
+
+        ]
+      },
+      "source_files": "DHModule/Classes/Module/*.*",
+      "public_header_files": "DHModule/Classes/Module/{DHAppDelegate.h,DHModuleClass.h}"
+    }
+  ],
+  "swift_version": "5.0"
+}

@@ -1,0 +1,6 @@
+framework module DHModule {
+  umbrella header "DHModule-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebController" customModule="DigitalSleep" customModuleProvider="target">
+            <connections>
+                <outlet property="back" destination="Cgr-Kx-mpt" id="EEd-e2-ueK"/>
+                <outlet property="go" destination="oTe-Zm-ncd" id="CNm-B6-3tf"/>
+                <outlet property="progressView" destination="C5i-BR-rqF" id="iyZ-b1-2L3"/>
+                <outlet property="refresh" destination="D30-c6-5Pz" id="L6m-Jv-egH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webTitle" destination="fiv-J3-lZT" id="Adj-Js-ynz"/>
+                <outlet property="webView" destination="qHY-4Q-5Fj" id="Bce-3H-XEA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpm-Pw-SbA">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <subviews>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C5i-BR-rqF">
+                            <rect key="frame" x="0.0" y="86" width="414" height="2"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="cdg-cC-3eQ"/>
+                            </constraints>
+                        </progressView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ab-MU-fxZ">
+                            <rect key="frame" x="0.0" y="44" width="67" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="67" id="Xzt-r4-5QV"/>
+                                <constraint firstAttribute="height" constant="44" id="fsv-Co-ysS"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" systemColor="systemPinkColor"/>
+                            </state>
+                            <connections>
+                                <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="wHz-VH-jls"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-J3-lZT">
+                            <rect key="frame" x="67" y="44" width="280" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="sme-PO-wfO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D30-c6-5Pz">
+                            <rect key="frame" x="347" y="44" width="67" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="67" id="Adm-G0-mXL"/>
+                                <constraint firstAttribute="height" constant="44" id="svB-qC-Axa"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="刷新">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="refreshAction:" destination="-1" eventType="touchUpInside" id="iRf-c9-MWO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="D30-c6-5Pz" secondAttribute="bottom" id="1g0-Vx-FkJ"/>
+                        <constraint firstItem="C5i-BR-rqF" firstAttribute="leading" secondItem="kpm-Pw-SbA" secondAttribute="leading" id="4qr-PS-2kx"/>
+                        <constraint firstItem="fiv-J3-lZT" firstAttribute="leading" secondItem="1Ab-MU-fxZ" secondAttribute="trailing" id="EG8-a4-Ur9"/>
+                        <constraint firstAttribute="bottom" secondItem="fiv-J3-lZT" secondAttribute="bottom" id="Hzm-Iz-QBm"/>
+                        <constraint firstAttribute="trailing" secondItem="C5i-BR-rqF" secondAttribute="trailing" id="K9S-GD-tUY"/>
+                        <constraint firstAttribute="trailing" secondItem="D30-c6-5Pz" secondAttribute="trailing" id="OxS-Dq-cW6"/>
+                        <constraint firstAttribute="bottom" secondItem="1Ab-MU-fxZ" secondAttribute="bottom" id="PvI-sm-jwA"/>
+                        <constraint firstItem="1Ab-MU-fxZ" firstAttribute="leading" secondItem="kpm-Pw-SbA" secondAttribute="leading" id="QZW-sz-kty"/>
+                        <constraint firstItem="D30-c6-5Pz" firstAttribute="leading" secondItem="fiv-J3-lZT" secondAttribute="trailing" id="rcb-7n-55y"/>
+                        <constraint firstAttribute="bottom" secondItem="C5i-BR-rqF" secondAttribute="bottom" id="zAd-4B-IAy"/>
+                    </constraints>
+                </view>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNY-TL-f2Q">
+                    <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9bK-G7-RIo"/>
+                        <barButtonItem enabled="NO" title="返回" id="Cgr-Kx-mpt">
+                            <connections>
+                                <action selector="backAction:" destination="-1" id="YW7-ba-65g"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="KnM-ju-822"/>
+                        <barButtonItem enabled="NO" title="前进" id="oTe-Zm-ncd">
+                            <connections>
+                                <action selector="goAction:" destination="-1" id="Frh-F3-bHY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="q0a-Vn-E4r"/>
+                    </items>
+                </toolbar>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHY-4Q-5Fj">
+                    <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="kpm-Pw-SbA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4tq-0V-zpp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qHY-4Q-5Fj" secondAttribute="trailing" id="5cw-ZD-Gh9"/>
+                <constraint firstItem="qHY-4Q-5Fj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="EDx-O0-Ud1"/>
+                <constraint firstItem="CNY-TL-f2Q" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="M4m-23-QLg"/>
+                <constraint firstItem="CNY-TL-f2Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MLd-0w-AX4"/>
+                <constraint firstItem="CNY-TL-f2Q" firstAttribute="top" secondItem="qHY-4Q-5Fj" secondAttribute="bottom" id="Mf7-1R-y3r"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kpm-Pw-SbA" secondAttribute="trailing" id="R6s-uZ-EaV"/>
+                <constraint firstItem="kpm-Pw-SbA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eDC-kc-Fqi"/>
+                <constraint firstItem="CNY-TL-f2Q" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lZ3-sk-l1a"/>
+                <constraint firstItem="qHY-4Q-5Fj" firstAttribute="top" secondItem="kpm-Pw-SbA" secondAttribute="bottom" id="n9B-TO-ynb"/>
+                <constraint firstItem="qHY-4Q-5Fj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rMG-qR-wfe"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="56.919642857142854"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

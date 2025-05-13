@@ -1,0 +1,143 @@
+#source 'https://cdn.cocoapods.org/'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.0'
+
+# Comment the next line if you don't want to use dynamic frameworks
+
+use_frameworks! :linkage => :static
+# 屏蔽所有第三方框架警告
+inhibit_all_warnings!
+
+# 只在dev环境下生效
+def dev_pods
+  #pod 'SwiftLint', configurations: ['Debug']
+  pod 'SwiftGen', configurations: ['Debug']
+end
+
+# 核心pod
+def core_pods
+
+  pod 'Kingfisher'
+  #pod 'RxCocoa'
+  #pod 'RxDataSources'
+  pod 'FSCalendar'
+  pod 'Alamofire'
+  pod 'SwiftDate'
+  pod 'SwiftRichString'
+  pod 'Cache'
+  pod 'IQKeyboardManagerSwift'
+  pod 'dsBridge'
+  #pod 'TKRubberPageControl'
+  #bug统计
+  #pod 'Bugly'
+  #下拉、上拉 刷新
+  pod 'MJRefresh'
+  pod 'HMSegmentedControl'
+  #空页面处理
+  pod 'EmptyDataSet-Swift', '~> 5.0.0'
+  #导航
+#  pod 'EachNavigationBar'
+  #选择器
+  pod 'BRPickerView'
+  #日期选择器
+  pod 'FSCalendar'
+  #相册选择
+  pod 'ZLPhotoBrowser'
+  #OC的数据解析
+  pod 'MJExtension'
+  pod 'HandyJSON', '~> 5.0.2'
+  #属性label
+  pod 'ActiveLabel'
+  pod 'SnapKit', '~> 5.7.1'
+  #OC网络框架
+  pod 'AFNetworking', '~> 4.0' # 网络请求
+  pod 'SVProgressHUD'
+  pod 'Gifu'
+  #pod 'SDAutoLayout'
+  pod 'ReactiveObjC'
+  pod 'YYModel', '1.0.4' # 组件中用
+  pod 'Masonry' # AFN中使用
+  #导航
+  pod 'HZNavigationBar'
+  #获取唯一标识
+  pod 'MFSIdentifier', '1.0.2'
+  
+  #图片视频浏览
+  pod 'JXPhotoBrowser'
+
+  #放本地的pod库
+   pod 'GuidePageView', :path => './Depend/GuidePageView'
+   pod 'BITCategories', :path => './Depend/BITCategories'
+   pod 'BGCocoaLumberjack', :path => './Depend/BGCocoaLumberjack'
+   pod 'BGURLRouter', :path => './Depend/BGURLRouter'
+   pod 'BITBaseTabBarController', :path => './Depend/BITBaseTabBarController'
+#   pod 'HZNavigationBar', :path => './Depend/HZNavigationBar'
+pod 'DHModule', :path => './Depend/DHModule'
+   
+  #私有库
+  #路由
+#  pod 'DHModule', :git => 'https://cigitlab.slan-health.com/app-template/DHModule.git'
+  #埋点
+  #pod 'ZLTracker', :git => 'https://cigitlab.slan-health.com/app-template/ZLTracker.git'
+  #扫一扫
+  #pod 'DHScanner', :git=>'https://cigitlab.slan-health.com/app-template/DHScanner.git'
+  #引导页
+  #pod 'GuidePageView', :git=>'http://cigitlab.slan-health.com/app-template/GuidePageView.git'
+
+end
+
+# 第三方pod
+def thirdParty_pods
+
+end
+
+# UI相关的
+def ui_pods
+
+end
+
+# 内部的
+def internal_pods
+end
+
+# 测试相关
+def test_pods
+  pod 'Quick'
+  pod 'Nimble'
+  pod 'RxTest'
+  pod 'RxBlocking'
+end
+
+target 'SXProject' do
+  # Pods for SXProject
+
+  dev_pods
+  core_pods
+  thirdParty_pods
+  ui_pods
+  internal_pods
+
+  target 'SXProjectTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'SXProjectUITests' do
+    # Pods for testing
+  end
+
+end
+
+# Fix warning The iOS Simulator deployment target
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+ target.build_configurations.each do |config|
+  if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 13.0
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+     end
+   end
+  end
+end
