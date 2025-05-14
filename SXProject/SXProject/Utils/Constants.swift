@@ -95,3 +95,11 @@ public func DDSImage(_ name:String ) -> UIImage? {
 public func DDSFont(_ size:CGFloat) -> UIFont {
     UIFont.systemFont(ofSize:size)
 }
+
+public func DDSFont_B(_ size:CGFloat) -> UIFont {
+    UIFont.systemFont(ofSize:size, weight: .semibold)
+}
+
+public func DDSFont_M(_ size:CGFloat) -> UIFont {
+    UIFont.systemFont(ofSize:size, weight: .medium)
+}

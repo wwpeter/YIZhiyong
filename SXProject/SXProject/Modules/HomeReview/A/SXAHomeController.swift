@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SXAHomeController: UIViewController {
+class SXAHomeController: DDBaseViewController {
     
     fileprivate lazy var mScollView:UIScrollView = {
         let tempView = UIScrollView()
@@ -193,22 +193,25 @@ class SXAHomeController: UIViewController {
     
     @objc func doErDuLookAction() {
         print("查看额度=======")
+        self.navigationController?.pushViewController(MonthlyPaymentVC(), animated: true)
     }
     
     @objc func doCounterLookAction() {
         print("借款计算器======")
+        self.navigationController?.pushViewController(SXALoanCalculatorController(), animated: true)
     }
     
     @objc func doFraudLookAction() {
         print("防诈指南======")
+        self.navigationController?.pushViewController(InterestRateVC(), animated: true)
     }
 }
 
 extension SXAHomeController {
     
     fileprivate func setupDefatulViews() {
-        navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor = kBF2
+//        navigationController?.navigationBar.isHidden = true
+        self.hideNavgationBar(isHide: true)
         let bgImg = UIImageView()
         bgImg.image = DDSImage("a_home_icon_1")
         self.view.addSubview(bgImg)
@@ -269,7 +272,7 @@ extension SXAHomeController {
             make.top.equalTo(hotProductsView.snp.bottom).offset(15)
             make.left.equalTo(sxDynamic(20))
             make.right.equalTo(-sxDynamic(20))
-            make.bottom.equalTo(-130)
+            make.bottom.equalTo(-50)
         }
     }
 }
