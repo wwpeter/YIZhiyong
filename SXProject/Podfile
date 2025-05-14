@@ -64,7 +64,7 @@ def core_pods
   pod 'HZNavigationBar'
   #获取唯一标识
   pod 'MFSIdentifier', '1.0.2'
-  
+  pod 'JXBanner'
   #图片视频浏览
   pod 'JXPhotoBrowser'
 

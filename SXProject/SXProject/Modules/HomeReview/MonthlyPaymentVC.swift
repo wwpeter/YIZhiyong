@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 class MonthlyPaymentVC: UIViewController {
     
@@ -68,13 +69,19 @@ class MonthlyPaymentVC: UIViewController {
         // 添加堆栈视图到主视图
         view.addSubview(inputStackView)
         
+        inputStackView.snp.makeConstraints { make in
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.bottom.equalTo(0)
+            make.top.equalTo(30)
+        }
         // 设置约束
-        inputStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            inputStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            inputStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            inputStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
+//        inputStackView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            inputStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+//            inputStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+//            inputStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+//        ])
         
         // 添加点击背景隐藏键盘的手势
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

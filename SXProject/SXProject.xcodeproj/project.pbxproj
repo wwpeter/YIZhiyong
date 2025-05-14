@@ -288,6 +288,9 @@
 		4AFF6C052B452ACF008F8C7F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF6C042B452ACF008F8C7F /* UserInfo.swift */; };
 		4AFF6C082B452B2F008F8C7F /* AppDelegate+Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF6C062B452B2F008F8C7F /* AppDelegate+Jump.swift */; };
 		4AFF6C092B452B2F008F8C7F /* AppDelegate+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF6C072B452B2F008F8C7F /* AppDelegate+Config.swift */; };
+		DC5A61D12DD442A400891C66 /* SXAHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61D02DD442A400891C66 /* SXAHomeController.swift */; };
+		DC5A61D52DD4688700891C66 /* SXAHotProduceBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61D42DD4688700891C66 /* SXAHotProduceBannerView.swift */; };
+		DC5A61D72DD46B1700891C66 /* SXATeachTalkBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61D62DD46B1700891C66 /* SXATeachTalkBannerView.swift */; };
 		E651EFD0B554C878259920AC /* Pods_SXProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD081578C4521ACC191FF78D /* Pods_SXProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -718,6 +721,9 @@
 		C42453A320724EAD671F635F /* Pods-SXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProject.debug.xcconfig"; path = "Target Support Files/Pods-SXProject/Pods-SXProject.debug.xcconfig"; sourceTree = "<group>"; };
 		C6398BFBEE0023EEF6593D15 /* Pods-SXProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProject.release.xcconfig"; path = "Target Support Files/Pods-SXProject/Pods-SXProject.release.xcconfig"; sourceTree = "<group>"; };
 		D74BABA72749495027A5FE55 /* Pods-SXProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProjectTests.release.xcconfig"; path = "Target Support Files/Pods-SXProjectTests/Pods-SXProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		DC5A61D02DD442A400891C66 /* SXAHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAHomeController.swift; sourceTree = "<group>"; };
+		DC5A61D42DD4688700891C66 /* SXAHotProduceBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAHotProduceBannerView.swift; sourceTree = "<group>"; };
+		DC5A61D62DD46B1700891C66 /* SXATeachTalkBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXATeachTalkBannerView.swift; sourceTree = "<group>"; };
 		DD081578C4521ACC191FF78D /* Pods_SXProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SXProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA758B335689DB1F6CD3EFF0 /* Pods-SXProject-SXProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProject-SXProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-SXProject-SXProjectUITests/Pods-SXProject-SXProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FECA5ABCB81CA8FA95453BA1 /* Pods-SXProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-SXProjectTests/Pods-SXProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -921,6 +927,9 @@
 				4A5EA53F2DCDF68300E40979 /* HomePageVC.swift */,
 				4A5EA5402DCDF68300E40979 /* InterestRateVC.swift */,
 				4A5EA5412DCDF68300E40979 /* MonthlyPaymentVC.swift */,
+				DC5A61D02DD442A400891C66 /* SXAHomeController.swift */,
+				DC5A61D42DD4688700891C66 /* SXAHotProduceBannerView.swift */,
+				DC5A61D62DD46B1700891C66 /* SXATeachTalkBannerView.swift */,
 			);
 			path = HomeReview;
 			sourceTree = "<group>";
@@ -2231,6 +2240,7 @@
 				4A3C69942B98128E00C5F2A9 /* TestView.swift in Sources */,
 				4AFF6BB02B45115F008F8C7F /* MusicPlayerView.swift in Sources */,
 				4A8BE3602BD63711005D466E /* BITNavigationController.m in Sources */,
+				DC5A61D72DD46B1700891C66 /* SXATeachTalkBannerView.swift in Sources */,
 				4A7FB76A2DA661A400AA7B89 /* RecordVC+Config.swift in Sources */,
 				4AFF6B522B450A14008F8C7F /* Assets.swift in Sources */,
 				4AF1572D2D95631000FB0AC9 /* GetDeviceIP.swift in Sources */,
@@ -2325,6 +2335,7 @@
 				4A46CAC42D5D89C4003D3020 /* TopItemView.swift in Sources */,
 				4AFF6BD52B45115F008F8C7F /* Enums.swift in Sources */,
 				4A6BF2B92DA507DB00BF3003 /* JFCSConfiguration.m in Sources */,
+				DC5A61D12DD442A400891C66 /* SXAHomeController.swift in Sources */,
 				4AFF6BD12B45115F008F8C7F /* NetworkType.swift in Sources */,
 				4A8BE2FA2BD631D6005D466E /* BGUICKeyChainStore.m in Sources */,
 				4AFF6BDC2B45115F008F8C7F /* BaseTableView.swift in Sources */,
@@ -2382,6 +2393,7 @@
 				4AFF6BC52B45115F008F8C7F /* UIButtonExtensions.swift in Sources */,
 				4A8BE2B92BD60B6C005D466E /* BGCommonStarView.m in Sources */,
 				4A46CAE52D5DE266003D3020 /* UserProtocolVC+List.swift in Sources */,
+				DC5A61D52DD4688700891C66 /* SXAHotProduceBannerView.swift in Sources */,
 				4A2DF2ED2D954B23007EC0CD /* RequestFailView.swift in Sources */,
 				4A228D932B50D683005FD89B /* TestViewController.m in Sources */,
 				4AFF6BD62B45115F008F8C7F /* Protocols.swift in Sources */,

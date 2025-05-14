@@ -86,3 +86,12 @@ let kSXNotificationCenter = NotificationCenter.default
 //第一次安装
 let kFirstInstallation = "kFirstInstallation"
 
+
+// MARK: - 读取图片
+public func DDSImage(_ name:String ) -> UIImage? {
+    return UIImage(named: name)
+}
+
+public func DDSFont(_ size:CGFloat) -> UIFont {
+    UIFont.systemFont(ofSize:size)
+}
