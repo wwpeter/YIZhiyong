@@ -59,6 +59,12 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
+    func initialIndex(_ index: Int) -> ZLPhotoConfiguration {
+        initialIndex = index
+        return self
+    }
+    
+    @discardableResult
     func allowSelectImage(_ value: Bool) -> ZLPhotoConfiguration {
         allowSelectImage = value
         return self
@@ -121,12 +127,6 @@ public extension ZLPhotoConfiguration {
     @discardableResult
     func cropVideoAfterSelectThumbnail(_ value: Bool) -> ZLPhotoConfiguration {
         cropVideoAfterSelectThumbnail = value
-        return self
-    }
-    
-    @discardableResult
-    func showClipDirectlyIfOnlyHasClipTool(_ value: Bool) -> ZLPhotoConfiguration {
-        showClipDirectlyIfOnlyHasClipTool = value
         return self
     }
     
@@ -295,6 +295,12 @@ public extension ZLPhotoConfiguration {
     @discardableResult
     func noAuthorityCallback(_ callback: ((ZLNoAuthorityType) -> Void)?) -> ZLPhotoConfiguration {
         noAuthorityCallback = callback
+        return self
+    }
+    
+    @discardableResult
+    func customAlertWhenNoAuthority(_ callback: ((ZLNoAuthorityType) -> Void)?) -> ZLPhotoConfiguration {
+        customAlertWhenNoAuthority = callback
         return self
     }
     

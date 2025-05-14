@@ -1,13 +1,23 @@
 ${PODS_ROOT}/Target Support Files/Pods-SXProject/Pods-SXProject-resources.sh
 ${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.bundle
-${PODS_ROOT}/BRPickerView/BRPickerView/AddressPickerView/BRAddressPickerView.bundle
-${PODS_ROOT}/BRPickerView/BRPickerView/Base/BRPickerView.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/BRPickerView/BRPickerView.Privacy.bundle
+${PODS_ROOT}/BRPickerView/BRPickerView/Core/BRPickerView.bundle
+${PODS_ROOT}/BRPickerView/BRPickerView/Deprecated/AddressPickerView/BRAddressPickerView.bundle
 ${PODS_ROOT}/../Depend/GuidePageView/GuidePageView/GuideImage.bundle
-${PODS_ROOT}/IQKeyboardManagerSwift/IQKeyboardManagerSwift/PrivacyInfo.xcprivacy
+${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardCore/IQKeyboardCore.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardNotification/IQKeyboardNotification.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardReturnManager/IQKeyboardReturnManager.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardToolbar/IQKeyboardToolbar.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardToolbarManager/IQKeyboardToolbarManager.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQTextInputViewNotification/IQTextInputViewNotification.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQTextView/IQTextView.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.bundle
 ${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh/MJRefresh.Privacy.bundle
 ${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
 ${PODS_ROOT}/SVProgressHUD/SVProgressHUD/PrivacyInfo.xcprivacy
 ${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit_Privacy.bundle
-${PODS_ROOT}/SwiftDate/Sources/SwiftDate/Formatters/RelativeFormatter/langs
 ${PODS_ROOT}/ZLPhotoBrowser/Sources/ZLPhotoBrowser.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/ZLPhotoBrowser/ZLPhotoBrowser_Privacy.bundle

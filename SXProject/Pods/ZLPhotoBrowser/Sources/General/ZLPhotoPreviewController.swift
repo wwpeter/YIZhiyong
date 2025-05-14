@@ -335,12 +335,11 @@ class ZLPhotoPreviewController: UIViewController {
             height: originalLabel.font.lineHeight
         )
         
-        let selCount = (navigationController as? ZLImageNavController)?.arrSelectedModels.count ?? 0
-        var doneTitle = localLanguageTextValue(.done)
-        if ZLPhotoConfiguration.default().showSelectCountOnDoneBtn, selCount > 0 {
-            doneTitle += "(" + String(selCount) + ")"
-        }
-        let doneBtnW = doneTitle.zl.boundingRect(font: ZLLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)).width + 20
+        let doneBtnW = (doneBtn.currentTitle ?? "")
+            .zl.boundingRect(
+                font: ZLLayout.bottomToolTitleFont,
+                limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)
+            ).width + 20
         doneBtn.frame = CGRect(x: bottomView.bounds.width - doneBtnW - 15, y: btnY, width: doneBtnW, height: btnH)
     }
     
@@ -454,28 +453,33 @@ class ZLPhotoPreviewController: UIViewController {
                 return
             }
             
-            if cell is ZLLivePhotoPreviewCell {
-                (cell as! ZLLivePhotoPreviewCell).livePhotoView.stopPlayback()
-            } else if cell is ZLGifPreviewCell {
-                (cell as! ZLGifPreviewCell).pauseGif()
+            if let cell = cell as? ZLLivePhotoPreviewCell {
+                cell.livePhotoView.stopPlayback()
+            } else if let cell = cell as? ZLGifPreviewCell {
+                cell.pauseGif()
             }
         }
         popInteractiveTransition?.cancelTransition = { [weak self] in
             guard let `self` = self else { return }
             
-            self.hideNavView = false
-            self.navView.isHidden = false
-            self.bottomView.isHidden = false
+            let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentIndex, section: 0))
+            
+            if let cell = cell as? ZLVideoPreviewCell {
+                self.hideNavView = cell.isPlaying
+            } else {
+                self.hideNavView = false
+            }
+            
+            self.navView.isHidden = self.hideNavView
+            self.bottomView.isHidden = self.hideNavView
+            
             UIView.animate(withDuration: 0.5) {
                 self.navView.alpha = self.navViewAlpha
                 self.bottomView.alpha = 1
             }
             
-            guard let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentIndex, section: 0)) else {
-                return
-            }
-            if cell is ZLGifPreviewCell {
-                (cell as! ZLGifPreviewCell).resumeGif()
+            if let cell = cell as? ZLGifPreviewCell {
+                cell.resumeGif()
             }
         }
     }
@@ -788,9 +792,9 @@ class ZLPhotoPreviewController: UIViewController {
         
         vc.editFinishBlock = { [weak self, weak nav] url in
             if let url = url {
-                ZLPhotoManager.saveVideoToAlbum(url: url) { [weak self, weak nav] suc, asset in
-                    if suc, asset != nil {
-                        let m = ZLPhotoModel(asset: asset!)
+                ZLPhotoManager.saveVideoToAlbum(url: url) { [weak self, weak nav] error, asset in
+                    if error == nil, let asset {
+                        let m = ZLPhotoModel(asset: asset)
                         nav?.arrSelectedModels.removeAll()
                         nav?.arrSelectedModels.append(m)
                         nav?.selectImageBlock?()

@@ -73,6 +73,9 @@ public class ZLCameraConfiguration: NSObject {
         }
     }
     
+    /// Indicates whether the video flowing through the connection should be mirrored about its vertical axis.
+    public var isVideoMirrored = true
+    
     /// Video resolution. Defaults to hd1920x1080.
     public var sessionPreset: ZLCameraConfiguration.CaptureSessionPreset = .hd1920x1080
     
@@ -87,6 +90,36 @@ public class ZLCameraConfiguration: NSObject {
     
     /// Whether to support switch camera. Defaults to true.
     public var allowSwitchCamera = true
+    
+    /// Flag to enable tap-to-record functionality. Default is false.
+    /// Note: This property is prioritized lower than `allowTakePhoto`.
+    /// If `allowTakePhoto` is true, `tapToRecordVideo` will be ignored.
+    public var tapToRecordVideo: Bool = false
+    
+    private var _enableWideCameras: Bool = false
+    
+    /// Enable the use of wide cameras (e.g., .builtInTripleCamera, .builtInDualWideCamera, .builtInDualCamera).
+    /// Only available on iOS 13.0 and higher, defaults to false.
+    @available(iOS 13.0, *)
+    public var enableWideCameras: Bool {
+        get {
+            return _enableWideCameras
+        }
+        set {
+            _enableWideCameras = newValue
+        }
+    }
+    
+    /// Overlay view to be displayed on top of the camera view.
+    /// User interaction is disabled for this view.
+    public var overlayView: UIView? {
+        didSet {
+            overlayView?.isUserInteractionEnabled = false
+        }
+    }
+    
+    /// Video stabilization mode. Defaults to .off.
+    public var videoStabilizationMode: AVCaptureVideoStabilizationMode = .off
     
     /// Video export format for recording video and editing video. Defaults to mov.
     public var videoExportType: ZLCameraConfiguration.VideoExportType = .mov
@@ -105,6 +138,9 @@ public class ZLCameraConfiguration: NSObject {
             pri_videoCodecType = newValue
         }
     }
+    
+    /// Optional lock for output orientation. If set, any video/photo output will use this orientation.
+    public var lockedOutputOrientation: AVCaptureVideoOrientation? = nil
 }
 
 public extension ZLCameraConfiguration {
@@ -284,6 +320,37 @@ public extension ZLCameraConfiguration {
     @discardableResult
     func videoCodecType(_ type: AVVideoCodecType) -> ZLCameraConfiguration {
         videoCodecType = type
+        return self
+    }
+    
+    @discardableResult
+    func tapToRecordVideo(_ value: Bool) -> ZLCameraConfiguration {
+        tapToRecordVideo = value
+        return self
+    }
+    
+    @available(iOS 13.0, *)
+    @discardableResult
+    func enableWideCameras(_ value: Bool) -> ZLCameraConfiguration {
+        enableWideCameras = value
+        return self
+    }
+    
+    @discardableResult
+    func overlayView(_ value: UIView) -> ZLCameraConfiguration {
+        overlayView = value
+        return self
+    }
+    
+    @discardableResult
+    func videoStabilizationMode(_ value: AVCaptureVideoStabilizationMode) -> ZLCameraConfiguration {
+        videoStabilizationMode = value
+        return self
+    }
+    
+    @discardableResult
+    func lockedOutputOrientation(_ orientation: AVCaptureVideoOrientation?) -> ZLCameraConfiguration {
+        self.lockedOutputOrientation = orientation
         return self
     }
 }

@@ -1,7 +1,7 @@
 ![](https://raw.githubusercontent.com/Boxzhi/HZNavigationBar/master/Images/logo.png)
 
 
-[![Version](https://img.shields.io/badge/pod-2.0.2-blue.svg)](https://github.com/CoderZZHe/HZNavigationBar) [![Build Status](https://img.shields.io/badge/build-passing-green.svg)]() ![](https://img.shields.io/badge/platform-iOS%2010.0%2B-yellowgreen.svg) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/CoderZZHe/HZNavigationBar/blob/master/LICENSE)
+[![Version](https://img.shields.io/badge/pod-2.0.5-blue.svg)](https://github.com/CoderZZHe/HZNavigationBar) [![Build Status](https://img.shields.io/badge/build-passing-green.svg)]() ![](https://img.shields.io/badge/platform-iOS%2010.0%2B-yellowgreen.svg) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/CoderZZHe/HZNavigationBar/blob/master/LICENSE)
 
 
 
@@ -11,11 +11,20 @@
 - Swift 4.2+
 
 # 版本更新记录
+- v2.0.5 - 2025.03.18
+  - 层级优化, 背景支持网络图片.
+
+- v2.0.2 - 2023.01.07
+  - 修复非刘海屏机型导航栏中子控件未垂直居中问题.
+
+- v2.0.1 - 2022.10.09
+  - 修复barItemClickHandler方法无响应问题.
+
 - v2.0.0 - 2022.09.19
-  - 创建方法create更新，传入HZNavigationBar所在的父View即可添加并设置约束
-  - UI图层更新，可设置整体背景，也可单独设置状态栏或导航栏背景
-  - 设置BarItem方法大更新，通过type判断左或右
-  - titleView可居中或不居中
+  - 创建方法create更新，传入HZNavigationBar所在的父View即可添加并设置约束.
+  - UI图层更新，可设置整体背景，也可单独设置状态栏或导航栏背景.
+  - 设置BarItem方法大更新，通过type判断左或右.
+  - titleView可居中或不居中.
 
 # 安装
 打开 Podfile，在您项目的 target 下加入以下内容。（此处示例可能是旧版本，使用时请替换为最新版，最新版信息可以从这里获取：<a href="https://github.com/CoderZZHe/HZNavigationBar/blob/master/HZNavigationBar.podspec"><img src="https://img.shields.io/badge/pod-GetLatestVersion-blue.svg?style=flat"></a>）
@@ -62,11 +71,11 @@ pod install
     
     /*************************** 整体设置 ***************************/
     // 整体背景颜色
-    public var bgColor: UIColor?
+    public var backgroundColor: UIColor?
     // 整体背景图
-    public var bgImage: UIImage?
+    public var backgroundImage: UIImage?
     // 整体背景透明度
-    public var bgAlpha: CGFloat?
+    public var alpha: CGFloat?
     // 是否隐藏navigationBar底部的细横线
     public var shadowImageHidden: Bool = false
     // 设置主题颜色（title和BarItem文字颜色）
@@ -112,6 +121,10 @@ pod install
     func setBarItemColor(_ color: UIColor)
     /// 设置背景透明度
     func setBackgroundAlpha(_ alpha: CGFloat)
+    /// 设置背景图
+    func setBackgroundImage(_ image: Any?, isNexwork: Bool = false)
+    /// 设置导航栏区域背景图
+    func setContentImage(_ image: Any?, isNexwork: Bool = false)
     
 ```
 ------------------------------------------------------------

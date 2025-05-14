@@ -280,7 +280,7 @@ class ZLPhotoPreviewPopInteractiveTransition: UIPercentDrivenInteractiveTransiti
         toVC.endPopTransition()
         
         UIView.animate(withDuration: 0.3, animations: {
-            if let toFrame = toFrame, self.playerLayer == nil {
+            if let toFrame, self.playerLayer == nil {
                 self.imageView?.transform = .identity
                 self.imageView?.frame = toFrame
             } else {

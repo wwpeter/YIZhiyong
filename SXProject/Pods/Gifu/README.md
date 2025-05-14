@@ -1,9 +1,8 @@
 # ![Logo](https://github.com/kaishin/Gifu/raw/master/header.gif)
 
 ![Test](https://github.com/kaishin/Gifu/workflows/Test/badge.svg)
-[![GitHub release](https://img.shields.io/github/release/kaishin/Gifu.svg)](https://github.com/kaishin/Gifu/releases/latest)  [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![GitHub release](https://img.shields.io/github/release/kaishin/Gifu.svg)](https://github.com/kaishin/Gifu/releases/latest) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg) ![platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS-lightgrey.svg)
-
 
 Gifu adds protocol-based, performance-aware animated GIF support to UIKit. (It's also a [prefecture in Japan](https://goo.gl/maps/CCeAc)).
 
@@ -11,7 +10,7 @@ Gifu adds protocol-based, performance-aware animated GIF support to UIKit. (It's
 
 #### Swift Package Manager
 
-Add the following to your `Package.switft` file:
+Add the following to your `Package.swift` file:
 
 ```swift
 let package = Package(
@@ -21,20 +20,22 @@ let package = Package(
 )
 ```
 
-### [Carthage](https://github.com/Carthage/Carthage)
+#### [Carthage](https://github.com/Carthage/Carthage) (Deprecated)
 
 - Add the following to your Cartfile: `github "kaishin/Gifu"`
 - Then run `carthage update`
 - Follow the current instructions in [Carthage's README][carthage-installation]
-for up to date installation instructions.
+  for up to date installation instructions.
 
 [carthage-installation]: https://github.com/Carthage/Carthage#adding-frameworks-to-an-application
 
-### [CocoaPods](http://cocoapods.org)
+#### [CocoaPods](http://cocoapods.org) (Deprecated)
 
 - Add the following to your [Podfile](http://guides.cocoapods.org/using/the-podfile.html): `pod 'Gifu'`
 - You will also need to make sure you're opting into using frameworks: `use_frameworks!`
 - Then run `pod install` with CocoaPods 0.36 or newer.
+
+> **Deprecated Methods Notice**: The installation methods using Carthage and CocoaPods are now deprecated and will not be supported in future releases. It is recommended to use Swift Package Manager for integrating Gifu into your projects.
 
 ## How It Works
 
@@ -58,7 +59,7 @@ There are two options that should cover any situation:
 
 The bread and butter of Gifu. Through protocol extensions, `GIFAnimatable` exposes all the APIs of the library, and with very little boilerplate, any class can conform to it.
 
-~~~swift
+```swift
 class MyImageView: UIImageView, GIFAnimatable {
   public lazy var animator: Animator? = {
     return Animator(withDelegate: self)
@@ -68,7 +69,7 @@ class MyImageView: UIImageView, GIFAnimatable {
     updateImageIfNeeded()
   }
 }
-~~~
+```
 
 That's it. Now `MyImageView` has access to all these methods and properties:
 
@@ -81,7 +82,7 @@ That's it. Now `MyImageView` has access to all these methods and properties:
 
 Furthermore, you can make any class GIF-animatable, starting with `UIView` subclasses:
 
-~~~swift
+```swift
 class CustomAnimatedView: UIView, GIFAnimatable {
   public lazy var animator: Animator? = {
     return Animator(withDelegate: self)
@@ -91,11 +92,11 @@ class CustomAnimatedView: UIView, GIFAnimatable {
     updateImageIfNeeded()
   }
 }
-~~~
+```
 
 You can also make `UIKit` classes conform using associated objects may you wish:
 
-~~~swift
+```swift
 import UIKit
 import Gifu
 
@@ -124,22 +125,22 @@ extension UIImageView: GIFAnimatable {
     }
   }
 }
-~~~
+```
 
 ### Examples
 
 The simplest way to get started is initializing a `GIFAnimatable` class in code or in a storyboard, then calling `animate(:)` on it.
 
-~~~swift
+```swift
 let imageView = GIFImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
 imageView.animate(withGIFNamed: "mugen") {
   print("It's animating!")
 }
-~~~
+```
 
 You can also prepare for the animation when the view loads and only start animating after a user interaction.
 
-~~~swift
+```swift
 // In your view controller..
 
 override func viewDidLoad() {
@@ -156,20 +157,20 @@ override func viewDidLoad() {
     imageView.startAnimatingGIF()
   }
 }
-~~~
+```
 
 If you are using a `GIFAnimatable` class in a table or collection view, you can call the `prepareForReuse()` method in your cell subclass:
 
-~~~swift
+```swift
 override func prepareForReuse() {
   super.prepareForReuse()
   imageView.prepareForReuse()
 }
-~~~
+```
 
 ### Demo App
 
-Clone or download the repository and open `Gifu.xcworkspace` to check out the demo app.
+Clone or download the repository and open `Demo/Demo.xcworkspace` to check out the demo app.
 
 ## Documentation
 

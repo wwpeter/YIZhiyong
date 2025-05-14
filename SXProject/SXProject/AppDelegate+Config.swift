@@ -22,9 +22,9 @@ extension AppDelegate {
         
         let iqKeyboardManager = IQKeyboardManager.shared
         // 是否开启
-        iqKeyboardManager.enable = true
+        iqKeyboardManager.isEnabled = true
         // 控制点击背景是否收起键盘
-        iqKeyboardManager.shouldResignOnTouchOutside = true
+        iqKeyboardManager.resignOnTouchOutside = true
         // 是否显示工具条
         iqKeyboardManager.enableAutoToolbar = false
         

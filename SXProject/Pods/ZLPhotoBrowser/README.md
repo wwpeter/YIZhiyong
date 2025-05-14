@@ -29,6 +29,7 @@ Detailed usage of `Swift` and `OC`, please refer to [Wiki](https://github.com/lo
 If you only want to use the image edit feature, please move to [ZLImageEditor](https://github.com/longitachi/ZLImageEditor).
 
 ### Features
+- [x] Support SwiftUI.
 - [x] Portrait and landscape.
 - [x] Two framework style.
 - [x] Preview selection (Support drag and drop).
@@ -91,31 +92,33 @@ If you only want to use the image edit feature, please move to [ZLImageEditor](h
 ### Change Log
 > [More logs](https://github.com/longitachi/ZLPhotoBrowser/blob/master/CHANGELOG.md)
 ```
-● 4.4.8.1 - 4.4.8.2 (4.4.8 Patch)
-  Fix:
-    Fix the bug where the camera does not disappear when clicking cancel in the system camera.
-● 4.4.8
+● 4.6.0.1
   Add:
-    Adapt to iOS 17, replace UIGraphicsBeginImageContextWithOptions with UIGraphicsImageRenderer.
+    Support SwiftUI.
+    Support for locked output orientation in custom camera.
+    Optimize the playback experience of album videos and online videos.
+    Add will-capture-block for customizable capture actions.
+    Replace ZLPhotoPreviewSheet with ZLPhotoPicker. The permission of ZLPhotoPreviewSheet will be changed to private later.
+    Enhance the text sticker feature by adding text outline and shadow effects.
   Fix:
-    Fix the bug in ZLImagePreviewController where videos cannot be played.
-● 4.4.7
+    Fixed the bug that the time of automatically stopping recording is incorrect when clicking to record a video.
+    Fix the issue where the width and height calculations of some videos are inaccurate when previewing online videos.
+● 4.5.8
   Add:
-    Enhancing the drawing tool with an eraser function.
-    Display the total size of selected photos when the full image button is selected.
+    Add video stabilization mode to camera configuration.
   Fix:
-    Fix a bug where the video's start time is incorrect when cropping the video.
-● 4.4.6
+    Fix video recording with both torch-on and wide cameras.
+    Fixed the problem of freezing caused by calculating the frame when previewing network videos.
+    Fix the memory leak issue in the ZLEditImageViewController interface.
+    After the initial request for album permissions is denied, the permission guidance alert will no longer be displayed.
+    Correct eraser misalignment after image cropping.
+● 4.5.7
   Add:
-    Supports setting whether the serial number is displayed on the selection button or not.
-    Add scroll to bottom button on Gallery picker.
-    In the image editor, all operations support undo and redo.
-    Dutch support added.
-    Supports setting the default font for text stickers.
-    Optimize the drop-down return effect of the preview interface.
-    Optimize screen rotation experience.
-  Fix:
-    Fix the bug that text stickers are not displayed when typing in Arabic.
+    Custom camera supports tap-to-record mode.
+    Custom camera supports wide-angle lenses on iOS 13 and above.
+    Custom camera allows adding a custom overlay view.
+    Video editing controller adds a callback block for canceling edits.
+    Added `ZLImagePreviewControllerDelegate` protocol to receive event callbacks in ZLImagePreviewController.
 ...
 ```
 
@@ -171,7 +174,7 @@ Rebuild with --use-xcframeworks to create an xcframework bundle instead.` [Click
 
 #### Swift Package Manager
 1. Select File > Add Packages. Enter https://github.com/longitachi/ZLPhotoBrowser.git in the "Choose Package Repository" dialog.
-2. In the next page, specify the version resolving rule as "Up to Next Major" with "4.4.8.2" as its earliest version.
+2. In the next page, specify the version resolving rule as "Up to Next Major" with "4.6.0.1" as its earliest version.
 3. After Xcode checking out the source and resolving the version, you can choose the "ZLPhotoBrowser" library and add it to your app target.
 
 ### Support

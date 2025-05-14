@@ -10,7 +10,7 @@ import Foundation
 public extension Box where Base: UIBarButtonItem {
     
     //和H5交互需要的method
-    static func createBarItem(_ text: String?, _ icon: String?) -> UIButton {
+    @MainActor static func createBarItem(_ text: String?, _ icon: String?) -> UIButton {
         let settingBtn = UIButton()
         settingBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         settingBtn.contentMode = .scaleAspectFit

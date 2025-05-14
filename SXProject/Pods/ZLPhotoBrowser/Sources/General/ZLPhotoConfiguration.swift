@@ -89,6 +89,17 @@ public class ZLPhotoConfiguration: NSObject {
     /// Preview selection max preview count, if the value is zero, only show `Camera`, `Album`, `Cancel` buttons. Defaults to 20.
     public var maxPreviewCount = 20
     
+    private var pri_initialIndex = 1
+    /// The index of the first selected image, and the indices of subsequently selected images are incremented based on this value. Defaults to 1.
+    public var initialIndex: Int {
+        get {
+            max(pri_initialIndex, 1)
+        }
+        set {
+            pri_initialIndex = newValue
+        }
+    }
+    
     /// If set to false, gif and livephoto cannot be selected either. Defaults to true.
     public var allowSelectImage = true
     
@@ -150,9 +161,6 @@ public class ZLPhotoConfiguration: NSObject {
     /// Only valid when allowMixSelect is false and allowEditVideo is true. Defaults to true.
     /// Just like the Wechat-Timeline selection style. If you want to crop the video after select thumbnail under allowMixSelect = true, please use **editAfterSelectThumbnailImage**.
     public var cropVideoAfterSelectThumbnail = true
-    
-    /// If image edit tools only has clip and this property is true. When you click edit, the cropping interface (i.e. ZLClipImageViewController) will be displayed. Defaults to false.
-    public var showClipDirectlyIfOnlyHasClipTool = false
     
     /// Save the edited image to the album after editing. Defaults to true.
     public var saveNewImageAfterEdit = true
@@ -244,6 +252,9 @@ public class ZLPhotoConfiguration: NSObject {
     
     /// Callback after the no authority alert dismiss.
     public var noAuthorityCallback: ((ZLNoAuthorityType) -> Void)?
+    
+    /// Allow user to provide a custom alert while presenting ZLPhotoPreviewSheet with the authority is denied.
+    public var customAlertWhenNoAuthority: ((ZLNoAuthorityType) -> Void)?
     
     /// Allow user to do something before select photo result callback.
     /// And you must call the second parameter of this block to continue the photos selection.
