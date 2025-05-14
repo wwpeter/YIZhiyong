@@ -8,9 +8,9 @@
 import UIKit
 
 class SXALoanDetailCategoryView: UIView {
-
+    
     public var finishBlock:((_ aIndex:Int) -> Void)?
-
+    
     fileprivate var baseView:UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -75,15 +75,62 @@ class SXALoanDetailCategoryView: UIView {
         button_1.isSelected = false
         button_2.isSelected = false
         button_3.isSelected = false
-
         button.isSelected = true
         finishBlock?(button.tag)
         UIView.animate(withDuration: 0.25) {
             self.bottomLine.centerX = button.centerX
-//            self.bottomLine.snp.updateConstraints { make in
-//                make.centerX.equalTo(button)
-//            }
         }
+    }
+    
+    //默认选择
+    public func showDefaultSelextIndex(_ aIndex:Int) {
+        button_0.isSelected = false
+        button_1.isSelected = false
+        button_2.isSelected = false
+        button_3.isSelected = false
+        
+        if aIndex == 0 {
+            button_0.isSelected = true
+            self.bottomLine.centerX = self.button_0.centerX
+            bottomLine.snp.makeConstraints { make in
+                make.bottom.equalTo(0)
+                make.height.equalTo(2)
+                make.width.equalTo(14)
+                make.centerX.equalTo(button_0)
+            }
+            
+        } else if aIndex == 1 {
+            button_1.isSelected = true
+            //            self.bottomLine.centerX = self.button_1.centerX
+            
+            bottomLine.snp.makeConstraints { make in
+                make.bottom.equalTo(0)
+                make.height.equalTo(2)
+                make.width.equalTo(14)
+                make.centerX.equalTo(button_1)
+            }
+        } else if aIndex == 2 {
+            button_2.isSelected = true
+            //            self.bottomLine.centerX = self.button_2.centerX
+            
+            bottomLine.snp.makeConstraints { make in
+                make.bottom.equalTo(0)
+                make.height.equalTo(2)
+                make.width.equalTo(14)
+                make.centerX.equalTo(button_2)
+            }
+            
+        } else {
+            button_3.isSelected = true
+            bottomLine.snp.makeConstraints { make in
+                make.bottom.equalTo(0)
+                make.height.equalTo(2)
+                make.width.equalTo(14)
+                make.centerX.equalTo(button_3)
+            }
+            //            self.bottomLine.centerX = self.button_3.centerX
+        }
+        
     }
     
     override init(frame: CGRect) {
@@ -106,7 +153,7 @@ class SXALoanDetailCategoryView: UIView {
             make.left.equalTo(sxDynamic(20))
             make.right.equalTo(-sxDynamic(20))
             make.top.equalTo(10)
-            make.bottom.equalTo(0)
+            make.bottom.equalTo(-5)
             make.height.equalTo(sxDynamic(38))
         }
         
@@ -133,12 +180,12 @@ class SXALoanDetailCategoryView: UIView {
             make.right.equalTo(0)
         }
         
-        bottomLine.snp.makeConstraints { make in
-            make.bottom.equalTo(0)
-            make.height.equalTo(2)
-            make.width.equalTo(14)
-            make.centerX.equalTo(button_0)
-        }
-
+        //        bottomLine.snp.makeConstraints { make in
+        //            make.bottom.equalTo(0)
+        //            make.height.equalTo(2)
+        //            make.width.equalTo(14)
+        //            make.centerX.equalTo(button_0)
+        //        }
+        
     }
 }

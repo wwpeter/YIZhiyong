@@ -10,13 +10,17 @@ import SnapKit
 
 class SXALoanDetailDataCell: UITableViewCell {
 
-    func updateCellWithModel(_ model:DDTodayIncomeDataModel,_ aIndex:Int) {
+    func updateCellWithModel(_ model:SXALoadPaymentDetailModel,_ aIndex:Int) {
         if aIndex % 2 == 0 {
             baseView.backgroundColor = .clear
         } else {
             baseView.backgroundColor = kBF8
         }
-        qiShuLabel.text = "\(aIndex + 1)"
+        qiShuLabel.text = "\(model.month)"
+        let toalt = model.principal + model.interest
+        monthReturnLabel.text = toalt.format(".2")
+        benJinLabel.text = model.principal.format(".2")
+        lixiLabel.text = model.interest.format(".2")
     }
     
     fileprivate var baseView:UIView = {

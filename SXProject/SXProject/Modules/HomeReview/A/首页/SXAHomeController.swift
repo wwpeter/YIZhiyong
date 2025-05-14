@@ -198,7 +198,7 @@ class SXAHomeController: DDBaseViewController {
     
     @objc func doCounterLookAction() {
         print("借款计算器======")
-        self.navigationController?.pushViewController(SXALoanCalculatorController(), animated: true)
+        self.navigationController?.pushViewController(SXASXALoanCalculatorController(), animated: true)
     }
     
     @objc func doFraudLookAction() {

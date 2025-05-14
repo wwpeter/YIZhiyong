@@ -1,5 +1,5 @@
 //
-//  SXALoanCalculatorController.swift
+//  SXASXALoanCalculatorController.swift
 //  SXProject
 //
 //  Created by Felix on 2025/5/14.
@@ -7,13 +7,15 @@
 
 import UIKit
 
-class SXALoanCalculatorController: DDBaseViewController {
+class SXASXALoanCalculatorController: DDBaseViewController {
     
     // UI组件
     private let loanAmountTextField = UITextField()//金额
     private let loanTermTextField = UITextField() //期限
     private let yearPaymentTextField = UITextField() //年华
     private let returnTypeTextField = UITextField() //还款
+    
+    private var returnTypeIndex = -1
     
     fileprivate lazy var topView :UIView = {
         let tempView = UIView()
@@ -359,43 +361,48 @@ class SXALoanCalculatorController: DDBaseViewController {
     }
     
     @objc private func calculateInterestRate() {
-        let loanAmount = Double(loanAmountTextField.text ?? "0") ?? 0
+        let principal = Double(loanAmountTextField.text ?? "0") ?? 0
         let termInt = Int(loanTermTextField.text ?? "0") ?? 0
-        let yaerAmount = Double(yearPaymentTextField.text ?? "0") ?? 0
-        let typeTyext = returnTypeTextField.text ?? ""
+        let annualRate = Double(yearPaymentTextField.text ?? "0") ?? 0
         
-//        if loanAmount == 0 {
-//            Toast.showInfoMessage("请输入贷款金额")
-//            return
-//        }
-//        if termInt == 0 {
-//            Toast.showInfoMessage("请输入贷款期限")
-//            return
-//        }
-//        if yaerAmount == 0{
-//            Toast.showInfoMessage("请输入年化利率")
-//            return
-//        }
-//        
-//        if typeTyext == "" {
-//            Toast.showInfoMessage("请选择还款方式")
-//            return
-//        }
+        if principal == 0 {
+            Toast.showInfoMessage("请输入贷款金额")
+            return
+        }
+        if termInt == 0 {
+            Toast.showInfoMessage("请输入贷款期限")
+            return
+        }
+        if annualRate == 0 {
+            Toast.showInfoMessage("请输入年化利率")
+            return
+        }
         
-        //fixme
+        if self.returnTypeIndex == -1 {
+            Toast.showInfoMessage("请选择还款方式")
+            return
+        }
+        
         print("去详情=====")
-        let detelVC = SXALoanCalculatorDetailController()
+        let detelVC = SXASXALoanCalculatorDetailController()
+        detelVC.principal = principal * 10000 //本金
+        detelVC.month = termInt // 贷款期限1年
+        detelVC.annualRate = annualRate //年利率5%
+        detelVC.payType = self.returnTypeIndex //还款方式
+        
         self.navigationController?.pushViewController(detelVC, animated: true)
     }
     
     @objc func selectTheRetrnTypeAction() {
         print("选择还款方式=====")
+        dismissKeyboard()
         let array = ["等额本息","等额本金","等本等息","先息后本"]
         let pop = RPSheetMorePop(dataArray: array)
         weak var weakSelf = self
         
         pop.finishBlock = { (aIndex) in
             weakSelf?.returnTypeTextField.text = array[aIndex]
+            weakSelf?.returnTypeIndex = aIndex
         }
         pop.show()
     }

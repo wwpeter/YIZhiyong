@@ -10,6 +10,20 @@ import SnapKit
 
 class SXALoanDetailTopCell: UITableViewCell {
     
+    public func updateCellWithArray(_ array:[SXALoadPaymentDetailModel],_ principal:Double) {
+        benJinDetailLabel.text = principal.format(".2")
+        monthDetailLabel.text = "\(array.count)"
+        
+        var lixiValue :Double = 0
+        for model in array {
+            lixiValue += model.interest
+        }
+        lixiDetailLabel.text = lixiValue.format(".2")
+        
+        let toatlPay = principal + lixiValue
+        moneyLabel.text = toatlPay.format(".2")
+    }
+    
     fileprivate var baseView:UIView = {
         let view = UIView()
         view.backgroundColor = kTBlue
@@ -32,7 +46,7 @@ class SXALoanDetailTopCell: UITableViewCell {
         let label = UILabel()
         label.font = DDSFont_B(30)
         label.textColor = .white
-        label.text = "210,998.13"
+        label.text = "--"
         return label
     }()
     
@@ -49,7 +63,7 @@ class SXALoanDetailTopCell: UITableViewCell {
         let label = UILabel()
         label.font = DDSFont(15)
         label.textColor = .white
-        label.text = "200,000.00"
+        label.text = "--"
         label.textAlignment = .center
         return label
     }()
@@ -67,7 +81,7 @@ class SXALoanDetailTopCell: UITableViewCell {
         let label = UILabel()
         label.font = DDSFont(15)
         label.textColor = .white
-        label.text = "10,998.13"
+        label.text = "--"
         label.textAlignment = .center
         return label
     }()
@@ -85,7 +99,7 @@ class SXALoanDetailTopCell: UITableViewCell {
         let label = UILabel()
         label.font = DDSFont(15)
         label.textColor = .white
-        label.text = "12"
+        label.text = "--"
         label.textAlignment = .center
         return label
     }()

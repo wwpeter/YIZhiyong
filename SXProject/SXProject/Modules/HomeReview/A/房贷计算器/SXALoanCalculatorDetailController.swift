@@ -1,5 +1,5 @@
 //
-//  SXALoanCalculatorDetailController.swift
+//  SXASXALoanCalculatorDetailController.swift
 //  SXProject
 //
 //  Created by Felix on 2025/5/14.
@@ -9,25 +9,16 @@ import UIKit
 import SnapKit
 import MJRefresh
 
-class DDTodayIncomeDataModel : NSObject  {
-    var totalIncome:Double = 0 //总收入
-    var talkIncome:Double = 0//聊天收入
-    var giftIncome:Double = 0//礼物收入
-    var voiceIncome:Double = 0//连麦
-    var newerTalkReward:Double = 0//新人
-    var luckBoxIncome:Double = 0 //幸运盒子收入
-    var rankIncome:Double = 0 //排行榜收入
-    var inviteIncome:Double = 0 //邀请收入
-    var systemReward:Double = 0 //系统奖励
-    var songOrderIncome:Double = 0
-    var videoIncome:Double = 0
-}
 
-
-class SXALoanCalculatorDetailController: DDBaseViewController {
+class SXASXALoanCalculatorDetailController: DDBaseViewController {
+    
+    var principal:Double = 0  // 贷款本金10万元
+    var annualRate:Double = 0      // 年利率5%
+    var month = 0            // 贷款期限1年
+    var payType = 0 //还款方式
     
     fileprivate lazy var topTabView:SXALoanDetailCategoryView = {
-       let tempView = SXALoanDetailCategoryView()
+        let tempView = SXALoanDetailCategoryView()
         weak var weakSelf = self
         tempView.finishBlock = { (aIndex) in
             weakSelf?.changeLoadTabIndex(aIndex)
@@ -59,17 +50,41 @@ class SXALoanCalculatorDetailController: DDBaseViewController {
     
     
     fileprivate var monthDay = 10 //fixme remove
+    fileprivate var dataArray = [SXALoadPaymentDetailModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMineViews()
         updateViewAfterGetData()
+        
+        changeLoadTabIndex(payType)
+        topTabView.showDefaultSelextIndex(payType)
     }
     
     fileprivate func changeLoadTabIndex(_ adIndex:Int) {
         print("切换=====\(adIndex)")
-        monthDay = Int.random(in: 1...10)
+        dataArray.removeAll()
+        
+        if adIndex == 0 {
+            print("================ 等额本息 ================")
+            self.dataArray =  SXALoanCalculator.equalInstallment(principal: principal, annualRate: annualRate, month: month)
+            
+        } else if adIndex == 1 {
+            print("\n================ 等额本金 ================")
+            self.dataArray =  SXALoanCalculator.decreasingPayment(principal: principal, annualRate: annualRate, month: month)
+            
+        } else if adIndex == 2 {
+            
+            print("\n================ 等本等息 ================")
+            self.dataArray =  SXALoanCalculator.equalPrincipalInterest(principal: principal, annualRate: annualRate, months: month)
+            
+        } else {
+            print("\n================ 先息后本 ================")
+            self.dataArray =  SXALoanCalculator.interestFirst(principal: principal, annualRate: annualRate, months: month)
+        }
+        
         self.mTableView.reloadData()
+        
     }
     
     fileprivate func updateViewAfterGetData() {
@@ -79,7 +94,7 @@ class SXALoanCalculatorDetailController: DDBaseViewController {
 }
 
 //MARK: 表格代理
-extension SXALoanCalculatorDetailController : UITableViewDelegate, UITableViewDataSource {
+extension SXASXALoanCalculatorDetailController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -89,7 +104,7 @@ extension SXALoanCalculatorDetailController : UITableViewDelegate, UITableViewDa
             return 2
             
         }
-        return monthDay //fixme
+        return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,6 +112,7 @@ extension SXALoanCalculatorDetailController : UITableViewDelegate, UITableViewDa
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SXALoanDetailTopCell") as! SXALoanDetailTopCell
                 cell.selectionStyle = .none
+                cell.updateCellWithArray(self.dataArray,principal)
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SXALoanDetailTitleCell") as! SXALoanDetailTitleCell
@@ -109,13 +125,13 @@ extension SXALoanCalculatorDetailController : UITableViewDelegate, UITableViewDa
                 cell = SXALoanDetailDataCell(style: .default, reuseIdentifier: "SXALoanDetailDataCell")
             }
             cell?.selectionStyle = .none
-            cell?.updateCellWithModel(DDTodayIncomeDataModel(), indexPath.row) //fixme
+            cell?.updateCellWithModel(self.dataArray[indexPath.row], indexPath.row)
             return cell!
         }
     }
 }
 
-extension SXALoanCalculatorDetailController {
+extension SXASXALoanCalculatorDetailController {
     
     func setupMineViews() {
         self.title = "贷款详情"
