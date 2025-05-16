@@ -138,6 +138,7 @@ internal enum Asset {
     internal static let aHomeIcon3 = ImageAsset(name: "a_home_icon_3")
     internal static let aHomeIcon4 = ImageAsset(name: "a_home_icon_4")
     internal static let aLoanIcon1 = ImageAsset(name: "a_loan_icon_1")
+    internal static let aRedDout = ImageAsset(name: "a_red_dout")
     internal static let productCallIocn = ImageAsset(name: "product_call_iocn")
     internal static let productLove0 = ImageAsset(name: "product_love_0")
     internal static let productLove1 = ImageAsset(name: "product_love_1")

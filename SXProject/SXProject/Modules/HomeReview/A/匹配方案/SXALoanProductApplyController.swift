@@ -8,22 +8,420 @@
 import UIKit
 
 class SXALoanProductApplyController: DDBaseViewController {
+    
+    var agree = false
 
+    fileprivate lazy var mScollView:UIScrollView = {
+        let tempView = UIScrollView()
+        tempView.showsVerticalScrollIndicator = false
+        tempView.backgroundColor = .clear
+        return tempView
+    }()
+    
+    fileprivate lazy var companyPanl:UIView = {
+        let tepView = UIView()
+        
+        let img = UIImageView()
+        img.image = DDSImage("a_compang_icon")
+        tepView.addSubview(img)
+        
+        let label1 = UILabel()
+        label1.text = "这里是企业名称这里是企业名称"
+        label1.font = DDSFont(13)
+        label1.textColor = kT333
+        tepView.addSubview(label1)
+        
+        img.snp.makeConstraints { make in
+            make.left.equalTo(20)
+            make.width.height.equalTo(20)
+            make.top.equalTo(5)
+        }
+        label1.snp.makeConstraints { make in
+            make.left.equalTo(img.snp.right).offset(5)
+            make.centerY.equalTo(img)
+        }
+        
+        return tepView
+    }()
+    
+    fileprivate lazy var topPanl:UIView = {
+        let tempView = UIView()
+        tempView.backgroundColor = .white
+        let label = UILabel()
+        label.text = "信息补充"
+        label.font = DDSFont_M(16)
+        label.textColor = kT333
+        tempView.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.left.equalTo(20)
+            make.height.equalTo(50)
+        }
+        
+        return tempView
+    }()
+    
+    fileprivate lazy var invoicePanl:UIView = {
+        let tempView = UIView()
+        tempView.backgroundColor = .white
+        let label = UILabel()
+        label.text = "税务发票信息"
+        label.font = DDSFont_M(16)
+        label.textColor = kT333
+        tempView.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.left.equalTo(20)
+            make.height.equalTo(50)
+        }
+        return tempView
+    }()
+    
+    fileprivate lazy var nameBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: true, name: "您的名称", placeholder:"请输入名称", keyboardType: .default, rightText: "")
+        return tempview
+    }()
+    
+    fileprivate lazy var loadMoneyBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: true, name: "金额", placeholder:"借款上限500万", keyboardType:.numberPad, rightText: "万")
+        return tempview
+    }()
+    
+    fileprivate lazy var ageBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: true, name: "申请人年龄", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "")
+        return tempview
+    }()
+    
+    fileprivate lazy var locationBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: true, name: "企业所在地", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+        return tempview
+    }()
+    
+    fileprivate lazy var peopleTypeBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: true, name: "申请人身份", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+        return tempview
+    }()
+    
+    fileprivate lazy var guBiLiBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "占股比例", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "%")
+        return tempview
+    }()
+    
+    fileprivate lazy var companyMonthBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业成立时长", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "月")
+        return tempview
+    }()
+    
+    fileprivate lazy var yearSaleBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业近一年销售收入", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
+        return tempview
+    }()
+    
+    fileprivate lazy var sheBaoBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业缴纳社保人数", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "人")
+        return tempview
+    }()
+    
+    fileprivate lazy var shiJiaoBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业注册资金实缴", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
+        return tempview
+    }()
+    
+    fileprivate lazy var monthSaleBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "月流水", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "人")
+        return tempview
+    }()
+    
+    fileprivate lazy var faRenChangeBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "法人变更发生时长", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "")
+        return tempview
+    }()
+    
+    //========================
+    fileprivate lazy var taxesLongTimeBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业连续纳税时长", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
+        return tempview
+    }()
+    
+    fileprivate lazy var taxtQainStatusBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业纳税欠缴情况", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+        return tempview
+    }()
+    
+    fileprivate lazy var taxdAddYearBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业近一年增值税纳税额", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
+        return tempview
+    }()
+    
+    fileprivate lazy var comngYearSalesBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业近一年应税销售额", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
+        return tempview
+    }()
+    fileprivate lazy var companyPiJiLevelBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业纳税评级", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+        return tempview
+    }()
+    
+    fileprivate lazy var kaiPiaoTimeBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业连续开票时长", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "月")
+        return tempview
+    }()
+    
+    fileprivate lazy var kaiPiaoMonthBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "近一年有效开票月份", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "月")
+        return tempview
+    }()
+    
+    fileprivate lazy var kaiPiaoEduBaseView:SXAProductApplyTextFieldView = {
+        let tempview = SXAProductApplyTextFieldView()
+        tempview.setupDefaultView(showRed: false, name: "企业近一年开票额度", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
+        return tempview
+    }()
+    
+    //===================
+    
+    
+    fileprivate lazy var bottomView:UIView = {
+        let tempView = UIView()
+        tempView.backgroundColor = .white
+        tempView.addSubview(selectedBut)
+        tempView.addSubview(subLabel)
+        tempView.addSubview(sureButton)
+        
+        let label_2 = UILabel()
+        label_2.text = "信息越完善，方案越精准哦！"
+        label_2.textColor = kTaaa
+        label_2.textAlignment = .center
+        label_2.font = DDSFont(12)
+        tempView.addSubview(label_2)
+        
+        selectedBut.snp.makeConstraints { make in
+            make.left.equalTo(20)
+            make.top.equalTo(15)
+            make.width.height.equalTo(12)
+        }
+        subLabel.snp.makeConstraints { make in
+            make.left.equalTo(selectedBut.snp.right).offset(5)
+            make.top.equalTo(selectedBut)
+            make.right.equalTo(-20)
+        }
+        sureButton.snp.makeConstraints { make in
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.height.equalTo(50)
+            make.top.equalTo(subLabel.snp.bottom).offset(10)
+        }
+        label_2.snp.makeConstraints { make in
+            make.top.equalTo(sureButton.snp.bottom).offset(10)
+            make.centerX.equalTo(sureButton)
+            make.bottom.equalTo(-10-kBottomSafeBarHeight)
+        }
+        return tempView
+    }()
+    
+    //查看额度
+    fileprivate lazy var sureButton:UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("立即提交", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        button.backgroundColor =  kTBlue
+        button.setCorner(radius: 25)
+        button.addTarget(self, action:#selector(doErDuLookAction), for: .touchUpInside)
+  
+        return button
+    }()
+    
+    private lazy var selectedBut: UIButton = {
+        let but = UIButton.init(type: .custom)
+        but.setImage(UIImage(named: "iot_login_check") , for: .normal)
+        but.setImage(UIImage(named: "login_selected") , for: .selected)
+        but.addTarget(self, action: #selector(agreeClick(button:)), for: .touchUpInside)
+        return but
+    }()
+    
+    private lazy var subLabel: UILabel = {
+        let label = CreateBaseView.makeLabel("我已阅读并同意《风险提示告知书》《个人信息授权收集使用说明》", UIFont.sx.font_t13, kT777, .center, 1)
+        label.numberOfLines = 0
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "申请"
-        // Do any additional setup after loading the view.
+        self.title = "提交申请"
+        setupViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc
+    func agreeClick(button: UIButton) {
+        button.isSelected = !button.isSelected
+        self.agree = button.isSelected
+        
     }
-    */
-
+    
+    @objc func doErDuLookAction() {
+        print("提交======")
+    }
+    
+    fileprivate func setupViews() {
+        self.view.addSubview(mScollView)
+        self.view.addSubview(bottomView)
+        self.bottomView.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(0)
+        }
+        mScollView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(kTopBarHeight)
+            make.bottom.equalTo(self.bottomView.snp.top)
+        }
+        
+        mScollView.addSubview(companyPanl)
+        mScollView.addSubview(topPanl)
+        mScollView.addSubview(invoicePanl)
+        
+        companyPanl.snp.makeConstraints { make in
+            make.left.right.top.equalTo(0)
+            make.height.equalTo(40)
+        }
+        
+        topPanl.snp.makeConstraints { make in
+            make.top.equalTo(companyPanl.snp.bottom).offset(0)
+            make.left.right.equalTo(0)
+            make.width.equalTo(kSizeScreenWidth)
+        }
+        
+        invoicePanl.snp.makeConstraints { make in
+            make.top.equalTo(topPanl.snp.bottom).offset(10)
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(-30)
+        }
+        //第一部分
+        topPanl.addSubview(nameBaseView)
+        topPanl.addSubview(loadMoneyBaseView)
+        topPanl.addSubview(ageBaseView)
+        topPanl.addSubview(locationBaseView)
+        topPanl.addSubview(peopleTypeBaseView)
+        topPanl.addSubview(guBiLiBaseView)
+        topPanl.addSubview(companyMonthBaseView)
+        topPanl.addSubview(yearSaleBaseView)
+        topPanl.addSubview(sheBaoBaseView)
+        topPanl.addSubview(shiJiaoBaseView)
+        topPanl.addSubview(monthSaleBaseView)
+        topPanl.addSubview(faRenChangeBaseView)
+        
+        nameBaseView.snp.makeConstraints { make in
+            make.top.equalTo(50)
+            make.left.right.equalTo(0)
+        }
+        loadMoneyBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(nameBaseView.snp.bottom)
+        }
+        ageBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(loadMoneyBaseView.snp.bottom)
+        }
+        locationBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(ageBaseView.snp.bottom)
+        }
+        peopleTypeBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(locationBaseView.snp.bottom)
+        }
+        guBiLiBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(peopleTypeBaseView.snp.bottom)
+        }
+        companyMonthBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(guBiLiBaseView.snp.bottom)
+        }
+        yearSaleBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(companyMonthBaseView.snp.bottom)
+        }
+        sheBaoBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(yearSaleBaseView.snp.bottom)
+        }
+        shiJiaoBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(sheBaoBaseView.snp.bottom)
+        }
+        monthSaleBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(shiJiaoBaseView.snp.bottom)
+        }
+        faRenChangeBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(monthSaleBaseView.snp.bottom)
+            make.bottom.equalTo(0)
+        }
+        
+        //第二部分
+        invoicePanl.addSubview(taxesLongTimeBaseView)
+        invoicePanl.addSubview(taxtQainStatusBaseView)
+        invoicePanl.addSubview(taxdAddYearBaseView)
+        invoicePanl.addSubview(comngYearSalesBaseView)
+        invoicePanl.addSubview(companyPiJiLevelBaseView)
+        invoicePanl.addSubview(kaiPiaoTimeBaseView)
+        invoicePanl.addSubview(kaiPiaoMonthBaseView)
+        invoicePanl.addSubview(kaiPiaoEduBaseView)
+        
+        taxesLongTimeBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(50)
+        }
+        taxtQainStatusBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(taxesLongTimeBaseView.snp.bottom)
+        }
+        taxdAddYearBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(taxtQainStatusBaseView.snp.bottom)
+        }
+        comngYearSalesBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(taxdAddYearBaseView.snp.bottom)
+        }
+        companyPiJiLevelBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(comngYearSalesBaseView.snp.bottom)
+        }
+        kaiPiaoTimeBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(companyPiJiLevelBaseView.snp.bottom)
+        }
+        kaiPiaoMonthBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(kaiPiaoTimeBaseView.snp.bottom)
+        }
+        kaiPiaoEduBaseView.snp.makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(kaiPiaoMonthBaseView.snp.bottom)
+            make.bottom.equalTo(0)
+        }
+    }
+    
 }
