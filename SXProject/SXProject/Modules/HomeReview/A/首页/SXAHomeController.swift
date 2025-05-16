@@ -193,7 +193,8 @@ class SXAHomeController: DDBaseViewController {
     
     @objc func doErDuLookAction() {
         print("查看额度=======")
-        self.navigationController?.pushViewController(MonthlyPaymentVC(), animated: true)
+        let vc = SXAMatchingProductsListController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func doCounterLookAction() {

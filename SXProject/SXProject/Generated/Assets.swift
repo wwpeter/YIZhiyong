@@ -128,6 +128,7 @@ internal enum Asset {
     internal static let tmain = ColorAsset(name: "tmain")
   }
   internal enum Images {
+    internal static let aCompangIcon = ImageAsset(name: "a_compang_icon")
     internal static let aHomeIcon1 = ImageAsset(name: "a_home_icon_1")
     internal static let aHomeIcon2 = ImageAsset(name: "a_home_icon_2")
     internal static let aHomeIcon3 = ImageAsset(name: "a_home_icon_3")

@@ -7,13 +7,6 @@
 
 import Foundation
 
-/// 还款明细结构体
-struct SXALoadPaymentDetailModel {
-    let month: Int       // 第几个月
-    let principal: Double // 本月还本金
-    let interest: Double  // 本月还利息
-    let remaining: Double // 剩余本金
-}
 
 struct SXALoanCalculator {
     // MARK: - 等额本息（每月本金利息动态变化）
