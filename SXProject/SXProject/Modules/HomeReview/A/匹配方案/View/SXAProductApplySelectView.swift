@@ -1,5 +1,5 @@
 //
-//  SXAProductApplyTextFieldCell.swift
+//  SXAProductApplySelectView.swift
 //  SXProject
 //
 //  Created by Felix on 2025/5/16.
@@ -7,9 +7,12 @@
 
 import UIKit
 
-class SXAProductApplyTextFieldView: UIView {
+class SXAProductApplySelectView: UIView {
     
-    func setupDefaultView(showRed:Bool,name:String, placeholder: String, keyboardType: UIKeyboardType,rightText:String) {
+    public var selectBlock: (() -> Void)?
+    
+    
+    func setupDefaultView(showRed:Bool,name:String, placeholder: String, keyboardType: UIKeyboardType) {
         if showRed {
             self.redDotLabel.isHidden = false
         } else {
@@ -22,10 +25,13 @@ class SXAProductApplyTextFieldView: UIView {
         
         textFiled.placeholder = placeholder
         textFiled.keyboardType = keyboardType
-        
-        self.rightLabel.text = rightText
     }
-
+    
+    
+    @objc func buttonAction() {
+        selectBlock?()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -54,11 +60,10 @@ class SXAProductApplyTextFieldView: UIView {
         return label1
     }()
     
-    fileprivate lazy var rightLabel:UILabel = {
-        let label1 = UILabel()
-        label1.text = ""
-        label1.font = DDSFont(13)
-        label1.textColor = kT333
+    fileprivate lazy var nextImg:UIImageView = {
+        let label1 = UIImageView()
+        label1.image = DDSImage("iot_regist_right")
+        label1.contentMode = .scaleAspectFit
         return label1
     }()
     
@@ -70,21 +75,28 @@ class SXAProductApplyTextFieldView: UIView {
         return label1
     }()
     
-  
     fileprivate lazy var line:UIView = {
         let label1 = UIView()
         label1.backgroundColor = kBF2
         return label1
     }()
     
+    fileprivate lazy var clickedButton:UIButton = {
+        let button = UIButton(type: .custom)
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button
+    }()
+    
+    
     fileprivate func setupViews() {
         self.addSubview(baseView)
         baseView.addSubview(redDotLabel)
         baseView.addSubview(titleLabel)
         baseView.addSubview(textFiled)
-        baseView.addSubview(rightLabel)
+        baseView.addSubview(nextImg)
         baseView.addSubview(line)
-        
+        baseView.addSubview(clickedButton)
         baseView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalTo(0)
             make.height.equalTo(44)
@@ -99,14 +111,16 @@ class SXAProductApplyTextFieldView: UIView {
             make.left.equalTo(redDotLabel.snp.right)
             make.top.bottom.equalTo(0)
         }
-        rightLabel.snp.makeConstraints { make in
+        nextImg.snp.makeConstraints { make in
             make.right.equalTo(-20)
-            make.top.bottom.equalTo(0)
+            make.centerY.equalTo(titleLabel)
+            make.width.equalTo(6)
+            make.height.equalTo(10)
         }
         
         textFiled.snp.makeConstraints { make in
             make.top.bottom.equalTo(0)
-            make.right.equalTo(rightLabel.snp.left).offset(-3)
+            make.right.equalTo(nextImg.snp.left).offset(-3)
             make.left.greaterThanOrEqualTo(self.titleLabel.snp.right).offset(10)
         }
         
@@ -115,6 +129,10 @@ class SXAProductApplyTextFieldView: UIView {
             make.right.equalTo(-20)
             make.bottom.equalTo(0)
             make.height.equalTo(0.5)
+        }
+        
+        clickedButton.snp.makeConstraints { make in
+            make.left.right.top.bottom.equalTo(0)
         }
     }
 }

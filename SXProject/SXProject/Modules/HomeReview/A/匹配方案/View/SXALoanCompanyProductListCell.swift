@@ -41,6 +41,7 @@ class SXALoanCompanyProductListCell: UITableViewCell {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         button.backgroundColor =  kTBlue
         button.layer.cornerRadius = 14
+        button.addTarget(self, action: #selector(doApplyAction), for: .touchUpInside)
         return button
     }()
     

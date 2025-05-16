@@ -10,7 +10,7 @@ import UIKit
 class SXALoanProductApplyController: DDBaseViewController {
     
     var agree = false
-
+    
     fileprivate lazy var mScollView:UIScrollView = {
         let tempView = UIScrollView()
         tempView.showsVerticalScrollIndicator = false
@@ -95,15 +95,24 @@ class SXALoanProductApplyController: DDBaseViewController {
         return tempview
     }()
     
-    fileprivate lazy var locationBaseView:SXAProductApplyTextFieldView = {
-        let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: true, name: "企业所在地", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+    fileprivate lazy var locationBaseView:SXAProductApplySelectView = {
+        let tempview = SXAProductApplySelectView()
+        tempview.setupDefaultView(showRed: true, name: "企业所在地", placeholder:"请选择", keyboardType:.default)
+        weak var weakSelf = self
+        tempview.selectBlock = {
+            weakSelf?.showCompangyLocaitonPop()
+            
+        }
         return tempview
     }()
     
-    fileprivate lazy var peopleTypeBaseView:SXAProductApplyTextFieldView = {
-        let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: true, name: "申请人身份", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+    fileprivate lazy var peopleTypeBaseView:SXAProductApplySelectView = {
+        let tempview = SXAProductApplySelectView()
+        tempview.setupDefaultView(showRed: true, name: "申请人身份", placeholder:"请选择", keyboardType:.default)
+        weak var weakSelf = self
+        tempview.selectBlock = {
+            weakSelf?.showPeopleTypeLocaitonPop()
+        }
         return tempview
     }()
     
@@ -143,9 +152,13 @@ class SXALoanProductApplyController: DDBaseViewController {
         return tempview
     }()
     
-    fileprivate lazy var faRenChangeBaseView:SXAProductApplyTextFieldView = {
-        let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: false, name: "法人变更发生时长", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "")
+    fileprivate lazy var faRenChangeBaseView:SXAProductApplySelectView = {
+        let tempview = SXAProductApplySelectView()
+        tempview.setupDefaultView(showRed: false, name: "法人变更发生时长", placeholder:"请输入数字", keyboardType:.numberPad)
+        weak var weakSelf = self
+        tempview.selectBlock = {
+            weakSelf?.showFarenBianGengLocaitonPop()
+        }
         return tempview
     }()
     
@@ -156,9 +169,13 @@ class SXALoanProductApplyController: DDBaseViewController {
         return tempview
     }()
     
-    fileprivate lazy var taxtQainStatusBaseView:SXAProductApplyTextFieldView = {
-        let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: false, name: "企业纳税欠缴情况", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+    fileprivate lazy var taxtQainStatusBaseView:SXAProductApplySelectView = {
+        let tempview = SXAProductApplySelectView()
+        tempview.setupDefaultView(showRed: false, name: "企业纳税欠缴情况", placeholder:"请选择", keyboardType:.default)
+        weak var weakSelf = self
+        tempview.selectBlock = {
+            weakSelf?.showQianShuiStausLocaitonPop()
+        }
         return tempview
     }()
     
@@ -173,9 +190,13 @@ class SXALoanProductApplyController: DDBaseViewController {
         tempview.setupDefaultView(showRed: false, name: "企业近一年应税销售额", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
         return tempview
     }()
-    fileprivate lazy var companyPiJiLevelBaseView:SXAProductApplyTextFieldView = {
-        let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: false, name: "企业纳税评级", placeholder:"请选择", keyboardType:.numberPad, rightText: "")
+    fileprivate lazy var companyPiJiLevelBaseView:SXAProductApplySelectView = {
+        let tempview = SXAProductApplySelectView()
+        tempview.setupDefaultView(showRed: false, name: "企业纳税评级", placeholder:"请选择", keyboardType:.default)
+        weak var weakSelf = self
+        tempview.selectBlock = {
+            weakSelf?.showTaxaiLevelLocaitonPop()
+        }
         return tempview
     }()
     
@@ -247,7 +268,7 @@ class SXALoanProductApplyController: DDBaseViewController {
         button.backgroundColor =  kTBlue
         button.setCorner(radius: 25)
         button.addTarget(self, action:#selector(doErDuLookAction), for: .touchUpInside)
-  
+        
         return button
     }()
     
@@ -281,6 +302,55 @@ class SXALoanProductApplyController: DDBaseViewController {
     
     @objc func doErDuLookAction() {
         print("提交======")
+    }
+    
+    fileprivate func showCompangyLocaitonPop() {
+        print("选择所在地====")
+        //FIXME
+    }
+    
+    fileprivate func showPeopleTypeLocaitonPop() {
+        print("申请人身份====")
+        let array = ["企业法人","个体工商户","公司股东"]
+        let pop = RPSheetMorePop(dataArray: array)
+        weak var weakSelf = self
+        pop.finishBlock = { (aIndex) in
+            weakSelf?.peopleTypeBaseView.textFiled.text = array[aIndex]
+        }
+        pop.show()
+    }
+    
+    fileprivate func showFarenBianGengLocaitonPop() {
+        print("法人变更发生时长===")
+        let array = ["无变更","1月内发生变更","6月内发生变更","9月内发生变更","12月内发生变更","24月内发生变更"]
+        let pop = RPSheetMorePop(dataArray: array)
+        weak var weakSelf = self
+        pop.finishBlock = { (aIndex) in
+            weakSelf?.faRenChangeBaseView.textFiled.text = array[aIndex]
+        }
+        pop.show()
+    }
+    
+    fileprivate func showQianShuiStausLocaitonPop() {
+        print("企业纳税欠缴情况===")
+        let array = ["无欠缴记录","3次以内欠缴记录","3~5次欠缴记录","5次以上欠缴记录"]
+        let pop = RPSheetMorePop(dataArray: array)
+        weak var weakSelf = self
+        pop.finishBlock = { (aIndex) in
+            weakSelf?.taxtQainStatusBaseView.textFiled.text = array[aIndex]
+        }
+        pop.show()
+    }
+    
+    fileprivate func showTaxaiLevelLocaitonPop() {
+        print("企业纳税评级===")
+        let array = ["A","B","C","D","M"]
+        let pop = RPSheetMorePop(dataArray: array)
+        weak var weakSelf = self
+        pop.finishBlock = { (aIndex) in
+            weakSelf?.companyPiJiLevelBaseView.textFiled.text = array[aIndex]
+        }
+        pop.show()
     }
     
     fileprivate func setupViews() {
