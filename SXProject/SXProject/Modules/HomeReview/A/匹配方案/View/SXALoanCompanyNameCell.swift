@@ -1,5 +1,5 @@
 //
-//  SXAMatchingProductsHeaderView.swift
+//  SXALoanCompanyNameCell.swift
 //  SXProject
 //
 //  Created by Felix on 2025/5/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SXAMatchingProductsHeaderView: UITableViewCell {
+class SXALoanCompanyNameCell: UITableViewCell {
 
     fileprivate lazy var companyIconImg:UIImageView = {
         let img = UIImageView()

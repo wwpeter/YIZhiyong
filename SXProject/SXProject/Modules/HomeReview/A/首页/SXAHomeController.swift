@@ -175,13 +175,13 @@ class SXAHomeController: DDBaseViewController {
     
     fileprivate lazy var hotProductsView:SXAHotProduceBannerView = {
         let tempView = SXAHotProduceBannerView()
-        tempView.updateCellWithArray(["add_top_icon","add_top_icon"]) //fixme
+        tempView.updateCellWithArray(["a_banner_img_1","a_banner_img_2","a_banner_img_3"]) //fixme
         return tempView
     }()
     
     fileprivate lazy var teachingView:SXATeachTalkBannerView = {
         let tempView = SXATeachTalkBannerView()
-        tempView.updateCellWithArray(["update_progress","add_top_icon","detail_icon"])//fixme
+        tempView.updateCellWithArray(["a_banner_img_4"])//fixme
         return tempView
     }()
         

@@ -20,8 +20,8 @@ class SXAMatchingProductsListController: DDBaseViewController {
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorInset = .zero
-        tableView.register(SXAMatchingProductsHeaderView.self, forCellReuseIdentifier: "SXAMatchingProductsHeaderView")
-        tableView.register(SXAMatchingProductDetailCell.self, forCellReuseIdentifier: "SXAMatchingProductDetailCell")
+        tableView.register(SXALoanCompanyNameCell.self, forCellReuseIdentifier: "SXALoanCompanyNameCell")
+        tableView.register(SXALoanCompanyProductListCell.self, forCellReuseIdentifier: "SXALoanCompanyProductListCell")
         let footherView = UIView(frame: CGRect(x: 0, y: 0, width: kSizeScreenWidth, height: 30))
         footherView.backgroundColor = UIColor.clear
         tableView.tableFooterView = footherView
@@ -78,7 +78,9 @@ class SXAMatchingProductsListController: DDBaseViewController {
     }
     
     fileprivate func pushToproductDetailController() {
-        
+        //fixme 去申请
+        let vc = SXALoanProductApplyController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -98,13 +100,13 @@ extension SXAMatchingProductsListController : UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SXAMatchingProductsHeaderView") as! SXAMatchingProductsHeaderView
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SXALoanCompanyNameCell") as! SXALoanCompanyNameCell
             cell.selectionStyle = .none
             return cell
         } else {
-            var cell = tableView.dequeueReusableCell(withIdentifier: "SXAMatchingProductDetailCell") as? SXAMatchingProductDetailCell
+            var cell = tableView.dequeueReusableCell(withIdentifier: "SXALoanCompanyProductListCell") as? SXALoanCompanyProductListCell
             if cell == nil {
-                cell = SXAMatchingProductDetailCell(style: .default, reuseIdentifier: "SXAMatchingProductDetailCell")
+                cell = SXALoanCompanyProductListCell(style: .default, reuseIdentifier: "SXALoanCompanyProductListCell")
             }
             cell?.selectionStyle = .none
             weak var weakSelf = self
@@ -113,5 +115,11 @@ extension SXAMatchingProductsListController : UITableViewDelegate, UITableViewDa
             }
             return cell!
         }        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let detailVC = SXALoanProductDetailController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

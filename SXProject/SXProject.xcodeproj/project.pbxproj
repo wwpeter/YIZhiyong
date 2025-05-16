@@ -304,11 +304,15 @@
 		DC5A61EF2DD48D6D00891C66 /* SXALoanDetailCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61EE2DD48D6D00891C66 /* SXALoanDetailCategoryView.swift */; };
 		DC5A61F12DD4933B00891C66 /* SXALoanCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61F02DD4933B00891C66 /* SXALoanCalculator.swift */; };
 		DCF956622DD705EA00730F34 /* SXAMatchingProductsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956612DD705EA00730F34 /* SXAMatchingProductsListController.swift */; };
-		DCF956652DD7068500730F34 /* SXAMatchingProductsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956642DD7068500730F34 /* SXAMatchingProductsHeaderView.swift */; };
-		DCF956672DD70DE900730F34 /* SXAMatchingProductDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956662DD70DE900730F34 /* SXAMatchingProductDetailCell.swift */; };
+		DCF956652DD7068500730F34 /* SXALoanCompanyNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956642DD7068500730F34 /* SXALoanCompanyNameCell.swift */; };
+		DCF956672DD70DE900730F34 /* SXALoanCompanyProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956662DD70DE900730F34 /* SXALoanCompanyProductListCell.swift */; };
 		DCF956692DD713C200730F34 /* SXAProductExplainRuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956682DD713C200730F34 /* SXAProductExplainRuleController.swift */; };
 		DCF9566B2DD7140500730F34 /* SXAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF9566A2DD7140500730F34 /* SXAModel.swift */; };
 		DCF9566D2DD714BB00730F34 /* SXAProductExplainRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF9566C2DD714BB00730F34 /* SXAProductExplainRuleCell.swift */; };
+		DCF9566F2DD717FB00730F34 /* SXALoanProductDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF9566E2DD717FB00730F34 /* SXALoanProductDetailController.swift */; };
+		DCF956712DD7196F00730F34 /* SXALoanProductsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956702DD7196F00730F34 /* SXALoanProductsDetailCell.swift */; };
+		DCF956732DD7237500730F34 /* DDAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956722DD7237500730F34 /* DDAlertView.swift */; };
+		DCF956752DD724FE00730F34 /* SXALoanProductApplyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956742DD724FE00730F34 /* SXALoanProductApplyController.swift */; };
 		E651EFD0B554C878259920AC /* Pods_SXProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD081578C4521ACC191FF78D /* Pods_SXProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -755,11 +759,15 @@
 		DC5A61EE2DD48D6D00891C66 /* SXALoanDetailCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanDetailCategoryView.swift; sourceTree = "<group>"; };
 		DC5A61F02DD4933B00891C66 /* SXALoanCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanCalculator.swift; sourceTree = "<group>"; };
 		DCF956612DD705EA00730F34 /* SXAMatchingProductsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAMatchingProductsListController.swift; sourceTree = "<group>"; };
-		DCF956642DD7068500730F34 /* SXAMatchingProductsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAMatchingProductsHeaderView.swift; sourceTree = "<group>"; };
-		DCF956662DD70DE900730F34 /* SXAMatchingProductDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAMatchingProductDetailCell.swift; sourceTree = "<group>"; };
+		DCF956642DD7068500730F34 /* SXALoanCompanyNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanCompanyNameCell.swift; sourceTree = "<group>"; };
+		DCF956662DD70DE900730F34 /* SXALoanCompanyProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanCompanyProductListCell.swift; sourceTree = "<group>"; };
 		DCF956682DD713C200730F34 /* SXAProductExplainRuleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAProductExplainRuleController.swift; sourceTree = "<group>"; };
 		DCF9566A2DD7140500730F34 /* SXAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAModel.swift; sourceTree = "<group>"; };
 		DCF9566C2DD714BB00730F34 /* SXAProductExplainRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAProductExplainRuleCell.swift; sourceTree = "<group>"; };
+		DCF9566E2DD717FB00730F34 /* SXALoanProductDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanProductDetailController.swift; sourceTree = "<group>"; };
+		DCF956702DD7196F00730F34 /* SXALoanProductsDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanProductsDetailCell.swift; sourceTree = "<group>"; };
+		DCF956722DD7237500730F34 /* DDAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAlertView.swift; sourceTree = "<group>"; };
+		DCF956742DD724FE00730F34 /* SXALoanProductApplyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanProductApplyController.swift; sourceTree = "<group>"; };
 		DD081578C4521ACC191FF78D /* Pods_SXProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SXProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA758B335689DB1F6CD3EFF0 /* Pods-SXProject-SXProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProject-SXProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-SXProject-SXProjectUITests/Pods-SXProject-SXProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FECA5ABCB81CA8FA95453BA1 /* Pods-SXProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-SXProjectTests/Pods-SXProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1898,6 +1906,7 @@
 			isa = PBXGroup;
 			children = (
 				DC5A61E22DD47F7700891C66 /* RPSheetMorePop.swift */,
+				DCF956722DD7237500730F34 /* DDAlertView.swift */,
 				DC5A61DC2DD4703600891C66 /* DDNavgationController.swift */,
 				DC5A61DD2DD4703600891C66 /* DDCustNavView.swift */,
 				DC5A61DE2DD4703600891C66 /* DDBaseViewController.swift */,
@@ -1952,6 +1961,8 @@
 				DCF956632DD7066F00730F34 /* View */,
 				DCF956612DD705EA00730F34 /* SXAMatchingProductsListController.swift */,
 				DCF956682DD713C200730F34 /* SXAProductExplainRuleController.swift */,
+				DCF9566E2DD717FB00730F34 /* SXALoanProductDetailController.swift */,
+				DCF956742DD724FE00730F34 /* SXALoanProductApplyController.swift */,
 			);
 			path = "匹配方案";
 			sourceTree = "<group>";
@@ -1959,9 +1970,10 @@
 		DCF956632DD7066F00730F34 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DCF956642DD7068500730F34 /* SXAMatchingProductsHeaderView.swift */,
-				DCF956662DD70DE900730F34 /* SXAMatchingProductDetailCell.swift */,
+				DCF956642DD7068500730F34 /* SXALoanCompanyNameCell.swift */,
+				DCF956662DD70DE900730F34 /* SXALoanCompanyProductListCell.swift */,
 				DCF9566C2DD714BB00730F34 /* SXAProductExplainRuleCell.swift */,
+				DCF956702DD7196F00730F34 /* SXALoanProductsDetailCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2269,7 +2281,7 @@
 				4AFF6BDF2B45115F008F8C7F /* TabBarController.swift in Sources */,
 				4AFF6ADE2B44165E008F8C7F /* ZlReachabilityTool.swift in Sources */,
 				4AFF6BE02B45115F008F8C7F /* BaseView.swift in Sources */,
-				DCF956672DD70DE900730F34 /* SXAMatchingProductDetailCell.swift in Sources */,
+				DCF956672DD70DE900730F34 /* SXALoanCompanyProductListCell.swift in Sources */,
 				4A6BF28E2DA4C97200BF3003 /* SelItemOtherCell.swift in Sources */,
 				4ACCDEFB2BFDDF1B002E9049 /* MessageController+Config.swift in Sources */,
 				4A4D96812D0FF3A300FA6E7A /* LoginVC.swift in Sources */,
@@ -2295,6 +2307,7 @@
 				4A8BE2D32BD61399005D466E /* BITFoundation_log.m in Sources */,
 				4AAC81E72BFF4985009F961E /* ConnectionAlertView.swift in Sources */,
 				4AA93FB52BF453BC00A6306D /* MyController+List.swift in Sources */,
+				DCF9566F2DD717FB00730F34 /* SXALoanProductDetailController.swift in Sources */,
 				4A46CAF52D5DF41E003D3020 /* EmptyBankCardView.swift in Sources */,
 				4A7828182D6B125C000D7E7C /* TopGuideView.swift in Sources */,
 				4A690F082D69D0BE00768DC6 /* UserAgreementView.swift in Sources */,
@@ -2417,6 +2430,7 @@
 				4A8BE3842BD65E9C005D466E /* UIView+HDCornerBorder.m in Sources */,
 				4A8BE2B82BD60B6C005D466E /* BGCommonScrollToolPanel.m in Sources */,
 				4A8BE3B32BDB4898005D466E /* CommonTool.swift in Sources */,
+				DCF956752DD724FE00730F34 /* SXALoanProductApplyController.swift in Sources */,
 				4A46CAEC2D5DE97C003D3020 /* BankAddCardVC.swift in Sources */,
 				4AFF6C092B452B2F008F8C7F /* AppDelegate+Config.swift in Sources */,
 				4A8BE35F2BD63711005D466E /* UINavigationController+Handler.m in Sources */,
@@ -2473,7 +2487,7 @@
 				4A690F062D69C69E00768DC6 /* LoginTopView.swift in Sources */,
 				4AFF6BC62B45115F008F8C7F /* UIApplicationExtensions.swift in Sources */,
 				4A5EA5432DCDF68300E40979 /* MonthlyPaymentVC.swift in Sources */,
-				DCF956652DD7068500730F34 /* SXAMatchingProductsHeaderView.swift in Sources */,
+				DCF956652DD7068500730F34 /* SXALoanCompanyNameCell.swift in Sources */,
 				4A5EA5442DCDF68300E40979 /* CreditLimitVC.swift in Sources */,
 				4A5EA5452DCDF68300E40979 /* HomePageVC.swift in Sources */,
 				DC5A61F12DD4933B00891C66 /* SXALoanCalculator.swift in Sources */,
@@ -2511,6 +2525,7 @@
 				4A8063312D97C1900013CB5B /* AddSubmitVC+List.swift in Sources */,
 				4AFF6BBD2B45115F008F8C7F /* UITabBarExtensions.swift in Sources */,
 				4A8BE3462BD63207005D466E /* WBCloudFaceNetManager.m in Sources */,
+				DCF956712DD7196F00730F34 /* SXALoanProductsDetailCell.swift in Sources */,
 				4A8BE28F2BD609AA005D466E /* BITCacheCenter.m in Sources */,
 				4A3C698E2B980D1C00C5F2A9 /* TestVC.swift in Sources */,
 				4A02BFB02D96869400E7DA98 /* BankListVC+Config.swift in Sources */,
@@ -2547,6 +2562,7 @@
 				4AFF6BD22B45115F008F8C7F /* ProviderConfigure.swift in Sources */,
 				4A8BE34D2BD63207005D466E /* UIButton+GradientBackgroundColor.m in Sources */,
 				4A8BE3372BD63207005D466E /* YXBTextFieldPattern.m in Sources */,
+				DCF956732DD7237500730F34 /* DDAlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

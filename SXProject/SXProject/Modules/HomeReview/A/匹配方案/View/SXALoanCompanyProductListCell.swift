@@ -1,5 +1,5 @@
 //
-//  SXAMatchingProductDetailCell.swift
+//  SXALoanCompanyProductListCell.swift
 //  SXProject
 //
 //  Created by Felix on 2025/5/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SXAMatchingProductDetailCell: UITableViewCell {
+class SXALoanCompanyProductListCell: UITableViewCell {
     
     public var applyBlock: (() -> Void)?
     
