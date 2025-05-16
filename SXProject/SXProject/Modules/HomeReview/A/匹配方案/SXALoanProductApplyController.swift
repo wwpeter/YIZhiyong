@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BRPickerView
 
 class SXALoanProductApplyController: DDBaseViewController {
     
@@ -307,6 +308,13 @@ class SXALoanProductApplyController: DDBaseViewController {
     fileprivate func showCompangyLocaitonPop() {
         print("选择所在地====")
         //FIXME
+        let picker = BRAddressPickerView(pickerMode: .area)
+        weak var weakSelf = self
+        picker.resultBlock =  {(province,city,area) in
+            weakSelf?.locationBaseView.textFiled.text = (province?.name ?? "") + (city?.name ?? "") + (area?.name ?? "")
+        }
+        picker.show()
+        
     }
     
     fileprivate func showPeopleTypeLocaitonPop() {
