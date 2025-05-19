@@ -278,8 +278,9 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     @objc func doFraudLookAction() {
         print("防诈指南======")
+        //fixme
         self.view.endEditing(true)
-        self.navigationController?.pushViewController(InterestRateVC(), animated: true)
+//        self.navigationController?.pushViewController(SXALoanProductApplyResultController(), animated: true)
     }
     
     

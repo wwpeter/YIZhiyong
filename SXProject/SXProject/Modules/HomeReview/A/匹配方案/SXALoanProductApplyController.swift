@@ -9,7 +9,7 @@ import UIKit
 import BRPickerView
 
 class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControllerDelegate {
-
+    
     var productModel = SXACompanyProductModel()
     var agree = false
     
@@ -20,6 +20,13 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         return tempView
     }()
     
+    fileprivate lazy var companyNameLabel:UILabel = {
+        let label1 = UILabel()
+        label1.font = DDSFont(13)
+        label1.textColor = kT333
+        return label1
+    }()
+    
     fileprivate lazy var companyPanl:UIView = {
         let tepView = UIView()
         
@@ -27,18 +34,15 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         img.image = DDSImage("a_compang_icon")
         tepView.addSubview(img)
         
-        let label1 = UILabel()
-        label1.text = "这里是企业名称这里是企业名称"
-        label1.font = DDSFont(13)
-        label1.textColor = kT333
-        tepView.addSubview(label1)
+
+        tepView.addSubview(companyNameLabel)
         
         img.snp.makeConstraints { make in
             make.left.equalTo(20)
             make.width.height.equalTo(20)
             make.top.equalTo(5)
         }
-        label1.snp.makeConstraints { make in
+        companyNameLabel.snp.makeConstraints { make in
             make.left.equalTo(img.snp.right).offset(5)
             make.centerY.equalTo(img)
         }
@@ -167,7 +171,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
     //========================
     fileprivate lazy var taxesLongTimeBaseView:SXAProductApplyTextFieldView = {
         let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: false, name: "企业连续纳税时长", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
+        tempview.setupDefaultView(showRed: false, name: "企业连续纳税时长", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "月")
         return tempview
     }()
     
@@ -292,8 +296,8 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         super.viewDidLoad()
         self.title = "提交申请"
         setupViews()
+        self.companyNameLabel.text = productModel.productName
     }
-    
     
     @objc
     func agreeClick(button: UIButton) {
@@ -319,18 +323,18 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         let companyCreateTime = companyMonthBaseView.textFiled.text ?? ""//企业成立时长
         let yearSaleString = yearSaleBaseView.textFiled.text ?? ""//企业近一年销售收入
         let sheBaoString = sheBaoBaseView.textFiled.text ?? ""//企业缴纳社保人数
-        let companyShiJiaoString = shiJiaoBaseView.textFiled.text ?? ""//企业注册资金实缴
-        let monthSaleString = monthSaleBaseView.textFiled.text ?? ""//月流水
-        let faRenBianGengString = faRenChangeBaseView.textFiled.text ?? ""//法人变更发生时长
+        let fundString = shiJiaoBaseView.textFiled.text ?? ""//企业注册资金实缴
+        let monthFlowString = monthSaleBaseView.textFiled.text ?? ""//月流水
+        let legalChange = faRenChangeBaseView.textFiled.text ?? ""//法人变更发生时长
         //2
-        let taxtLognTimeString = taxesLongTimeBaseView.textFiled.text ?? ""//企业连续纳税时长
-        let qingTaxtString = taxtQainStatusBaseView.textFiled.text ?? ""//企业纳税欠缴情况
-        let taxtAddYearString = taxdAddYearBaseView.textFiled.text ?? ""//企业近一年增值税纳税额
-        let yingSuiSaleString = comngYearSalesBaseView.textFiled.text ?? ""//企业近一年应税销售额
-        let comgpanyLevelString = companyPiJiLevelBaseView.textFiled.text ?? ""//企业纳税评级
-        let kaiPiaoTimeString = kaiPiaoTimeBaseView.textFiled.text ?? ""//企业连续开票时长
-        let kaiMonthInYearString = kaiPiaoMonthBaseView.textFiled.text ?? ""//近一年有效开票月份
-        let kaiYearSaleString = kaiPiaoEduBaseView.textFiled.text ?? ""//企业近一年开票额度
+        let taxesTime = taxesLongTimeBaseView.textFiled.text ?? ""//企业连续纳税时长
+        let qTaxes = taxtQainStatusBaseView.textFiled.text ?? ""//企业纳税欠缴情况
+        let zTaxes = taxdAddYearBaseView.textFiled.text ?? ""//企业近一年增值税纳税额
+        let yTaxes = comngYearSalesBaseView.textFiled.text ?? ""//企业近一年应税销售额
+        let pTaxes = companyPiJiLevelBaseView.textFiled.text ?? ""//企业纳税评级
+        let invoicing = kaiPiaoTimeBaseView.textFiled.text ?? ""//企业连续开票时长
+        let yInvoicing = kaiPiaoMonthBaseView.textFiled.text ?? ""//近一年有效开票月份
+        let taxes = kaiPiaoEduBaseView.textFiled.text ?? ""//企业近一年开票额度
         
         
         if nameString == "" {
@@ -353,20 +357,57 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
             Toast.showInfoMessage("请选择申请人身份")
             return
         }
-
-        //FIXME 接口
+                
+        var param = [String:Any]()
+        param["productId"] = productModel.productId
+        param["name"] = nameString
+        param["loan"] = loadMoneyString
+        param["age"] = ageString
+        param["address"] = locitonCityString
+        param["profession"] = peopleTypeString
+        param["ratio"] = zhanGuString
+        param["duration"] = companyCreateTime
+        param["people"] = sheBaoString
+        param["fund"] = fundString
+        param["flow"] = monthFlowString
+        param["legalChange"] = legalChange
         
+        param["taxesTime"] = taxesTime
+        param["qTaxes"] = qTaxes
+        param["zTaxes"] = zTaxes
+        param["yTaxes"] = yTaxes
+        param["pTaxes"] = pTaxes
+        param["invoicing"] = invoicing
+        param["yInvoicing"] = yInvoicing
+        param["taxes"] = taxes
+        
+        Toast.showWaiting()
+        NetworkRequestManager.sharedInstance().requestPath(kDoLoanProduct, withParam: param) { [weak self] result in
+            let dic = JSONHelper.exchangeDic(jsonStr: result)
+            Toast.closeWaiting()
+            print("查询========\(dic)")
+            //            if let code = dic["code"] as? Int {
+            //                if code == 1 {
+            //                } else {
+            ////                    Toast.showInfoMessage("该产品已下架")
+            //                }
+            //            }
+            
+            self?.pushToResultController()
+            
+        } failure: { error in
+            Toast.closeWaiting()
+        }
+        
+    }
+    
+    fileprivate func pushToResultController() {
+        let vc = SXALoanProductApplyResultController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     fileprivate func showCompangyLocaitonPop() {
         print("选择所在地====")
-        //FIXME
-//        let picker = BRAddressPickerView(pickerMode: .area)
-//        weak var weakSelf = self
-//        picker.resultBlock =  {(province,city,area) in
-//            weakSelf?.locationBaseView.textFiled.text = (province?.name ?? "") + (city?.name ?? "") + (area?.name ?? "")
-//        }
-//        picker.show()
         let configCity = JFCSConfiguration()
         let vc = JFCSTableViewController.init(configuration: configCity, delegate: self)
         self.navigationController?.pushViewController(vc, animated: true)
