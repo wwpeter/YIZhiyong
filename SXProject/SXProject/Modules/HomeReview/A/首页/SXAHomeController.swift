@@ -1,13 +1,13 @@
 //
 //  SXAHomeController.swift
-//  SXProject
+//  SXProject 15968359275
 //
 //  Created by Felix on 2025/5/14.
 //
 
 import UIKit
 
-class SXAHomeController: DDBaseViewController {
+class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     fileprivate lazy var mScollView:UIScrollView = {
         let tempView = UIScrollView()
@@ -62,8 +62,8 @@ class SXAHomeController: DDBaseViewController {
         iconImg.image = DDSImage("a_home_icon_3")
         tempView.addSubview(iconImg)
         
-        tempView.addSubview(companyTextFiled)
-        tempView.addSubview(personTextFiled)
+        tempView.addSubview(companyBaseView)
+        tempView.addSubview(personBaseView)
         tempView.addSubview(quotaLookButton)
         
         label.snp.makeConstraints { make in
@@ -83,25 +83,25 @@ class SXAHomeController: DDBaseViewController {
             make.bottom.equalTo(iconImg.snp.bottom).offset(15)
         }
         
-        companyTextFiled.snp.makeConstraints { make in
+        companyBaseView.snp.makeConstraints { make in
             make.left.equalTo(sxDynamic(20))
             make.right.equalTo(-sxDynamic(20))
             make.height.equalTo(44)
             make.top.equalTo(iconImg.snp.bottom).offset(30)
         }
         
-        personTextFiled.snp.makeConstraints { make in
+        personBaseView.snp.makeConstraints { make in
             make.left.equalTo(sxDynamic(20))
             make.right.equalTo(-sxDynamic(20))
             make.height.equalTo(44)
-            make.top.equalTo(companyTextFiled.snp.bottom).offset(10)
+            make.top.equalTo(companyBaseView.snp.bottom).offset(10)
         }
         
         quotaLookButton.snp.makeConstraints { make in
             make.left.equalTo(sxDynamic(20))
             make.right.equalTo(-sxDynamic(20))
             make.height.equalTo(42)
-            make.top.equalTo(personTextFiled.snp.bottom).offset(20)
+            make.top.equalTo(personBaseView.snp.bottom).offset(20)
             make.bottom.equalTo(-20)
         }
         
@@ -109,26 +109,77 @@ class SXAHomeController: DDBaseViewController {
         return tempView
     }()
     
+    fileprivate lazy var companyBaseView:UIView = {
+        let tempView = UIView()
+        tempView.backgroundColor = kBF8
+        tempView.setCorner(8)
+        tempView.addSubview(companyTextFiled)
+        companyTextFiled.snp.makeConstraints { make in
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
+            make.top.bottom.equalTo(0)
+        }
+        
+        return tempView
+    }()
     //企业
     fileprivate lazy var companyTextFiled:UITextField = {
         let textField = UITextField()
         textField.placeholder = "请输入企业名称"
         textField.font = DDSFont(13)
-        textField.borderStyle = .roundedRect
         textField.textColor = kT333
         textField.backgroundColor = kBF8
-        textField.layer.cornerRadius = 8
+        textField.delegate = self
+        textField.returnKeyType = .done
         return textField
     }()
     
+    //公司选择
+    fileprivate lazy var companyListView:SXAHomeCompanyListView = {
+        let tempView = SXAHomeCompanyListView()
+        tempView.layer.shadowColor = UIColor.init(white: 0, alpha: 0.3).cgColor
+        tempView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tempView.layer.shadowOpacity = 1
+        tempView.layer.shadowRadius = 5
+        return tempView
+    }()
+    
+    fileprivate lazy var personBaseView:UIView = {
+        let tempView = UIView()
+        tempView.backgroundColor = kBF8
+        tempView.setCorner(8)
+        tempView.addSubview(personTextFiled)
+        personTextFiled.snp.makeConstraints { make in
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
+            make.top.bottom.equalTo(0)
+        }
+        
+        let nextIcon = UIImageView()
+        nextIcon.image = DDSImage("iot_regist_right")
+        tempView.addSubview(nextIcon)
+        
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(choolseThePersonTypePop), for: .touchUpInside)
+        tempView.addSubview(button)
+        nextIcon.snp.makeConstraints { make in
+            make.right.equalTo(-15)
+            make.centerY.equalTo(tempView)
+            make.width.equalTo(6)
+            make.height.equalTo(10)
+        }
+        button.snp.makeConstraints { make in
+            make.left.right.top.bottom.equalTo(0)
+        }
+        
+        return tempView
+    }()
     //企业
     fileprivate lazy var personTextFiled:UITextField = {
         let textField = UITextField()
         textField.placeholder = "法人"
-        textField.borderStyle = .roundedRect
         textField.font = DDSFont(13)
         textField.textColor = kT333
-        textField.backgroundColor = kBF8
         return textField
     }()
     
@@ -140,7 +191,7 @@ class SXAHomeController: DDBaseViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.backgroundColor =  kTBlue
         button.layer.cornerRadius = 21
-//        button.clipsToBounds = true
+        //        button.clipsToBounds = true
         button.addTarget(self, action:#selector(doErDuLookAction), for: .touchUpInside)
         button.layer.shadowColor = UIColor(red: 0.35, green: 0.66, blue: 1, alpha: 0.5).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -191,7 +242,7 @@ class SXAHomeController: DDBaseViewController {
         }
         return tempView
     }()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -200,7 +251,21 @@ class SXAHomeController: DDBaseViewController {
     
     @objc func doErDuLookAction() {
         print("查看额度=======")
+        let companyName = self.companyTextFiled.text ?? ""
+        let personType = self.personTextFiled.text ?? ""
+        
+        if companyName == "" {
+            Toast.showInfoMessage("请输入企业名称")
+            return
+        }
+        
+        if personType == "" {
+            Toast.showInfoMessage("请选择申请人身份")
+            return
+        }
+        
         let vc = SXAMatchingProductsListController()
+        vc.companyName = self.companyTextFiled.text ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -213,12 +278,60 @@ class SXAHomeController: DDBaseViewController {
         print("防诈指南======")
         self.navigationController?.pushViewController(InterestRateVC(), animated: true)
     }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        matchTheCompanyList(textField.text ?? "")
+        return true
+    }
+    
+    fileprivate func matchTheCompanyList(_ name:String) {
+        let param = ["name": name]
+        NetworkRequestManager.sharedInstance().requestPath(kMatchCompanyName, withParam: param) { [weak self] result in
+            printLog(result)
+            
+            if let arr = JSONHelper.jsonArrayToModel(result, SXACompanyModel.self) as? [SXACompanyModel]{
+                print(arr)
+                self?.showCompanyListView(arr)
+            }
+        } failure: { error in
+        }
+        
+    }
+    
+    //选择公司
+    fileprivate func showCompanyListView(_ array:[SXACompanyModel]) {
+        self.view.endEditing(true)
+        self.view.addSubview(companyListView)
+        companyListView.snp.makeConstraints { make in
+            make.left.equalTo(companyBaseView)
+            make.right.equalTo(companyBaseView)
+            make.top.equalTo(companyBaseView.snp.bottom).offset(5)
+            make.height.equalTo(300)
+        }
+        companyListView.reloadViewWithArray(array)
+        weak var weakSelf = self
+        companyListView.selectBlock = { model in
+            weakSelf?.companyListView.removeFromSuperview()
+            weakSelf?.companyTextFiled.text = model.name
+        }
+    }
+    
+    @objc func choolseThePersonTypePop() {
+        let array = ["企业法人","个体工商户","公司股东"]
+        let pop = RPSheetMorePop(dataArray: array)
+        weak var weakSelf = self
+        pop.finishBlock = { (aIndex) in
+            weakSelf?.personTextFiled.text = array[aIndex]
+        }
+        pop.show()
+    }
 }
 
 extension SXAHomeController {
     
     fileprivate func setupDefatulViews() {
-//        navigationController?.navigationBar.isHidden = true
+        //        navigationController?.navigationBar.isHidden = true
         self.hideNavgationBar(isHide: true)
         let bgImg = UIImageView()
         bgImg.image = DDSImage("a_home_icon_1")
@@ -232,7 +345,7 @@ extension SXAHomeController {
         
         mScollView.addSubview(hotProductsView)
         mScollView.addSubview(teachingView)
-
+        
         bgImg.snp.makeConstraints { make in
             make.left.right.top.equalTo(0)
             make.height.equalTo(kSizeScreenWidth)

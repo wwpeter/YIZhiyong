@@ -9,6 +9,7 @@
 import UIKit
 
 class SXAMatchingProductsListController: DDBaseViewController {
+    var companyName = ""
     
     fileprivate lazy var mTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style:.plain)
@@ -46,6 +47,23 @@ class SXAMatchingProductsListController: DDBaseViewController {
         super.viewDidLoad()
         setupUI()
         //接口数据
+        matchTheCompanyList()
+    }
+    
+    fileprivate func matchTheCompanyList() {
+        
+        let param = ["name": companyName]
+            NetworkRequestManager.sharedInstance().requestPath(kMatchCompanyDetail, withParam: param) { [weak self] result in
+                printLog(result)
+                
+                if let arr = JSONHelper.jsonArrayToModel(result, SXACompanyModel.self) {
+                    print(arr)
+                }
+
+                
+            } failure: { error in
+            }
+        
     }
     
     @objc func pushToConstructionController() {

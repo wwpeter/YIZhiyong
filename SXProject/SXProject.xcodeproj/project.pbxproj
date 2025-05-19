@@ -304,6 +304,8 @@
 		DC5A61ED2DD48A9700891C66 /* SXALoanDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61EC2DD48A9700891C66 /* SXALoanDetailTitleCell.swift */; };
 		DC5A61EF2DD48D6D00891C66 /* SXALoanDetailCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61EE2DD48D6D00891C66 /* SXALoanDetailCategoryView.swift */; };
 		DC5A61F12DD4933B00891C66 /* SXALoanCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61F02DD4933B00891C66 /* SXALoanCalculator.swift */; };
+		DC839E422DDB054000820FF7 /* SXAHomeCompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC839E412DDB054000820FF7 /* SXAHomeCompanyListView.swift */; };
+		DC839E4D2DDB0C5000820FF7 /* SXAHomeCompanyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC839E4C2DDB0C5000820FF7 /* SXAHomeCompanyListCell.swift */; };
 		DCF956622DD705EA00730F34 /* SXAMatchingProductsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956612DD705EA00730F34 /* SXAMatchingProductsListController.swift */; };
 		DCF956652DD7068500730F34 /* SXALoanCompanyNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956642DD7068500730F34 /* SXALoanCompanyNameCell.swift */; };
 		DCF956672DD70DE900730F34 /* SXALoanCompanyProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF956662DD70DE900730F34 /* SXALoanCompanyProductListCell.swift */; };
@@ -762,6 +764,8 @@
 		DC5A61EC2DD48A9700891C66 /* SXALoanDetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanDetailTitleCell.swift; sourceTree = "<group>"; };
 		DC5A61EE2DD48D6D00891C66 /* SXALoanDetailCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanDetailCategoryView.swift; sourceTree = "<group>"; };
 		DC5A61F02DD4933B00891C66 /* SXALoanCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanCalculator.swift; sourceTree = "<group>"; };
+		DC839E412DDB054000820FF7 /* SXAHomeCompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAHomeCompanyListView.swift; sourceTree = "<group>"; };
+		DC839E4C2DDB0C5000820FF7 /* SXAHomeCompanyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAHomeCompanyListCell.swift; sourceTree = "<group>"; };
 		DCF956612DD705EA00730F34 /* SXAMatchingProductsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAMatchingProductsListController.swift; sourceTree = "<group>"; };
 		DCF956642DD7068500730F34 /* SXALoanCompanyNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanCompanyNameCell.swift; sourceTree = "<group>"; };
 		DCF956662DD70DE900730F34 /* SXALoanCompanyProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXALoanCompanyProductListCell.swift; sourceTree = "<group>"; };
@@ -1933,6 +1937,7 @@
 		DC5A61F22DD49CE400891C66 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				DC839E402DDB052300820FF7 /* View */,
 				DC5A61D02DD442A400891C66 /* SXAHomeController.swift */,
 				DC5A61D42DD4688700891C66 /* SXAHotProduceBannerView.swift */,
 				DC5A61D62DD46B1700891C66 /* SXATeachTalkBannerView.swift */,
@@ -1968,6 +1973,15 @@
 				DC5A61F02DD4933B00891C66 /* SXALoanCalculator.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		DC839E402DDB052300820FF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC839E412DDB054000820FF7 /* SXAHomeCompanyListView.swift */,
+				DC839E4C2DDB0C5000820FF7 /* SXAHomeCompanyListCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DCF956602DD705BB00730F34 /* 匹配方案 */ = {
@@ -2335,6 +2349,7 @@
 				4A8BE3B02BDB481E005D466E /* Person.swift in Sources */,
 				4AFF6BC12B45115F008F8C7F /* UIViewExtensions.swift in Sources */,
 				4AFF6BBA2B45115F008F8C7F /* FontStaye.swift in Sources */,
+				DC839E4D2DDB0C5000820FF7 /* SXAHomeCompanyListCell.swift in Sources */,
 				4A46CAD32D5DC845003D3020 /* ProtocolVC+List.swift in Sources */,
 				4A8BE33D2BD63207005D466E /* UIView+JHDrawCategory.m in Sources */,
 				4A8BE2CB2BD6123A005D466E /* BITLogMacro.m in Sources */,
@@ -2566,6 +2581,7 @@
 				4A2DF2ED2D954B23007EC0CD /* RequestFailView.swift in Sources */,
 				DCF9566D2DD714BB00730F34 /* SXAProductExplainRuleCell.swift in Sources */,
 				4A228D932B50D683005FD89B /* TestViewController.m in Sources */,
+				DC839E422DDB054000820FF7 /* SXAHomeCompanyListView.swift in Sources */,
 				DCF956622DD705EA00730F34 /* SXAMatchingProductsListController.swift in Sources */,
 				4AFF6BD62B45115F008F8C7F /* Protocols.swift in Sources */,
 				4A7502FC2D2BB5D700719B58 /* HomeTopView.swift in Sources */,

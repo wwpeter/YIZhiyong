@@ -20,3 +20,10 @@ class SXAProudectExplainModel {
     var title: String = ""
     var decrilbelText: String = ""
 }
+
+
+struct SXACompanyModel: HandyJSON {
+
+    var id = ""
+    var name = ""    
+}

@@ -32,7 +32,7 @@
 
 #define kPageSize  @"10"
 
-#define ENVIRONMENT 1 //  0－开发/1－正式
+#define ENVIRONMENT 0 //  0－开发/1－正式 fixme
 
 #if ENVIRONMENT == 0
 /* ************************  开发服务器接口地址  *********************************** */
