@@ -30,8 +30,8 @@
             filePath = "SXProject/Modules/HomeReview/A/&#x5339;&#x914d;&#x65b9;&#x6848;/SXALoanProductApplyController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -66,36 +66,6 @@
             endingLineNumber = "345"
             landmarkName = "fetchProductDetailData(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E818E008-9795-4FB1-AD8F-9435C1B0B97E - 1e4f8c93db7517a5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in SXProject.SXAHomeController.fetchProductDetailData(Swift.String) -&gt; ()"
-                  moduleName = "SXProject.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/felix/Desktop/YIZhiyong/SXProject/SXProject/Modules/HomeReview/A/%E9%A6%96%E9%A1%B5/SXAHomeController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "345"
-                  endingLineNumber = "345">
-               </Location>
-               <Location
-                  uuid = "E818E008-9795-4FB1-AD8F-9435C1B0B97E - 1e4f8c93db7517a5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in SXProject.SXAHomeController.fetchProductDetailData(Swift.String) -&gt; ()"
-                  moduleName = "SXProject.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/felix/Desktop/YIZhiyong/SXProject/SXProject/Modules/HomeReview/A/%E9%A6%96%E9%A1%B5/SXAHomeController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "345"
-                  endingLineNumber = "345">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

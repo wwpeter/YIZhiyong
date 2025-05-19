@@ -25,6 +25,12 @@ let kSignoutAgreement = "/yzyhome/agreement/signout/"
 ///个人信息共享授权协议
 let kAgreementShare = "/yzyhome/agreement/share/"
 
+//风险提示告知书
+let kLoanWarningNotice = "/yzyhome/agreement/privacy/" //fixme
+//个人信息授权收集使用说明》
+let kLoanPersonCollectionUrl = "/yzyhome/agreement/share/" //fixme
+
+
 /// 用户登录相关接口
 /// 根据手机验证码登录
 let kLogin = "/hht/h5/account/login"

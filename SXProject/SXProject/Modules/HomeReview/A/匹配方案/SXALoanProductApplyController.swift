@@ -7,6 +7,7 @@
 
 import UIKit
 import BRPickerView
+import ActiveLabel
 
 class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControllerDelegate {
     
@@ -280,10 +281,61 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         return but
     }()
     
-    private lazy var subLabel: UILabel = {
-        let label = CreateBaseView.makeLabel("我已阅读并同意《风险提示告知书》《个人信息授权收集使用说明》", UIFont.sx.font_t13, kT777, .center, 1)
-        label.numberOfLines = 0
-        return label
+//    private lazy var subLabel: UILabel = {
+//        let label = CreateBaseView.makeLabel("我已阅读并同意《风险提示告知书》《个人信息授权收集使用说明》", UIFont.sx.font_t13, kT777, .center, 1)
+//        label.numberOfLines = 0
+//        return label
+//    }()
+//    
+    private lazy var subLabel: ActiveLabel = {
+        let protocolLab = ActiveLabel()
+        
+        protocolLab.isUserInteractionEnabled = true
+   
+        let serviceAgreement = ActiveType.custom(pattern: "《风险提示告知书》")
+        let privacyPolicy = ActiveType.custom(pattern: "《个人信息授权收集使用说明》".sx_T)
+
+        protocolLab.enabledTypes.append(serviceAgreement)
+        protocolLab.enabledTypes.append(privacyPolicy)
+        
+        protocolLab.enabledTypes = [.mention, .hashtag, .url, privacyPolicy, serviceAgreement]
+//        protocolLab.enabledTypes = [serviceAgreement, privacyPolicy]
+        protocolLab.text = String.init(format: "我已阅读并同意《风险提示告知书》和《个人信息授权收集使用说明》")
+        protocolLab.textColor = kT333
+        protocolLab.numberOfLines = 0
+        protocolLab.lineSpacing = 4
+        protocolLab.font = UIFont.sx.font_t13
+//        protocolLab.enabledTypes = [.url] // 设置需要激活的文本类型.mention, .hashtag,
+
+        protocolLab.customColor[serviceAgreement] = kTBlue
+        protocolLab.customColor[privacyPolicy] = kTBlue
+
+        protocolLab.handleCustomTap(for: serviceAgreement) { _ in
+            //fixme
+            printLog("风险提示告知书")
+            let alertView = SXAProductLoanAgreementView()
+            alertView.loadWebView(privacy: false)
+            alertView.agreeBlock = { [weak self] agree in
+                self?.agree = agree
+                self?.selectedBut.isSelected = self!.agree
+            }
+            
+            alertView.show()
+    
+        }
+        protocolLab.handleCustomTap(for: privacyPolicy) { _ in
+            print("个人信息授权收集使用说明====")
+            let alertView = SXAProductLoanAgreementView()
+            alertView.loadWebView(privacy: true)
+            alertView.agreeBlock = { [weak self] agree in
+                self?.agree = agree
+                self?.selectedBut.isSelected = self!.agree
+            }
+            
+            alertView.show()
+        }
+        
+        return protocolLab
     }()
     
     override func viewDidLoad() {
