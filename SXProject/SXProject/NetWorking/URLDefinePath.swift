@@ -79,6 +79,9 @@ let kQueryListByType = "/hht/dictionary/queryListByType"
 
 ///查询企业名称列表
 let kMatchCompanyName = "/hht/mjb/queryCompanyNameList"
-
 ///查询匹配方案
 let kMatchCompanyDetail = "/hht/mjb/matchInfo"
+///查询产品状态
+let kMatchTheProcutStatus = "/hht/mjb/productStatus"
+//提交匹配
+let kDoLoanProduct = "/hht/mjb/match"

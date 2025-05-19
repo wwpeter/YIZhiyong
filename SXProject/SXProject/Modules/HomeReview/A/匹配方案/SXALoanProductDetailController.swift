@@ -97,6 +97,26 @@ class SXALoanProductDetailController: DDBaseViewController {
     
     @objc func applyButtonAction() {
         print("立即申请====")
+        let param = ["productId": productModel.productId]
+        Toast.showWaiting()
+        NetworkRequestManager.sharedInstance().requestPath(kMatchTheProcutStatus, withParam: param) { [weak self] result in
+            let dic = JSONHelper.exchangeDic(jsonStr: result)
+            Toast.closeWaiting()
+            print("查询========\(dic)")
+            if let code = dic["code"] as? Int {
+                if code == 1 {
+                    self?.pushToLoanProductController()
+                } else {
+                    Toast.showInfoMessage("该产品已下架")
+                }
+            }
+            
+        } failure: { error in
+            Toast.closeWaiting()
+        }
+    }
+    
+    fileprivate func pushToLoanProductController() {
         let vc = SXALoanProductApplyController()
         vc.productModel = productModel
         self.navigationController?.pushViewController(vc, animated: true)

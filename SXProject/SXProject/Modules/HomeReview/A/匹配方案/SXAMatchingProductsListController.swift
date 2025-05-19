@@ -102,10 +102,31 @@ class SXAMatchingProductsListController: DDBaseViewController {
     
     fileprivate func pushToproductDetailController(_ model:SXACompanyProductModel) {
         //去申请
+        let param = ["productId": model.productId]
+        Toast.showWaiting()
+        NetworkRequestManager.sharedInstance().requestPath(kMatchTheProcutStatus, withParam: param) { [weak self] result in
+            let dic = JSONHelper.exchangeDic(jsonStr: result)
+            Toast.closeWaiting()
+            print("查询========\(dic)")
+            if let code = dic["code"] as? Int {
+                if code == 1 {
+                    self?.pushToLoanProductController(model)
+                } else {
+                    Toast.showInfoMessage("该产品已下架")
+                }
+            }
+            
+        } failure: { error in
+            Toast.closeWaiting()
+        }
+    }
+    
+    fileprivate func pushToLoanProductController(_ model:SXACompanyProductModel) {
         let vc = SXALoanProductApplyController()
         vc.productModel = model
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 
 extension SXAMatchingProductsListController : UITableViewDelegate, UITableViewDataSource {
