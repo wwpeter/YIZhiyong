@@ -51,7 +51,7 @@ NSString * AFPercentEscapedStringFromString(NSString *string) {
     NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
     [allowedCharacterSet removeCharactersInString:[kAFCharactersGeneralDelimitersToEncode stringByAppendingString:kAFCharactersSubDelimitersToEncode]];
 
-	// FIXME: https://github.com/AFNetworking/AFNetworking/pull/3028
+	// : https://github.com/AFNetworking/AFNetworking/pull/3028
     // return [string stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
 
     static NSUInteger const batchSize = 50;

@@ -17,7 +17,7 @@ enum FieldDescriptorKind : UInt16 {
     // Fixed-size multi-payload enums have a special descriptor format that
     // encodes spare bits.
     //
-    // FIXME: Actually implement this. For now, a descriptor with this kind
+    // : Actually implement this. For now, a descriptor with this kind
     // just means we also have a builtin descriptor from which we get the
     // size and alignment.
     case MultiPayloadEnum

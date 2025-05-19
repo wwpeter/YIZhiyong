@@ -100,10 +100,6 @@ extension SXATeachTalkBannerView : JXBannerDataSource,JXBannerDelegate {
         tempCell.clipsToBounds = true
         tempCell.imageView.contentMode = .scaleAspectFill
         let model = self.bannerDataArray[index]
-        //fixme
-//        if let url = URL(string: model) {
-//            tempCell.imageView.kf.setImage(with: url, placeholder: nil, options: nil)
-//        }
         tempCell.imageView.image = DDSImage(model)
         return tempCell
     }

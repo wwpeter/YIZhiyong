@@ -143,7 +143,6 @@ class SXALoanProductDetailController: DDBaseViewController {
     }
     
     fileprivate func addTextString() {
-        //fixme
         dataArray.removeAll()
         if productModel.access != "" {
             do {

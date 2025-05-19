@@ -346,7 +346,7 @@ open class ImageDownloader: @unchecked Sendable {
         }
         
         // Modifies request before sending.
-        // FIXME: A temporary solution for keep the sync `ImageDownloadRequestModifier` behavior as before.
+        // : A temporary solution for keep the sync `ImageDownloadRequestModifier` behavior as before.
         // We should be able to combine two cases once the full async support can be introduced to Kingfisher.
         if let m = requestModifier as? any ImageDownloadRequestModifier {
             guard let result = m.modified(for: request) else {

@@ -252,7 +252,7 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData>))constructingBlock
                                                         } else {
                                                             NSError *anotherError = error;
                                                             if (!(requestApi.needNotShowErrorMessage)) {
-//                                                                [[BITNoticeView currentNotice] showErrorNotice:anotherError.domain]; //fixme
+                                                                [[BITNoticeView currentNotice] showErrorNotice:anotherError.domain];
 //                                                                anotherError = [NSError errorWithDomain:@"" code:error.code userInfo:error.userInfo];
                                                             }
                                                             failureBlock(anotherError);
@@ -264,7 +264,7 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData>))constructingBlock
                     }
                     NSError *anotherError = error;
                     if (!(requestApi.needNotShowErrorMessage)) {
-//                        [[BITNoticeView currentNotice] showErrorNotice:anotherError.domain]; //fixme
+//                        [[BITNoticeView currentNotice] showErrorNotice:anotherError.domain];
 //                        anotherError = [NSError errorWithDomain:@"" code:error.code userInfo:error.userInfo];
                     }
                     failureBlock(anotherError);

@@ -48,8 +48,6 @@ class SXASXALoanCalculatorDetailController: DDBaseViewController {
         return tableView
     }()
     
-    
-    fileprivate var monthDay = 10 //fixme remove
     fileprivate var dataArray = [SXALoadPaymentDetailModel]()
     
     override func viewDidLoad() {
