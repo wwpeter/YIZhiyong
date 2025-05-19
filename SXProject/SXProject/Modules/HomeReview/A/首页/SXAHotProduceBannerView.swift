@@ -17,9 +17,9 @@ public let DD_DYNIMICA_BANNER_HEIGHT : CGFloat = sxDynamic(80)
 class SXAHotProduceBannerView: UIView {
     
     fileprivate var pageCount = 0
-    fileprivate var bannerDataArray = [String]()
-    public var jumpBlock: ((_ jumpUrl:String) -> Void)?
-
+    fileprivate var bannerDataArray = [SXABannerModel]()
+    public var jumpBlock: ((_ productId:String) -> Void)?
+    
     fileprivate lazy var titleLabel:UILabel = {
         let label = UILabel()
         label.text = "爆款产品"
@@ -42,14 +42,44 @@ class SXAHotProduceBannerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpViews()
+        updateCellWithArray()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateCellWithArray(_ array:[String]) {
-        bannerDataArray = array
+    func updateCellWithArray() {
+        
+        
+        bannerDataArray.removeAll()
+        
+        do {
+            let model = SXABannerModel()
+            model.img = "a_banner_img_1"
+            model.name = "苏宁微商贷"
+            model.productId = "5"
+            bannerDataArray.append(model)
+        }
+        
+        do {
+            let model = SXABannerModel()
+            model.img = "a_banner_img_3"
+            model.name = "金城-金企贷"
+            model.productId = "2"
+            bannerDataArray.append(model)
+        }
+        
+        
+        do {
+            let model = SXABannerModel()
+            model.img = "a_banner_img_2"
+            model.name = "浦发银行-浦金贷"
+            model.productId = "4"
+            bannerDataArray.append(model)
+        }
+        
+        
         pageCount = bannerDataArray.count
         linearBanner.reloadView()
         linearBanner.scrollToIndex(0, animated: false)
@@ -86,7 +116,7 @@ extension SXAHotProduceBannerView : JXBannerDataSource,JXBannerDelegate {
         print("点击===\(index)")
         let model = self.bannerDataArray[index]
         if jumpBlock != nil {
-            jumpBlock!(model)
+            jumpBlock!(model.productId)
         }
     }
     
@@ -103,11 +133,7 @@ extension SXAHotProduceBannerView : JXBannerDataSource,JXBannerDelegate {
         tempCell.clipsToBounds = true
         tempCell.imageView.contentMode = .scaleAspectFill
         let model = self.bannerDataArray[index]
-        //fixme
-//        if let url = URL(string: model) {
-//            tempCell.imageView.kf.setImage(with: url, placeholder: nil, options: nil)
-//        }
-        tempCell.imageView.image = DDSImage(model)
+        tempCell.imageView.image = DDSImage(model.img)
         return tempCell
     }
     

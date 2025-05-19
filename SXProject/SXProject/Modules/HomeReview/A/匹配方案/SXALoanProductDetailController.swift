@@ -123,7 +123,7 @@ class SXALoanProductDetailController: DDBaseViewController {
     }
     
     private func setupUI() {
-        self.title = "产品名称"
+        self.title = self.productModel.productName
         self.view.backgroundColor = .white
         
         self.view.addSubview(mTableView)

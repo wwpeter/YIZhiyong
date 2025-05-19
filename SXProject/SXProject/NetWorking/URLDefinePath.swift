@@ -85,3 +85,5 @@ let kMatchCompanyDetail = "/hht/mjb/matchInfo"
 let kMatchTheProcutStatus = "/hht/mjb/productStatus"
 //提交匹配
 let kDoLoanProduct = "/hht/mjb/match"
+//产品详情
+let kMatchTheProcutDetail = "/hht/mjb/queryProductList"

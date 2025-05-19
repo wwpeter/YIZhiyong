@@ -21,6 +21,14 @@ class SXAProudectExplainModel {
     var decrilbelText: String = ""
 }
 
+class SXABannerModel {
+//    5苏宁微商贷2金城-金企贷4浦发银行-浦金贷
+    var img: String = ""
+    var name: String = ""
+    var productId = ""
+}
+
+
 
 struct SXACompanyModel: HandyJSON {
     var id = ""

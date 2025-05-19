@@ -226,7 +226,10 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     fileprivate lazy var hotProductsView:SXAHotProduceBannerView = {
         let tempView = SXAHotProduceBannerView()
-        tempView.updateCellWithArray(["a_banner_img_1","a_banner_img_2","a_banner_img_3"]) //fixme
+        weak var weakSelf = self
+        tempView.jumpBlock = { (productId) in
+            weakSelf?.fetchProductDetailData(productId)
+        }
         return tempView
     }()
     
@@ -278,11 +281,10 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     @objc func doFraudLookAction() {
         print("防诈指南======")
-        //fixme
         self.view.endEditing(true)
-//        self.navigationController?.pushViewController(SXALoanProductApplyResultController(), animated: true)
+        let vc = CheaterGuideBV()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         matchTheCompanyList(textField.text ?? "")
@@ -330,6 +332,34 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
             weakSelf?.personTextFiled.text = array[aIndex]
         }
         pop.show()
+    }
+    
+    //去热门产品
+    fileprivate func fetchProductDetailData(_ productId:String) {
+        let vc = SXALoanProductDetailController()
+        let param = ["productId": kMatchTheProcutDetail]
+        Toast.showWaiting()
+        NetworkRequestManager.sharedInstance().requestPath(kMatchTheProcutStatus, withParam: param) { [weak self] result in
+            Toast.closeWaiting()
+            if let model = JSONHelper.jsonToModel(result, SXACompanyProductModel.self) as? SXACompanyProductModel {
+                if model.status ==  "00" {
+                    self?.pushToProductDetailController(model)
+
+                } else {
+                    Toast.showInfoMessage("该产品已下架")
+                }
+            }
+            
+        } failure: { error in
+//            Toast.closeWaiting()
+        }
+        
+    }
+    
+    fileprivate func pushToProductDetailController(_ product:SXACompanyProductModel) {
+        let vc = SXALoanProductDetailController()
+        vc.productModel = product
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

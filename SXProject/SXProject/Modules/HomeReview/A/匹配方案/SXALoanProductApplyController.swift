@@ -134,12 +134,6 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         return tempview
     }()
     
-    fileprivate lazy var yearSaleBaseView:SXAProductApplyTextFieldView = {
-        let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: false, name: "企业近一年销售收入", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
-        return tempview
-    }()
-    
     fileprivate lazy var sheBaoBaseView:SXAProductApplyTextFieldView = {
         let tempview = SXAProductApplyTextFieldView()
         tempview.setupDefaultView(showRed: false, name: "企业缴纳社保人数", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "人")
@@ -319,10 +313,9 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         let ageString = ageBaseView.textFiled.text ?? ""//申请人年龄
         let locitonCityString = locationBaseView.textFiled.text ?? ""//企业所在地
         let peopleTypeString = peopleTypeBaseView.textFiled.text ?? ""//申请人身份
-        let zhanGuString = guBiLiBaseView.textFiled.text ?? ""//占股比例
-        let companyCreateTime = companyMonthBaseView.textFiled.text ?? ""//企业成立时长
-        let yearSaleString = yearSaleBaseView.textFiled.text ?? ""//企业近一年销售收入
-        let sheBaoString = sheBaoBaseView.textFiled.text ?? ""//企业缴纳社保人数
+        let ratioString = guBiLiBaseView.textFiled.text ?? ""//占股比例
+        let durationString = companyMonthBaseView.textFiled.text ?? ""//企业成立时长
+        let peopleCount = sheBaoBaseView.textFiled.text ?? ""//企业缴纳社保人数
         let fundString = shiJiaoBaseView.textFiled.text ?? ""//企业注册资金实缴
         let monthFlowString = monthSaleBaseView.textFiled.text ?? ""//月流水
         let legalChange = faRenChangeBaseView.textFiled.text ?? ""//法人变更发生时长
@@ -365,9 +358,9 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         param["age"] = ageString
         param["address"] = locitonCityString
         param["profession"] = peopleTypeString
-        param["ratio"] = zhanGuString
-        param["duration"] = companyCreateTime
-        param["people"] = sheBaoString
+        param["ratio"] = ratioString
+        param["duration"] = durationString
+        param["people"] = peopleCount
         param["fund"] = fundString
         param["flow"] = monthFlowString
         param["legalChange"] = legalChange
@@ -408,10 +401,10 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
     
     fileprivate func showCompangyLocaitonPop() {
         print("选择所在地====")
+        self.view.endEditing(true)
         let configCity = JFCSConfiguration()
         let vc = JFCSTableViewController.init(configuration: configCity, delegate: self)
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     func viewController(_ viewController: JFCSTableViewController, didSelectCity model: JFCSBaseInfoModel) {
@@ -421,6 +414,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
     
     fileprivate func showPeopleTypeLocaitonPop() {
         print("申请人身份====")
+        self.view.endEditing(true)
         let array = ["企业法人","个体工商户","公司股东"]
         let pop = RPSheetMorePop(dataArray: array)
         weak var weakSelf = self
@@ -432,6 +426,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
     
     fileprivate func showFarenBianGengLocaitonPop() {
         print("法人变更发生时长===")
+        self.view.endEditing(true)
         let array = ["无变更","1月内发生变更","6月内发生变更","9月内发生变更","12月内发生变更","24月内发生变更"]
         let pop = RPSheetMorePop(dataArray: array)
         weak var weakSelf = self
@@ -443,6 +438,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
     
     fileprivate func showQianShuiStausLocaitonPop() {
         print("企业纳税欠缴情况===")
+        self.view.endEditing(true)
         let array = ["无欠缴记录","3次以内欠缴记录","3~5次欠缴记录","5次以上欠缴记录"]
         let pop = RPSheetMorePop(dataArray: array)
         weak var weakSelf = self
@@ -454,6 +450,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
     
     fileprivate func showTaxaiLevelLocaitonPop() {
         print("企业纳税评级===")
+        self.view.endEditing(true)
         let array = ["A","B","C","D","M"]
         let pop = RPSheetMorePop(dataArray: array)
         weak var weakSelf = self
@@ -503,7 +500,6 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         topPanl.addSubview(peopleTypeBaseView)
         topPanl.addSubview(guBiLiBaseView)
         topPanl.addSubview(companyMonthBaseView)
-        topPanl.addSubview(yearSaleBaseView)
         topPanl.addSubview(sheBaoBaseView)
         topPanl.addSubview(shiJiaoBaseView)
         topPanl.addSubview(monthSaleBaseView)
@@ -537,13 +533,9 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
             make.left.right.equalTo(0)
             make.top.equalTo(guBiLiBaseView.snp.bottom)
         }
-        yearSaleBaseView.snp.makeConstraints { make in
-            make.left.right.equalTo(0)
-            make.top.equalTo(companyMonthBaseView.snp.bottom)
-        }
         sheBaoBaseView.snp.makeConstraints { make in
             make.left.right.equalTo(0)
-            make.top.equalTo(yearSaleBaseView.snp.bottom)
+            make.top.equalTo(companyMonthBaseView.snp.bottom)
         }
         shiJiaoBaseView.snp.makeConstraints { make in
             make.left.right.equalTo(0)
