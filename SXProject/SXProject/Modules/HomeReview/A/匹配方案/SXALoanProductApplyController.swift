@@ -8,7 +8,8 @@
 import UIKit
 import BRPickerView
 
-class SXALoanProductApplyController: DDBaseViewController {
+class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControllerDelegate {
+
     
     var agree = false
     
@@ -303,18 +304,78 @@ class SXALoanProductApplyController: DDBaseViewController {
     
     @objc func doErDuLookAction() {
         print("提交======")
+        if !agree {
+            Toast.showInfoMessage("请同意相关协议")
+            return
+        }
+        
+        //1
+        let nameString = nameBaseView.textFiled.text ?? ""//您的名称
+        let loadMoneyString = loadMoneyBaseView.textFiled.text ?? ""//金额
+        let ageString = ageBaseView.textFiled.text ?? ""//申请人年龄
+        let locitonCityString = locationBaseView.textFiled.text ?? ""//企业所在地
+        let peopleTypeString = peopleTypeBaseView.textFiled.text ?? ""//申请人身份
+        let zhanGuString = guBiLiBaseView.textFiled.text ?? ""//占股比例
+        let companyCreateTime = companyMonthBaseView.textFiled.text ?? ""//企业成立时长
+        let yearSaleString = yearSaleBaseView.textFiled.text ?? ""//企业近一年销售收入
+        let sheBaoString = sheBaoBaseView.textFiled.text ?? ""//企业缴纳社保人数
+        let companyShiJiaoString = shiJiaoBaseView.textFiled.text ?? ""//企业注册资金实缴
+        let monthSaleString = monthSaleBaseView.textFiled.text ?? ""//月流水
+        let faRenBianGengString = faRenChangeBaseView.textFiled.text ?? ""//法人变更发生时长
+        //2
+        let taxtLognTimeString = taxesLongTimeBaseView.textFiled.text ?? ""//企业连续纳税时长
+        let qingTaxtString = taxtQainStatusBaseView.textFiled.text ?? ""//企业纳税欠缴情况
+        let taxtAddYearString = taxdAddYearBaseView.textFiled.text ?? ""//企业近一年增值税纳税额
+        let yingSuiSaleString = comngYearSalesBaseView.textFiled.text ?? ""//企业近一年应税销售额
+        let comgpanyLevelString = companyPiJiLevelBaseView.textFiled.text ?? ""//企业纳税评级
+        let kaiPiaoTimeString = kaiPiaoTimeBaseView.textFiled.text ?? ""//企业连续开票时长
+        let kaiMonthInYearString = kaiPiaoMonthBaseView.textFiled.text ?? ""//近一年有效开票月份
+        let kaiYearSaleString = kaiPiaoEduBaseView.textFiled.text ?? ""//企业近一年开票额度
+        
+        
+        if nameString == "" {
+            Toast.showInfoMessage("请输入您的名称")
+            return
+        }
+        if loadMoneyString == "" {
+            Toast.showInfoMessage("请输入您的借款金额")
+            return
+        }
+        if ageString == "" {
+            Toast.showInfoMessage("请输入您的年龄")
+            return
+        }
+        if locitonCityString == "" {
+            Toast.showInfoMessage("请选择企业所在地")
+            return
+        }
+        if peopleTypeString == "" {
+            Toast.showInfoMessage("请选择申请人身份")
+            return
+        }
+
+        //FIXME 接口
+        
     }
     
     fileprivate func showCompangyLocaitonPop() {
         print("选择所在地====")
         //FIXME
-        let picker = BRAddressPickerView(pickerMode: .area)
-        weak var weakSelf = self
-        picker.resultBlock =  {(province,city,area) in
-            weakSelf?.locationBaseView.textFiled.text = (province?.name ?? "") + (city?.name ?? "") + (area?.name ?? "")
-        }
-        picker.show()
+//        let picker = BRAddressPickerView(pickerMode: .area)
+//        weak var weakSelf = self
+//        picker.resultBlock =  {(province,city,area) in
+//            weakSelf?.locationBaseView.textFiled.text = (province?.name ?? "") + (city?.name ?? "") + (area?.name ?? "")
+//        }
+//        picker.show()
+        let configCity = JFCSConfiguration()
+        let vc = JFCSTableViewController.init(configuration: configCity, delegate: self)
+        self.navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    func viewController(_ viewController: JFCSTableViewController, didSelectCity model: JFCSBaseInfoModel) {
+        let city = String.init(format: "%@", model.name)//[NSString stringWithFormat:@"%@",[model yy_modelDescription]];
+        self.locationBaseView.textFiled.text = city
     }
     
     fileprivate func showPeopleTypeLocaitonPop() {
