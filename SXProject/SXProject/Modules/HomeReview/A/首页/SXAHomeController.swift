@@ -181,7 +181,14 @@ class SXAHomeController: DDBaseViewController {
     
     fileprivate lazy var teachingView:SXATeachTalkBannerView = {
         let tempView = SXATeachTalkBannerView()
-        tempView.updateCellWithArray(["a_banner_img_4"])//fixme
+        tempView.updateCellWithArray(["a_banner_img_4"])
+        weak var weakSelf = self
+        tempView.jumpBlock = { text in
+            if text == "a_banner_img_4" {
+                weakSelf?.navigationController?.pushViewController(SXADisabuseQuestionController(), animated: true)
+            }
+            
+        }
         return tempView
     }()
         

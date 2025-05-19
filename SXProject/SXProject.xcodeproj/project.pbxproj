@@ -288,6 +288,7 @@
 		4AFF6C052B452ACF008F8C7F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF6C042B452ACF008F8C7F /* UserInfo.swift */; };
 		4AFF6C082B452B2F008F8C7F /* AppDelegate+Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF6C062B452B2F008F8C7F /* AppDelegate+Jump.swift */; };
 		4AFF6C092B452B2F008F8C7F /* AppDelegate+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF6C072B452B2F008F8C7F /* AppDelegate+Config.swift */; };
+		DC2EBAB42DDAD4A80041B57C /* SXADisabuseQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2EBAB32DDAD4A80041B57C /* SXADisabuseQuestionController.swift */; };
 		DC5A61D12DD442A400891C66 /* SXAHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61D02DD442A400891C66 /* SXAHomeController.swift */; };
 		DC5A61D52DD4688700891C66 /* SXAHotProduceBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61D42DD4688700891C66 /* SXAHotProduceBannerView.swift */; };
 		DC5A61D72DD46B1700891C66 /* SXATeachTalkBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5A61D62DD46B1700891C66 /* SXATeachTalkBannerView.swift */; };
@@ -745,6 +746,7 @@
 		C42453A320724EAD671F635F /* Pods-SXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProject.debug.xcconfig"; path = "Target Support Files/Pods-SXProject/Pods-SXProject.debug.xcconfig"; sourceTree = "<group>"; };
 		C6398BFBEE0023EEF6593D15 /* Pods-SXProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProject.release.xcconfig"; path = "Target Support Files/Pods-SXProject/Pods-SXProject.release.xcconfig"; sourceTree = "<group>"; };
 		D74BABA72749495027A5FE55 /* Pods-SXProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SXProjectTests.release.xcconfig"; path = "Target Support Files/Pods-SXProjectTests/Pods-SXProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		DC2EBAB32DDAD4A80041B57C /* SXADisabuseQuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXADisabuseQuestionController.swift; sourceTree = "<group>"; };
 		DC5A61D02DD442A400891C66 /* SXAHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAHomeController.swift; sourceTree = "<group>"; };
 		DC5A61D42DD4688700891C66 /* SXAHotProduceBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXAHotProduceBannerView.swift; sourceTree = "<group>"; };
 		DC5A61D62DD46B1700891C66 /* SXATeachTalkBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXATeachTalkBannerView.swift; sourceTree = "<group>"; };
@@ -1895,12 +1897,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DC2EBAB22DDAD4800041B57C /* 疑惑小课堂 */ = {
+			isa = PBXGroup;
+			children = (
+				DC2EBAB32DDAD4A80041B57C /* SXADisabuseQuestionController.swift */,
+			);
+			path = "疑惑小课堂";
+			sourceTree = "<group>";
+		};
 		DC5A61D82DD46D7F00891C66 /* A */ = {
 			isa = PBXGroup;
 			children = (
 				DC5A61DB2DD4702800891C66 /* Base */,
 				DC5A61F22DD49CE400891C66 /* 首页 */,
 				DCF956602DD705BB00730F34 /* 匹配方案 */,
+				DC2EBAB22DDAD4800041B57C /* 疑惑小课堂 */,
 				DC5A61F32DD49CF600891C66 /* 房贷计算器 */,
 			);
 			path = A;
@@ -2541,6 +2552,7 @@
 				4A8BE3812BD65DB8005D466E /* RequestConfigManager.m in Sources */,
 				4A46CAF92D5DFB98003D3020 /* AddCardListCell.swift in Sources */,
 				4A8BE34E2BD63207005D466E /* RSAEncryptorNew.m in Sources */,
+				DC2EBAB42DDAD4A80041B57C /* SXADisabuseQuestionController.swift in Sources */,
 				4AFF6BC02B45115F008F8C7F /* UINavigationControllerExtensions.swift in Sources */,
 				4AFF6BBB2B45115F008F8C7F /* UIBarButtonItemExtensions.swift in Sources */,
 				4AFF6BAA2B45115F008F8C7F /* General.swift in Sources */,
