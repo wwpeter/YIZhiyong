@@ -8,7 +8,18 @@
 import UIKit
 
 class SXALoanCompanyNameCell: UITableViewCell {
-
+    
+    func updateCellWithModel(_ model:SXACompanyModel) {
+        if let url = URL(string: model.url.urlEncoded()) {
+            companyIconImg.kf.setImage(with: url, placeholder: nil, options: nil)
+        }
+        
+        companyNameLabel.text = model.name
+        keDaiDetailLabel.text = "\(model.productNum)"
+        yuGuDetailLabel.text = model.loanAmount + "万"
+        yearDetailLabel.text = model.rate + "%"
+    }
+    
     fileprivate lazy var companyIconImg:UIImageView = {
         let img = UIImageView()
         img.image = DDSImage("a_compang_icon")
@@ -18,6 +29,7 @@ class SXALoanCompanyNameCell: UITableViewCell {
     fileprivate lazy var rightTipImage:UIImageView = {
         let img = UIImageView()
         img.image = DDSImage("a_loan_icon_1")
+        img.isHidden = true
         return img
     }()
     fileprivate lazy var companyNameLabel:UILabel = {
@@ -47,7 +59,7 @@ class SXALoanCompanyNameCell: UITableViewCell {
     
     fileprivate lazy var keDaiDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "3"
+        label1.text = "-"
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .center
@@ -65,7 +77,7 @@ class SXALoanCompanyNameCell: UITableViewCell {
     
     fileprivate lazy var yuGuDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "20"
+        label1.text = "-"
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .center
@@ -83,7 +95,7 @@ class SXALoanCompanyNameCell: UITableViewCell {
     
     fileprivate lazy var yearDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "20%"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .center
@@ -94,10 +106,10 @@ class SXALoanCompanyNameCell: UITableViewCell {
         tempView.backgroundColor = .white
         tempView.addSubview(keDaiDetailLabel)
         tempView.addSubview(keDaiTitleLabel)
-
+        
         tempView.addSubview(yuGuDetailLabel)
         tempView.addSubview(yuGuTitleLabel)
-
+        
         tempView.addSubview(yearDetailLabel)
         tempView.addSubview(yearTitleLabel)
         
@@ -152,7 +164,7 @@ class SXALoanCompanyNameCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     
     fileprivate func setupViews() {
         self.backgroundColor = .clear

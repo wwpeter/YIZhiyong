@@ -23,7 +23,27 @@ class SXAProudectExplainModel {
 
 
 struct SXACompanyModel: HandyJSON {
-
     var id = ""
-    var name = ""    
+    var name = ""
+    var url = ""
+    var credit = ""
+    var productNum = 0 //可贷产品
+    var loanAmount = ""//预估额度
+    var rate = "" //参考年息
+    var list = [SXACompanyProductModel]()
+}
+
+struct SXACompanyProductModel: HandyJSON {
+
+    var productId = ""
+    var repayType = ""
+    var access = ""
+    var productName = ""
+    var url = ""
+    var loanAmount = ""
+    var credit = ""
+    var loanTime = ""
+    var forbidden = ""
+    var rate = ""
+    var status = ""
 }

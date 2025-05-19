@@ -19,6 +19,7 @@ class SXAMatchingProductsListController: DDBaseViewController {
         tableView.dataSource = self
         tableView.isScrollEnabled = true
         tableView.estimatedRowHeight = 50
+        tableView.isHidden = true
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorInset = .zero
         tableView.register(SXALoanCompanyNameCell.self, forCellReuseIdentifier: "SXALoanCompanyNameCell")
@@ -41,29 +42,33 @@ class SXAMatchingProductsListController: DDBaseViewController {
         return button
     }()
     
-    fileprivate var dataArray = [SXALoadPaymentDetailModel]()
+    fileprivate var currentCompanyModel = SXACompanyModel()
+    fileprivate var dataArray = [SXACompanyProductModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //接口数据
-        matchTheCompanyList()
+        matchTheCompanyDetailData()
     }
     
-    fileprivate func matchTheCompanyList() {
+    fileprivate func matchTheCompanyDetailData() {
         
         let param = ["name": companyName]
-            NetworkRequestManager.sharedInstance().requestPath(kMatchCompanyDetail, withParam: param) { [weak self] result in
-                printLog(result)
-                
-                if let arr = JSONHelper.jsonArrayToModel(result, SXACompanyModel.self) {
-                    print(arr)
-                }
-
-                
-            } failure: { error in
+        NetworkRequestManager.sharedInstance().requestPath(kMatchCompanyDetail, withParam: param) { [weak self] result in
+            //            printLog(result)
+            if let model = JSONHelper.jsonToModel(result, SXACompanyModel.self) as? SXACompanyModel {
+                self?.currentCompanyModel = model
             }
-        
+            self?.reloadViews()
+            
+        } failure: { error in
+        }
+    }
+    
+    fileprivate func reloadViews() {
+        self.dataArray = self.currentCompanyModel.list
+        self.mTableView.isHidden = false
+        self.mTableView.reloadData()
     }
     
     @objc func pushToConstructionController() {
@@ -95,7 +100,7 @@ class SXAMatchingProductsListController: DDBaseViewController {
         
     }
     
-    fileprivate func pushToproductDetailController() {
+    fileprivate func pushToproductDetailController(_ model:SXACompanyProductModel) {
         //fixme 去申请
         let vc = SXALoanProductApplyController()
         self.navigationController?.pushViewController(vc, animated: true)
@@ -112,27 +117,30 @@ extension SXAMatchingProductsListController : UITableViewDelegate, UITableViewDa
             return 1
             
         }
-        //        return dataArray.count
-        return 10
+        return self.dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SXALoanCompanyNameCell") as! SXALoanCompanyNameCell
             cell.selectionStyle = .none
+            cell.updateCellWithModel(self.currentCompanyModel)
             return cell
+            
         } else {
             var cell = tableView.dequeueReusableCell(withIdentifier: "SXALoanCompanyProductListCell") as? SXALoanCompanyProductListCell
             if cell == nil {
                 cell = SXALoanCompanyProductListCell(style: .default, reuseIdentifier: "SXALoanCompanyProductListCell")
             }
             cell?.selectionStyle = .none
+            let model = self.dataArray[indexPath.row]
+            cell?.updateCellWithModel(model)
             weak var weakSelf = self
-            cell?.applyBlock = {
-                weakSelf?.pushToproductDetailController()
+            cell?.applyBlock = { (tempmodel) in
+                weakSelf?.pushToproductDetailController(tempmodel)
             }
             return cell!
-        }        
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

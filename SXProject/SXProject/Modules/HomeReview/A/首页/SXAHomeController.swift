@@ -251,6 +251,7 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     @objc func doErDuLookAction() {
         print("查看额度=======")
+        self.view.endEditing(true)
         let companyName = self.companyTextFiled.text ?? ""
         let personType = self.personTextFiled.text ?? ""
         
@@ -271,11 +272,13 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     @objc func doCounterLookAction() {
         print("借款计算器======")
+        self.view.endEditing(true)
         self.navigationController?.pushViewController(SXASXALoanCalculatorController(), animated: true)
     }
     
     @objc func doFraudLookAction() {
         print("防诈指南======")
+        self.view.endEditing(true)
         self.navigationController?.pushViewController(InterestRateVC(), animated: true)
     }
     
@@ -318,6 +321,7 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     }
     
     @objc func choolseThePersonTypePop() {
+        self.view.endEditing(true)
         let array = ["企业法人","个体工商户","公司股东"]
         let pop = RPSheetMorePop(dataArray: array)
         weak var weakSelf = self

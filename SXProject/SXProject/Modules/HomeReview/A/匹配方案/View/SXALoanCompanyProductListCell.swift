@@ -9,7 +9,20 @@ import UIKit
 
 class SXALoanCompanyProductListCell: UITableViewCell {
     
-    public var applyBlock: (() -> Void)?
+    public var applyBlock: ((_ model:SXACompanyProductModel) -> Void)?
+    
+    fileprivate var currentModel =  SXACompanyProductModel()
+    
+    func updateCellWithModel(_ model:SXACompanyProductModel) {
+        currentModel = model
+        if let url = URL(string: model.url.urlEncoded()) {
+            iocnImg.kf.setImage(with: url, placeholder: DDSImage("a_compang_icon"), options: nil)
+        }
+        nameLabel.text = model.productName
+        yearRateDetailLabel.text = model.rate
+        eDuDetailLabel.text = model.loanAmount
+        weekDetailabel.text = model.loanTime
+    }
     
     
     fileprivate lazy var baseView:UIView = {
@@ -23,12 +36,13 @@ class SXALoanCompanyProductListCell: UITableViewCell {
     fileprivate lazy var iocnImg:UIImageView = {
         let img = UIImageView()
         img.image = DDSImage("a_compang_icon")
+        img.contentMode = .scaleAspectFit
+        img.setCorner(3)
         return img
     }()
     
     fileprivate lazy var nameLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "产品名称"
         label1.font = DDSFont(16)
         label1.textColor = kT333
         return label1
@@ -57,7 +71,7 @@ class SXALoanCompanyProductListCell: UITableViewCell {
     
     fileprivate lazy var yearRateDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "12%"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .center
@@ -75,7 +89,7 @@ class SXALoanCompanyProductListCell: UITableViewCell {
     
     fileprivate lazy var eDuDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "20"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .center
@@ -93,7 +107,7 @@ class SXALoanCompanyProductListCell: UITableViewCell {
     
     fileprivate lazy var weekDetailabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "12期"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .center
@@ -159,7 +173,7 @@ class SXALoanCompanyProductListCell: UITableViewCell {
     
     @objc func doApplyAction() {
         print("applyfor=======")
-        applyBlock?()
+        applyBlock?(currentModel)
     }
     
     

@@ -196,3 +196,16 @@ extension Double {
     }
     
 }
+
+extension String {
+    // MARK: - URL字符串的编码与解码
+    public func urlEncoded() -> String {
+        let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return encodeUrlString ?? ""
+    }
+    
+    // MARK: - 将编码后的url转换回原始的url
+    public func urlDecoded() -> String {
+        return self.removingPercentEncoding ?? ""
+    }
+}
