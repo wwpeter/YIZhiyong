@@ -8,6 +8,7 @@
 import UIKit
 
 class SXALoanProductDetailController: DDBaseViewController {
+    var productModel = SXACompanyProductModel()
     
     fileprivate lazy var mTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style:.plain)
@@ -54,7 +55,7 @@ class SXALoanProductDetailController: DDBaseViewController {
         applyButton.addTarget(self, action: #selector(applyButtonAction), for: .touchUpInside)
         applyButton.setCorner(20)
         tempView.addSubview(applyButton)
-
+        
         callButton.snp.makeConstraints { make in
             make.top.equalTo(20)
             make.width.height.equalTo(24)
@@ -97,6 +98,7 @@ class SXALoanProductDetailController: DDBaseViewController {
     @objc func applyButtonAction() {
         print("立即申请====")
         let vc = SXALoanProductApplyController()
+        vc.productModel = productModel
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -123,44 +125,44 @@ class SXALoanProductDetailController: DDBaseViewController {
     fileprivate func addTextString() {
         //fixme
         dataArray.removeAll()
-        do {
-            let model = SXAProudectExplainModel()
-            model.title = "准入要求"
-            model.decrilbelText = """
-一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一
-"""
-            dataArray.append(model)
+        if productModel.access != "" {
+            do {
+                let model = SXAProudectExplainModel()
+                model.title = "准入要求"
+                model.decrilbelText = productModel.access
+                dataArray.append(model)
+            }
         }
         
-        do {
-            let model = SXAProudectExplainModel()
-            model.title = "禁入行业"
-            model.decrilbelText = """
-一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一
-"""
-            dataArray.append(model)
+        if productModel.forbidden != "" {
+            do {
+                let model = SXAProudectExplainModel()
+                model.title = "禁入行业"
+                model.decrilbelText = productModel.forbidden
+                dataArray.append(model)
+            }
         }
         
-        do {
-            let model = SXAProudectExplainModel()
-            model.title = "企业要求"
-            model.decrilbelText = """
-一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一
-"""
-            dataArray.append(model)
+        if productModel.require != "" {
+            do {
+                let model = SXAProudectExplainModel()
+                model.title = "企业要求"
+                model.decrilbelText = productModel.require
+                dataArray.append(model)
+            }
         }
-        do {
-            let model = SXAProudectExplainModel()
-            model.title = "征信要求"
-            model.decrilbelText = """
-    一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一一些文字一些文字一些文字一些文字一些文字一些文字一
-    """
-            dataArray.append(model)
-            
+        
+        if productModel.credit != "" {
+            do {
+                let model = SXAProudectExplainModel()
+                model.title = "征信要求"
+                model.decrilbelText = productModel.credit
+                dataArray.append(model)
+                
+            }
         }
         mTableView.reloadData()
     }
-    
 }
 
 extension SXALoanProductDetailController : UITableViewDelegate, UITableViewDataSource {
@@ -179,6 +181,7 @@ extension SXALoanProductDetailController : UITableViewDelegate, UITableViewDataS
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SXALoanProductsDetailCell") as! SXALoanProductsDetailCell
             cell.selectionStyle = .none
+            cell.updateCellWithModel(productModel)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SXAProductExplainRuleCell") as! SXAProductExplainRuleCell

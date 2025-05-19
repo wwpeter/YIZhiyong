@@ -101,8 +101,9 @@ class SXAMatchingProductsListController: DDBaseViewController {
     }
     
     fileprivate func pushToproductDetailController(_ model:SXACompanyProductModel) {
-        //fixme 去申请
+        //去申请
         let vc = SXALoanProductApplyController()
+        vc.productModel = model
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -146,6 +147,7 @@ extension SXAMatchingProductsListController : UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         let detailVC = SXALoanProductDetailController()
+        detailVC.productModel = self.dataArray[indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

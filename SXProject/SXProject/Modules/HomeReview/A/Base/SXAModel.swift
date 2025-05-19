@@ -26,7 +26,6 @@ struct SXACompanyModel: HandyJSON {
     var id = ""
     var name = ""
     var url = ""
-    var credit = ""
     var productNum = 0 //可贷产品
     var loanAmount = ""//预估额度
     var rate = "" //参考年息
@@ -45,5 +44,6 @@ struct SXACompanyProductModel: HandyJSON {
     var loanTime = ""
     var forbidden = ""
     var rate = ""
-    var status = ""
+    var status = "00" //00 上架 其他下架
+    var require = ""
 }

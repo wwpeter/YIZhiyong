@@ -10,6 +10,21 @@ import UIKit
 
 class SXALoanProductsDetailCell: UITableViewCell {
     
+    func updateCellWithModel(_ model:SXACompanyProductModel) {
+        if let url = URL(string: model.url.urlEncoded()) {
+            productIcon.kf.setImage(with: url, placeholder: DDSImage("a_compang_icon"), options: nil)
+        }
+        productNameLabel.text = model.productName
+        
+        eDuDaiDetailLabel.text = model.loanAmount
+        yearDetailLabel.text = model.rate
+        
+        weekDetailLabel.text = model.loanTime
+        huanDetailLabel.text = model.repayType
+
+    }
+    
+    
     fileprivate lazy var productIcon:UIImageView = {
         let img = UIImageView()
         img.image = DDSImage("a_compang_icon")
@@ -44,16 +59,16 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.text = "授信额度"
         label1.font = DDSFont(13)
         label1.textColor = kT777
-        label1.textAlignment = .center
+        label1.textAlignment = .left
         return label1
     }()
     
     fileprivate lazy var eDuDaiDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "20万"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
-        label1.textAlignment = .center
+        label1.textAlignment = .left
         return label1
     }()
     
@@ -62,16 +77,17 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.text = "年化利率"
         label1.font = DDSFont(13)
         label1.textColor = kT777
-        label1.textAlignment = .center
+        label1.textAlignment = .left
         return label1
     }()
     
     fileprivate lazy var yearDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "10%"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
-        label1.textAlignment = .center
+        label1.textAlignment = .left
+        label1.adjustsFontSizeToFitWidth = true
         return label1
     }()
     
@@ -80,16 +96,17 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.text = "借款周期"
         label1.font = DDSFont(13)
         label1.textColor = kT777
-        label1.textAlignment = .center
+        label1.textAlignment = .left
         return label1
     }()
     
     fileprivate lazy var weekDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "12期"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
-        label1.textAlignment = .center
+        label1.textAlignment = .left
+        label1.adjustsFontSizeToFitWidth = true
         return label1
     }()
     
@@ -98,16 +115,17 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.text = "还款方式"
         label1.font = DDSFont(13)
         label1.textColor = kT777
-        label1.textAlignment = .center
+        label1.textAlignment = .left
         return label1
     }()
     
     fileprivate lazy var huanDetailLabel:UILabel = {
         let label1 = UILabel()
-        label1.text = "等额本息"
+        label1.text = "--"
         label1.font = DDSFont(13)
         label1.textColor = kT333
-        label1.textAlignment = .center
+        label1.textAlignment = .left
+        label1.adjustsFontSizeToFitWidth = true
         return label1
     }()
     
@@ -148,12 +166,13 @@ class SXALoanProductsDetailCell: UITableViewCell {
         }
         
         yearTitleLabel.snp.makeConstraints { make in
-            make.left.equalTo(sxDynamic(200))
+            make.left.equalTo(sxDynamic(180))
             make.centerY.equalTo(eduTitleLabel)
         }
         yearDetailLabel.snp.makeConstraints { make in
             make.left.equalTo(yearTitleLabel.snp.right).offset(10)
             make.centerY.equalTo(eduTitleLabel)
+            make.right.equalTo(-5)
         }
         
         huanTitleLabel.snp.makeConstraints { make in
@@ -163,6 +182,7 @@ class SXALoanProductsDetailCell: UITableViewCell {
         huanDetailLabel.snp.makeConstraints { make in
             make.left.equalTo(huanTitleLabel.snp.right).offset(10)
             make.centerY.equalTo(weekTitleLabel)
+            make.right.equalTo(-5)
         }
         
         
@@ -186,7 +206,8 @@ class SXALoanProductsDetailCell: UITableViewCell {
     
     @objc func doLoveProductAction() {
         //FIXME 收藏
-        loveIcon.setImage(DDSImage("product_love_0"), for: .normal)
+        print("收藏======")
+        loveIcon.setImage(DDSImage("product_love_1"), for: .normal)
     }
     
     fileprivate func setupViews() {

@@ -10,7 +10,7 @@ import BRPickerView
 
 class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControllerDelegate {
 
-    
+    var productModel = SXACompanyProductModel()
     var agree = false
     
     fileprivate lazy var mScollView:UIScrollView = {
