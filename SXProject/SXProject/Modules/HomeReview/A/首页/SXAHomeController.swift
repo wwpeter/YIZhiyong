@@ -336,26 +336,22 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     //去热门产品
     fileprivate func fetchProductDetailData(_ productId:String) {
-        let vc = SXALoanProductDetailController()
-        //        let param = ["productId": kAllProductsList]
+        let param = ["productId": productId]
         Toast.showWaiting()
-        NetworkRequestManager.sharedInstance().requestPath(kAllProductsList, withParam: [:]) { [weak self] result in
+        NetworkRequestManager.sharedInstance().requestPath(kproductDetailUrl, withParam: param) { [weak self] result in
             Toast.closeWaiting()
-            if let array = JSONHelper.jsonArrayToModel(result, SXACompanyProductModel.self) as? [SXACompanyProductModel] {
-                for mode in array {
-                    if mode.productId == productId {
-                        if mode.status ==  "00" {
-                            self?.pushToProductDetailController(mode)
-                            
-                        } else {
-                            Toast.showInfoMessage("该产品已下架")
-                        }
+            if let mode = JSONHelper.jsonToModel(result, SXACompanyProductModel.self) as? SXACompanyProductModel {
+                if mode.productId == productId {
+                    if mode.status ==  "00" {
+                        self?.pushToProductDetailController(mode)
+                        
+                    } else {
+                        Toast.showInfoMessage("该产品已下架")
                     }
                 }
             }
-            
         } failure: { error in
-            //Toast.closeWaiting()
+//            Toast.closeWaiting()
         }
         
     }

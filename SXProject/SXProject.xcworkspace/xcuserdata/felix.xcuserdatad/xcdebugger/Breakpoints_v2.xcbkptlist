@@ -55,17 +55,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E818E008-9795-4FB1-AD8F-9435C1B0B97E"
+            uuid = "52109BE9-A98D-4CB8-ABF3-19E59CF997F2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SXProject/Modules/HomeReview/A/&#x9996;&#x9875;/SXAHomeController.swift"
+            filePath = "SXProject/Modules/Login/SendCodeVC+Config.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "fetchProductDetailData(_:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "goLogin()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A9428C4-A9D3-421B-812D-0A2ED6F26086"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SXProject/Modules/HomeReview/A/&#x5339;&#x914d;&#x65b9;&#x6848;/View/SXAProductLoanAgreementView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "loadWebViewNei(privacy:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEACB01C-4EE6-4DB8-93CE-17E14F19D5E1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SXProject/Modules/HomeReview/A/&#x5339;&#x914d;&#x65b9;&#x6848;/View/SXAProductLoanAgreementView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "loadWebView(privacy:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CEACB01C-4EE6-4DB8-93CE-17E14F19D5E1 - 5340205f8e364cc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SXProject.SXAProductLoanAgreementView.loadWebView(privacy: Swift.Bool) -&gt; ()"
+                  moduleName = "SXProject.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/felix/Desktop/YIZhiyong/SXProject/SXProject/Modules/HomeReview/A/%E5%8C%B9%E9%85%8D%E6%96%B9%E6%A1%88/View/SXAProductLoanAgreementView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+               <Location
+                  uuid = "CEACB01C-4EE6-4DB8-93CE-17E14F19D5E1 - 5340205f8e364cc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SXProject.SXAProductLoanAgreementView.loadWebView(privacy: Swift.Bool) -&gt; ()"
+                  moduleName = "SXProject.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/felix/Desktop/YIZhiyong/SXProject/SXProject/Modules/HomeReview/A/%E5%8C%B9%E9%85%8D%E6%96%B9%E6%A1%88/View/SXAProductLoanAgreementView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

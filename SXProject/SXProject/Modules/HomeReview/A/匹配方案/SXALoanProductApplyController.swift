@@ -314,7 +314,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
             //fixme
             printLog("风险提示告知书")
             let alertView = SXAProductLoanAgreementView()
-            alertView.loadWebView(privacy: false)
+            alertView.loadWebView(privacy: true)
             alertView.agreeBlock = { [weak self] agree in
                 self?.agree = agree
                 self?.selectedBut.isSelected = self!.agree
@@ -326,7 +326,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         protocolLab.handleCustomTap(for: privacyPolicy) { _ in
             print("个人信息授权收集使用说明====")
             let alertView = SXAProductLoanAgreementView()
-            alertView.loadWebView(privacy: true)
+            alertView.loadWebView(privacy: false)
             alertView.agreeBlock = { [weak self] agree in
                 self?.agree = agree
                 self?.selectedBut.isSelected = self!.agree

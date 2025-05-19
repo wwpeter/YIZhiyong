@@ -39,7 +39,8 @@ class SXAProductLoanAgreementView: UIView, WKNavigationDelegate {
             }
             
         } else {
-            if let url = URL(string: String.init(format: "%@%@", kWebUrlBase, kLoanPersonCollectionUrl)) {
+            let userId = UserSingleton.shared.getUserId()
+            if let url = URL(string: String.init(format: "%@%@?accountId=%@", kWebUrlBase, kLoanPersonCollectionUrl,userId)) {
                 webView.load(URLRequest(url: url))
             }
             
@@ -55,7 +56,8 @@ class SXAProductLoanAgreementView: UIView, WKNavigationDelegate {
             }
             
         } else {
-            if let url = URL(string: String.init(format: "%@%@", kWebUrlBase, kLoanPersonCollectionUrl)) {
+            let userId = UserSingleton.shared.getUserId()
+            if let url = URL(string: String.init(format: "%@%@?accountId=%@", kWebUrlBase, kLoanPersonCollectionUrl,userId)) {
                 webView.load(URLRequest(url: url))
             }
             
@@ -243,14 +245,13 @@ class SXAProductLoanAgreementView: UIView, WKNavigationDelegate {
     }()
     
     private lazy var leftTitle: UILabel = {
-        let label = CreateBaseView.makeLabel("风险告知书", UIFont.sx.font_t14, kT333, .center, 1)
+        let label = CreateBaseView.makeLabel("个人信息授权", UIFont.sx.font_t14, kT333, .center, 1)
         label.backgroundColor = .clear
-        
         return label
     }()
     
     private lazy var rightLabel: UILabel = {
-        let label = CreateBaseView.makeLabel("个人信息授权", UIFont.sx.font_t14, kTaaa, .center, 1)
+        let label = CreateBaseView.makeLabel("风险告知书", UIFont.sx.font_t14, kTaaa, .center, 1)
         label.backgroundColor = .clear
         
         return label
