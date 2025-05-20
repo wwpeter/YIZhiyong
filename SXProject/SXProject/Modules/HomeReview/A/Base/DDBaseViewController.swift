@@ -67,9 +67,9 @@ class DDBaseViewController: UIViewController {
         self.topNavView.leftButton.isHidden = true
     }
     
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    public override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
     
     /**返回按键*/
     @objc public dynamic func leftButtonClicked() {

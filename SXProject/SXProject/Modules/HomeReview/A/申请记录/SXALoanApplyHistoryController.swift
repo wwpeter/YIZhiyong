@@ -48,6 +48,11 @@ class SXALoanApplyHistoryController: DDBaseViewController {
         fetchHistoryList()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     fileprivate func fetchHistoryList() {
         
         let param = ["pageNum":1, "pageSize": 100] as [String : Any]
