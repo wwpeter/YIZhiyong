@@ -149,7 +149,7 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
     
     fileprivate lazy var monthSaleBaseView:SXAProductApplyTextFieldView = {
         let tempview = SXAProductApplyTextFieldView()
-        tempview.setupDefaultView(showRed: false, name: "月流水", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "人")
+        tempview.setupDefaultView(showRed: false, name: "月流水", placeholder:"请输入数字", keyboardType:.numberPad, rightText: "万")
         return tempview
     }()
     

@@ -71,6 +71,7 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .left
+        label1.numberOfLines = 0
         return label1
     }()
     
@@ -89,7 +90,7 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .left
-        label1.adjustsFontSizeToFitWidth = true
+        label1.numberOfLines = 0
         return label1
     }()
     
@@ -108,7 +109,7 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .left
-        label1.adjustsFontSizeToFitWidth = true
+        label1.numberOfLines = 0
         return label1
     }()
     
@@ -127,7 +128,8 @@ class SXALoanProductsDetailCell: UITableViewCell {
         label1.font = DDSFont(13)
         label1.textColor = kT333
         label1.textAlignment = .left
-        label1.adjustsFontSizeToFitWidth = true
+        label1.numberOfLines = 0
+        label1.backgroundColor = .clear
         return label1
     }()
     
@@ -136,8 +138,8 @@ class SXALoanProductsDetailCell: UITableViewCell {
         tempView.backgroundColor = kBF8
         tempView.setCorner(radius: 8)
         
-        tempView.addSubview(eDuDaiDetailLabel)
         tempView.addSubview(eduTitleLabel)
+        tempView.addSubview(eDuDaiDetailLabel)
         
         tempView.addSubview(yearTitleLabel)
         tempView.addSubview(yearDetailLabel)
@@ -152,39 +154,45 @@ class SXALoanProductsDetailCell: UITableViewCell {
             make.left.equalTo(20)
             make.top.equalTo(15)
         }
+        
         eDuDaiDetailLabel.snp.makeConstraints { make in
-            make.left.equalTo(eduTitleLabel.snp.right).offset(10)
+            make.left.equalTo(sxDynamic(85))
+            make.right.equalTo(-10)
             make.centerY.equalTo(eduTitleLabel)
+        }
+        
+        yearTitleLabel.snp.makeConstraints { make in
+            make.left.equalTo(20)
+            make.top.equalTo(eDuDaiDetailLabel.snp.bottom).offset(10)
+        }
+        
+        yearDetailLabel.snp.makeConstraints { make in
+            make.left.equalTo(sxDynamic(85))
+            make.top.equalTo(yearTitleLabel)
+            make.right.equalTo(-10)
         }
         
         weekTitleLabel.snp.makeConstraints { make in
             make.left.equalTo(20)
-            make.top.equalTo(eduTitleLabel.snp.bottom).offset(10)
+            make.top.equalTo(yearDetailLabel.snp.bottom).offset(10)
         }
+        
         weekDetailLabel.snp.makeConstraints { make in
-            make.left.equalTo(eDuDaiDetailLabel)
-            make.centerY.equalTo(weekTitleLabel)
-            make.bottom.equalTo(-12)
+            make.left.equalTo(sxDynamic(85))
+            make.top.equalTo(weekTitleLabel)
+            make.right.equalTo(-10)
         }
-        
-        yearTitleLabel.snp.makeConstraints { make in
-            make.left.equalTo(sxDynamic(180))
-            make.centerY.equalTo(eduTitleLabel)
-        }
-        yearDetailLabel.snp.makeConstraints { make in
-            make.left.equalTo(yearTitleLabel.snp.right).offset(10)
-            make.centerY.equalTo(eduTitleLabel)
-            make.right.equalTo(-5)
-        }
-        
+
         huanTitleLabel.snp.makeConstraints { make in
-            make.left.equalTo(yearTitleLabel)
-            make.centerY.equalTo(weekTitleLabel)
+            make.left.equalTo(20)
+            make.top.equalTo(weekDetailLabel.snp.bottom).offset(10)
         }
+        
         huanDetailLabel.snp.makeConstraints { make in
-            make.left.equalTo(huanTitleLabel.snp.right).offset(10)
-            make.centerY.equalTo(weekTitleLabel)
-            make.right.equalTo(-5)
+            make.left.equalTo(sxDynamic(85))
+            make.top.equalTo(huanTitleLabel)
+            make.right.equalTo(-10)
+            make.bottom.equalTo(-20)
         }
         
         
