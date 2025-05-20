@@ -311,7 +311,6 @@ class SXALoanProductApplyController: DDBaseViewController, JFCSTableViewControll
         protocolLab.customColor[privacyPolicy] = kTBlue
 
         protocolLab.handleCustomTap(for: serviceAgreement) { _ in
-            //fixme
             printLog("风险提示告知书")
             let alertView = SXAProductLoanAgreementView()
             alertView.loadWebView(privacy: true)

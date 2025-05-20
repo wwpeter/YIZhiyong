@@ -10,7 +10,9 @@ import UIKit
 
 class SXALoanProductsDetailCell: UITableViewCell {
     
+    fileprivate var currentProductModel = SXACompanyProductModel()
     func updateCellWithModel(_ model:SXACompanyProductModel) {
+        currentProductModel = model
         if let url = URL(string: model.url.urlEncoded()) {
             productIcon.kf.setImage(with: url, placeholder: DDSImage("a_compang_icon"), options: nil)
         }
@@ -21,7 +23,7 @@ class SXALoanProductsDetailCell: UITableViewCell {
         
         weekDetailLabel.text = model.loanTime
         huanDetailLabel.text = model.repayType
-
+        self.loveIcon.setImage(model.collect ? DDSImage("product_love_1") : DDSImage("product_love_0"), for: .normal)
     }
     
     
@@ -205,9 +207,15 @@ class SXALoanProductsDetailCell: UITableViewCell {
     }
     
     @objc func doLoveProductAction() {
-        //FIXME 收藏
+        //收藏
         print("收藏======")
-        loveIcon.setImage(DDSImage("product_love_1"), for: .normal)
+        let isCollection = currentProductModel.collect
+        let param = ["productId": currentProductModel.productId,"collect":isCollection ? false : true] as [String : Any]
+        NetworkRequestManager.sharedInstance().requestPath(kproductCollectionUrl, withParam: param) { [weak self] result in
+            self?.currentProductModel.collect = !isCollection
+            self?.loveIcon.setImage(isCollection ? DDSImage("product_love_0") : DDSImage("product_love_1"), for: .normal)
+        } failure: { error in
+        }
     }
     
     fileprivate func setupViews() {

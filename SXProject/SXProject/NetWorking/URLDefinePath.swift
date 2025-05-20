@@ -28,7 +28,7 @@ let kAgreementShare = "/yzyhome/agreement/share/"
 //风险提示告知书
 let kLoanWarningNotice = "/yzyhome/agreement/know/"
 //个人信息授权收集使用说明》
-let kLoanPersonCollectionUrl = "/yzyhome/agreement/person/" //fixme
+let kLoanPersonCollectionUrl = "/yzyhome/agreement/person/"
 
 
 /// 用户登录相关接口
@@ -93,5 +93,7 @@ let kMatchTheProcutStatus = "/hht/mjb/productStatus"
 let kDoLoanProduct = "/hht/mjb/match"
 //所有产品
 let kAllProductsList = "/hht/mjb/queryProductList"
+///产品详情
 let kproductDetailUrl = "/hht/mjb/detail"
-
+///收藏
+let kproductCollectionUrl = "/hht/mjb/collect"

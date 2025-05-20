@@ -54,4 +54,5 @@ struct SXACompanyProductModel: HandyJSON {
     var rate = ""
     var status = "00" //00 上架 其他下架
     var require = ""
+    var collect = false
 }
