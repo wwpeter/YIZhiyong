@@ -63,7 +63,7 @@ class EmptyView: UIView {
         
         return img
     }()
-    private lazy var subTitle: UILabel = {
+    public lazy var subTitle: UILabel = {
         let title = CreateBaseView.makeLabel("暂无借款记录".sx_T, UIFont.sx.font_t12, kT777, .center, 1)
         
         return title

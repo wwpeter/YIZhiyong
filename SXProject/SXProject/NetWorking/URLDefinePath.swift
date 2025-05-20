@@ -97,3 +97,5 @@ let kAllProductsList = "/hht/mjb/queryProductList"
 let kproductDetailUrl = "/hht/mjb/detail"
 ///收藏
 let kproductCollectionUrl = "/hht/mjb/collect"
+///记录
+let kproductLoanHistory = "/hht/mjb/queryOrder"

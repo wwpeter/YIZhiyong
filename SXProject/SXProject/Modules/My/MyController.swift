@@ -76,9 +76,15 @@ class MyController: ViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 self?.navigationController?.pushViewController(vc, animated: true)
             } else if type == .loanRecord {
-                let vc = RecordVC()
-                vc.recordType = 0
-                self?.navigationController?.pushViewController(vc, animated: true)
+                if kHhtPageUrl == "MJB" {
+                    let vc = RecordVC()
+                    vc.recordType = 0
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let vc = SXALoanApplyHistoryController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+                
             } else if type == .repaymentRecord {
                 let vc = RecordVC()
                 vc.recordType = 1
