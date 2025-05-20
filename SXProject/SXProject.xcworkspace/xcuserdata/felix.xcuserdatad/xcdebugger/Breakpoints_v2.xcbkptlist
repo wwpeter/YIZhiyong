@@ -30,8 +30,8 @@
             filePath = "SXProject/Modules/HomeReview/A/&#x5339;&#x914d;&#x65b9;&#x6848;/SXALoanProductApplyController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -98,36 +98,6 @@
             endingLineNumber = "43"
             landmarkName = "loadWebView(privacy:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CEACB01C-4EE6-4DB8-93CE-17E14F19D5E1 - 5340205f8e364cc3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SXProject.SXAProductLoanAgreementView.loadWebView(privacy: Swift.Bool) -&gt; ()"
-                  moduleName = "SXProject.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/felix/Desktop/YIZhiyong/SXProject/SXProject/Modules/HomeReview/A/%E5%8C%B9%E9%85%8D%E6%96%B9%E6%A1%88/View/SXAProductLoanAgreementView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43">
-               </Location>
-               <Location
-                  uuid = "CEACB01C-4EE6-4DB8-93CE-17E14F19D5E1 - 5340205f8e364cc3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SXProject.SXAProductLoanAgreementView.loadWebView(privacy: Swift.Bool) -&gt; ()"
-                  moduleName = "SXProject.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/felix/Desktop/YIZhiyong/SXProject/SXProject/Modules/HomeReview/A/%E5%8C%B9%E9%85%8D%E6%96%B9%E6%A1%88/View/SXAProductLoanAgreementView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
