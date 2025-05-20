@@ -29,7 +29,7 @@ extension SendCodeVC {
             IP = wifiIP ?? ""
         }
         let param = ["telephone": self.telephone, "validateCode":startCode,"ip":IP, "osType":"iOS", "osVersion":osVersion,
-                     "channelCode":"iOS", "channelUserId":"AppStore"]
+                     "channelCode":"appstore", "channelUserId":"AppStore"]
         NetworkRequestManager.sharedInstance().requestPath(kLogin, withParam: param) { [weak self] result in
             printLog(result)
             

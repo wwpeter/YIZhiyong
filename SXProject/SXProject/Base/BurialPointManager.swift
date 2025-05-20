@@ -21,7 +21,7 @@ class BurialPointManager: NSObject {
     /// 埋点 1
     func burialPoint(type: BurialPoint) {
         let IP = GetAddressIPManager.sharedInstance().getMyIP()
-        let param = ["action": type.rawValue, "channelCode":"appStore", "ip":IP]// "scene":"", "value":""
+        let param = ["action": type.rawValue, "channelCode":"appstore", "ip":IP]// "scene":"", "value":""
         NetworkRequestManager.sharedInstance().requestPath(kPointAdd, withParam: param) { [weak self] result in
             printLog(result)
         
@@ -34,7 +34,7 @@ class BurialPointManager: NSObject {
     /// 埋点 2  增加渠道用户转化埋点
     func burialPointTwo(type: BurialPoint) {
         let IP = GetAddressIPManager.sharedInstance().getMyIP()
-        let param = ["event": type.rawValue, "channelCode":"appStore", "ip":IP, "page":""]
+        let param = ["event": type.rawValue, "channelCode":"appstore", "ip":IP, "page":""]
         NetworkRequestManager.sharedInstance().requestPath(kAddTransformPoint, withParam: param) { [weak self] result in
             printLog(result)
       

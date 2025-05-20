@@ -253,24 +253,31 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     }
     
     @objc func doErDuLookAction() {
-        print("查看额度=======")
-        self.view.endEditing(true)
-        let companyName = self.companyTextFiled.text ?? ""
-        let personType = self.personTextFiled.text ?? ""
-        
-        if companyName == "" {
-            Toast.showInfoMessage("请输入企业名称")
-            return
+        if kHhtPageUrl == "MJB" {
+            let vc = AddSubmitVC()
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            printLog("查看额度=======")
+            self.view.endEditing(true)
+            let companyName = self.companyTextFiled.text ?? ""
+            let personType = self.personTextFiled.text ?? ""
+            
+            if companyName == "" {
+                Toast.showInfoMessage("请输入企业名称")
+                return
+            }
+            
+            if personType == "" {
+                Toast.showInfoMessage("请选择申请人身份")
+                return
+            }
+            
+            let vc = SXAMatchingProductsListController()
+            vc.companyName = self.companyTextFiled.text ?? ""
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        
-        if personType == "" {
-            Toast.showInfoMessage("请选择申请人身份")
-            return
-        }
-        
-        let vc = SXAMatchingProductsListController()
-        vc.companyName = self.companyTextFiled.text ?? ""
-        self.navigationController?.pushViewController(vc, animated: true)
+       
     }
     
     @objc func doCounterLookAction() {
