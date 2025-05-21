@@ -76,7 +76,7 @@ class MyController: ViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 self?.navigationController?.pushViewController(vc, animated: true)
             } else if type == .loanRecord {
-                if kHhtPageUrl == "MJB" {
+                if UserSingleton.shared.getHhtPageUrl() == "MJB" {
                     let vc = RecordVC()
                     vc.recordType = 0
                     self?.navigationController?.pushViewController(vc, animated: true)

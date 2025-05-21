@@ -253,7 +253,7 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     }
     
     @objc func doErDuLookAction() {
-        if kHhtPageUrl == "MJB" {
+        if UserSingleton.shared.getHhtPageUrl() == "MJB" {
             let vc = AddSubmitVC()
             
             self.navigationController?.pushViewController(vc, animated: true)

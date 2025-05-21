@@ -2816,7 +2816,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 6UR68FCRS3;
+				DEVELOPMENT_TEAM = A6YZR34MSD;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SXProject/Info.plist;
@@ -2842,7 +2842,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = www.yzy.yizhiyong.new2;
+				PRODUCT_BUNDLE_IDENTIFIER = www.yzy.yizhiyong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2869,7 +2869,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 6UR68FCRS3;
+				DEVELOPMENT_TEAM = A6YZR34MSD;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SXProject/Info.plist;
@@ -2895,7 +2895,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = www.yzy.yizhiyong.new2;
+				PRODUCT_BUNDLE_IDENTIFIER = www.yzy.yizhiyong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

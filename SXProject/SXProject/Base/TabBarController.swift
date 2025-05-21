@@ -16,15 +16,16 @@ extension TabBarModule {
     var controller: UIViewController {
         switch self {
         case .home:
-            if kHhtPageUrl == "MJB" {
-                if kShowHhtPage == true {
-                    return setUpChild(HomeController(),  "首页", AssetImages.home.image, AssetImages.homeSel.image)
-                } else {
-                    return setUpChild(HomePageVC(),  "首页", AssetImages.home.image, AssetImages.homeSel.image)
-                }
-            } else {
-                return setUpChild(SXAHomeController(),  "首页", AssetImages.home.image, AssetImages.homeSel.image)
-            }
+            return setUpChild(SXAHomeController(),  "首页", AssetImages.home.image, AssetImages.homeSel.image)
+//            if kHhtPageUrl == "MJB" {
+//                if kShowHhtPage == true {
+//                    return setUpChild(HomeController(),  "首页", AssetImages.home.image, AssetImages.homeSel.image)
+//                } else {
+//                    return setUpChild(HomePageVC(),  "首页", AssetImages.home.image, AssetImages.homeSel.image)
+//                }
+//            } else {
+//               
+//            }
         case .my:
             return setUpChild(MyController(),  "我的", AssetImages.my.image, AssetImages.mySel.image)
         }

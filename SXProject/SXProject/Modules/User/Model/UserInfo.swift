@@ -21,7 +21,7 @@ import Foundation
 
 /// 用户相关
 let kToken = UserSingleton.shared.getToken()
-let kHhtPageUrl = UserSingleton.shared.getHhtPageUrl()
+//let kHhtPageUrl = UserSingleton.shared.getHhtPageUrl()
 let kHjfqPageUrl = UserSingleton.shared.getHjfqPageUrl()
 let kShowHhtPage = UserSingleton.shared.getShowHhtPage()
 let kUserId = UserSingleton.shared.getUserId()
