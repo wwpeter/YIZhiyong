@@ -78,7 +78,8 @@ class TopItemView: UIView {
     
     private lazy var titleLabel: UILabel = {
         if UserSingleton.shared.getHhtPageUrl() == "MJB" {
-            let title = CreateBaseView.makeLabel("借款记录", UIFont.sx.font_t16Blod, kT333, .left, 1)
+//            let title = CreateBaseView.makeLabel("借款记录", UIFont.sx.font_t16Blod, kT333, .left, 1)
+            let title = CreateBaseView.makeLabel("申请记录", UIFont.sx.font_t16Blod, kT333, .left, 1)
             return title
         } else {
             let title = CreateBaseView.makeLabel("申请记录", UIFont.sx.font_t16Blod, kT333, .left, 1)
