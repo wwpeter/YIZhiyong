@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
+class SXAHomeController: DDBaseViewController {
+    
+    let disposeBag = DisposeBag()
     
     fileprivate lazy var mScollView:UIScrollView = {
         let tempView = UIScrollView()
@@ -129,8 +133,8 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
         textField.font = DDSFont(13)
         textField.textColor = kT333
         textField.backgroundColor = kBF8
-        textField.delegate = self
         textField.returnKeyType = .done
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
@@ -250,6 +254,7 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         setupDefatulViews()
+        addTextFiledPublisher()
     }
     
     @objc func doErDuLookAction() {
@@ -277,7 +282,7 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
             vc.companyName = self.companyTextFiled.text ?? ""
             self.navigationController?.pushViewController(vc, animated: true)
         }
-       
+        
     }
     
     @objc func doCounterLookAction() {
@@ -292,11 +297,11 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
         let vc = CheaterGuideBV()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        matchTheCompanyList(textField.text ?? "")
-        return true
-    }
+//    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        matchTheCompanyList(textField.text ?? "")
+//        return true
+//    }
     
     fileprivate func matchTheCompanyList(_ name:String) {
         let param = ["name": name]
@@ -314,7 +319,7 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
     
     //选择公司
     fileprivate func showCompanyListView(_ array:[SXACompanyModel]) {
-        self.view.endEditing(true)
+        companyListView.isHidden = false
         self.view.addSubview(companyListView)
         companyListView.snp.makeConstraints { make in
             make.left.equalTo(companyBaseView)
@@ -358,7 +363,7 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
                 }
             }
         } failure: { error in
-//            Toast.closeWaiting()
+            //            Toast.closeWaiting()
         }
         
     }
@@ -368,12 +373,26 @@ class SXAHomeController: DDBaseViewController,UITextFieldDelegate {
         vc.productModel = product
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    fileprivate func addTextFiledPublisher() {
+        weak var weakSelf = self
+        companyTextFiled.rx.text.orEmpty
+            .throttle(.seconds(1), scheduler: MainScheduler.instance) // 限制到每秒一次更新
+            .subscribe(onNext: { text in
+                print("Text changed: \(text)")
+                if "" != text,weakSelf?.companyTextFiled.isEditing ?? false {
+                    weakSelf?.matchTheCompanyList(text)
+                } else {
+                    weakSelf?.companyListView.isHidden = true
+                }
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 extension SXAHomeController {
     
     fileprivate func setupDefatulViews() {
-        //        navigationController?.navigationBar.isHidden = true
         self.hideNavgationBar(isHide: true)
         let bgImg = UIImageView()
         bgImg.image = DDSImage("a_home_icon_1")

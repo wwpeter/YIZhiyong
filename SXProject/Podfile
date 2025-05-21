@@ -19,7 +19,8 @@ end
 
 # 核心pod
 def core_pods
-
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Kingfisher'
   #pod 'RxCocoa'
   #pod 'RxDataSources'

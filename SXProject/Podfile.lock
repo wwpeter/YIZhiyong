@@ -151,6 +151,12 @@ PODS:
   - MJExtension (3.4.2)
   - MJRefresh (3.7.9)
   - ReactiveObjC (3.1.1)
+  - RxCocoa (6.9.0):
+    - RxRelay (= 6.9.0)
+    - RxSwift (= 6.9.0)
+  - RxRelay (6.9.0):
+    - RxSwift (= 6.9.0)
+  - RxSwift (6.9.0)
   - SnapKit (5.7.1)
   - SVProgressHUD (2.3.1):
     - SVProgressHUD/Core (= 2.3.1)
@@ -191,6 +197,8 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - ReactiveObjC
+  - RxCocoa
+  - RxSwift
   - SnapKit (~> 5.7.1)
   - SVProgressHUD
   - SwiftDate
@@ -232,6 +240,9 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - ReactiveObjC
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SnapKit
     - SVProgressHUD
     - SwiftDate
@@ -292,6 +303,9 @@ SPEC CHECKSUMS:
   MJExtension: e97d164cb411aa9795cf576093a1fa208b4a8dd8
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
+  RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
+  RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   SwiftDate: bbc26e26fc8c0c33fbee8c140c5e8a68293a148a
@@ -300,6 +314,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZLPhotoBrowser: 20f32e6429448cc1c008795a1b55472d5772939c
 
-PODFILE CHECKSUM: d28ef27360938e706a8a6150060bdddcc71a00ab
+PODFILE CHECKSUM: 986d6e99b70c53e7f59548c60fff3eb4d973e229
 
 COCOAPODS: 1.13.0
